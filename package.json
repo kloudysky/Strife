@@ -13,6 +13,10 @@
     "postinstall": "webpack",
     "webpack": "webpack --watch --mode=development"
   },
+  "engines": {
+    "node": "15.11.0",
+    "npm": "7.6.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kloudysky/Strife.git"
