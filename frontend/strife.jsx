@@ -8,3 +8,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.login = api.login
+window.signup = api.signup

@@ -17,33 +17,34 @@ __webpack_require__.r(__webpack_exports__);
 var signup = function signup(user) {
   return fetch('/api/user', {
     method: 'POST',
-    headers: {
-      'X-CSRF-Token': Rails.csrfToken()
-    },
-    data: {
+    body: JSON.stringify({
       user: user
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': Rails.csrfToken()
     }
   });
 };
 var login = function login(user) {
   return fetch('/api/session', {
+    method: 'POST',
     body: JSON.stringify({
       user: user
     }),
-    method: 'POST',
     headers: {
-      'data': user,
       'Content-Type': 'application/json',
       'X-CSRF-Token': Rails.csrfToken()
-    },
-    data: {
-      user: user
     }
   });
 };
 var logout = function logout() {
   return fetch('/api/session', {
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': Rails.csrfToken()
+    }
   });
 };
 
@@ -30132,6 +30133,7 @@ document.addEventListener("DOMContentLoaded", function () {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Strife App"), root);
 });
 window.login = _util_session_api_util__WEBPACK_IMPORTED_MODULE_2__.login;
+window.signup = _util_session_api_util__WEBPACK_IMPORTED_MODULE_2__.signup;
 })();
 
 /******/ })()
