@@ -43,9 +43,9 @@ class CreateUserForm extends React.Component {
                     <div className='signup-form'>
                         <br/>
                         <label>Email:
-                            <input type="text"
-                                value={this.state.username}
-                                onChange={this.update('username')}
+                            <input type="email"
+                                value={this.state.email}
+                                onChange={this.update('email')}
                                 className="signup-input"
                             />
                         </label>
@@ -53,7 +53,7 @@ class CreateUserForm extends React.Component {
                         <label>Username:
                             <input type="text"
                                 value={this.state.username}
-                                onChange={this.update('email')}
+                                onChange={this.update('username')}
                                 className="signup-input"
                             />
                         </label>
@@ -67,12 +67,15 @@ class CreateUserForm extends React.Component {
                         </label>
                         <br/>
                         <label>Date of Birth:
-                            <input type="text"
+                            <input type="date"
+                            max='2018-12-31'
                             value={this.state.birthday}
                             onChange={this.update('birthday')}
                             className="signup-input"
                             />
                         </label>
+                        <br/>
+                        <button type="submit" className='signup-button'>Continue</button>
                     </div>
                 </form>
                 <br/>
