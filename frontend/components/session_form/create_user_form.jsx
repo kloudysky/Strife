@@ -7,7 +7,7 @@ class CreateUserForm extends React.Component {
             email: '',
             username: '',
             password: '',
-            birthdate: ''
+            birthday: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -68,8 +68,8 @@ class CreateUserForm extends React.Component {
                         <br/>
                         <label>Date of Birth:
                             <input type="text"
-                            value={this.state.birthdate}
-                            onChange={this.update('birthdate')}
+                            value={this.state.birthday}
+                            onChange={this.update('birthday')}
                             className="signup-input"
                             />
                         </label>
