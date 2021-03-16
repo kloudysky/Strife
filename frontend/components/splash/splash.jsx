@@ -1,11 +1,9 @@
 import React from 'react';
-import { Link, Redirect, Switch, HashRouter, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-
-import SignupFormContainer from '../session_form/login_form_container';
-import LoginFormContainer from '../session_form/login_form_container';
+import { Link } from 'react-router-dom';
 
 const Splash = ({ currentUser, logout }) => {
+    console.log(currentUser);
+    console.log(logout);
     const sessionLinks = () => (
         <nav>
             <Link to="/login">Login</Link>
@@ -15,14 +13,12 @@ const Splash = ({ currentUser, logout }) => {
         <nav>
             <h2>Hey, {currentUser.username}, click here to use the desktop app</h2>
             <Link to="/">Strife</Link>
+            <br/>
+            <button onClick={logout}>Log Out</button>
         </nav>
     );
 
-    return(
-        <div>
-            {currentUser ? loggedIn() : sessionLinks()}
-        </div>
-    ) 
+    return currentUser ? loggedIn() : sessionLinks()
 };
 
 export default Splash;
