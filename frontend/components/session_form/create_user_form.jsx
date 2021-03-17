@@ -36,48 +36,59 @@ class CreateUserForm extends React.Component {
 
     render() {
         return (
-            <div className='signup-form-container'>
-                <h2>Create an account</h2>
-                <form onSubmit={this.handleSubmit} className='signup-form-box'>
+            <div className='login-form-container'>
+                <h2 className='login-header'>Create an account</h2>
+                 <div className='login-form-box'>
+                <form onSubmit={this.handleSubmit} className='login-form form'>
                     {this.renderErrors()}
-                    <div className='signup-form'>
+                   
                         <br/>
+                        <div className="form-field">
                         <label>Email:
                             <input type="email"
                                 value={this.state.email}
                                 onChange={this.update('email')}
-                                className="signup-input"
+                                className="login-input"
                             />
                         </label>
+                        </div>
                         <br/>
+                        <div className="form-field">
                         <label>Username:
                             <input type="text"
                                 value={this.state.username}
                                 onChange={this.update('username')}
-                                className="signup-input"
+                                className="login-input"
                             />
                         </label>
+                        </div>
                         <br/>
+                        <div className="form-field">
                         <label>Password:
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
-                                className="signup-input"
+                                className="login-input"
                             />
                         </label>
+                        </div>
                         <br/>
+                        <div className="form-field">
                         <label>Date of Birth:
                             <input type="date"
                             max='2018-12-31'
                             value={this.state.birthday}
                             onChange={this.update('birthday')}
-                            className="signup-input"
+                            className="login-input"
                             />
                         </label>
+                        </div>
                         <br/>
-                        <button type="submit" className='signup-button'>Continue</button>
-                    </div>
+                        <div className="form-field">
+                        <input type="submit" className='form-login-button' value='Contiue'/>
+                        </div>
                 </form>
+                </div>
                 <br/>
                 {this.props.navLink}
             </div>
