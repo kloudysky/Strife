@@ -41,8 +41,6 @@ class CreateUserForm extends React.Component {
                  <div className='login-form-box'>
                 <form onSubmit={this.handleSubmit} className='login-form form'>
                     {this.renderErrors()}
-                   
-                        <br/>
                         <div className="form-field">
                         <label>Email:
                             <input type="email"

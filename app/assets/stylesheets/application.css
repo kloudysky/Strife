@@ -14,62 +14,79 @@
  *= require_self
  */
 
- /* @font-face {
+/* @font-face {
   font-family: unisans;
   src: url('../fonts/unisans.otf') format("opentype");;
 } */
 
- body {
-    background-color: #23272a;
-    color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100%;
- }
+body {
+  background-color: #23272a;
+  background-image: url(https://i.redd.it/y1ostvqnr4711.jpg);
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
 
- a {
-     color: #ffffff;
- }
+a {
+  color: #ffffff;
+}
 
- .login-button {
-     line-height: 12px;
-     width: 18px;
-     margin-top: 30px;
-     margin-right: 125px;
-     position:absolute;
-     top:0;
-     right:0;
- }
+.splash-button {
+  /* line-height: 12px; */
+  width: 45px;
+  margin-top: 30px;
+  margin-right: 200px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  border: none;
+  color: black;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 13px;
+}
 
- .logo-span {
-     font-size: 18px;
-     line-height: 12px;
-     width: 18px;
-     margin-top: 30px;
-     margin-left: 100px;
-     position:absolute;
-     top:0;
-     left:0;
- }
+.splash-button a {
+  color: black;
+  text-decoration: none;
+}
+
+.logo-span {
+  font-size: 30px;
+  color: black;
+  line-height: 12px;
+  width: 18px;
+  margin-top: 30px;
+  margin-left: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
 .login-form-container {
-    background-color: #2c2f33;
-    border-radius: 5px;
-    width:450px;
-    display: flex;  
-    flex-direction: column;
+  background-color: #2c2f33;
+  border-radius: 5px;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
 }
 
 .login-header {
-    text-align: center;
-    padding: 20px 20px 0;
-    margin:0;
+  text-align: center;
+  padding: 20px 20px 0;
+  margin: 0;
 }
 
 .login-form-box {
-    padding:25px 25px 0;
-	margin: 20px 20px 0;	
-	border-radius: 3px;
+  padding: 25px 25px 0;
+  margin: 20px 20px 0;
+  border-radius: 3px;
 }

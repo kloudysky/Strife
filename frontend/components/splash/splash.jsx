@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 const Splash = ({ currentUser, logout }) => {
     const sessionLinks = () => (
-        <nav className='login-button'>
+        <nav className='splash-button'>
             <Link to="/login">Login</Link>
         </nav>
     );
     const loggedIn = () => (
-        <nav className='login-button'>
+        <nav className='splash-button'>
             <Link to="/">Strife</Link>
-            <button onClick={logout}>Log Out</button>
+            <button className='logout-button' onClick={logout}>Log Out</button>
         </nav>
     );
 
