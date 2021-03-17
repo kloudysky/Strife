@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Root from './components/root'
-import * as api from './util/session_api_util'
 import configureStore from "./store/store"
+// import * as actions from "./actions/server_actions"
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -31,6 +31,4 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root store={store}/>, root);
 });
 
-window.login = api.login
-window.signup = api.signup
-window.logout = api.logout
+// window.getServers = actions.requestServers
