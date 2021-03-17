@@ -40,8 +40,6 @@ class SessionForm extends React.Component {
                 <div className='login-form-box'>
                 <form onSubmit={this.handleSubmit} className='form-login form'>
                     {this.renderErrors()}
-                    
-                        <br/>
                         <div className="form-field">
                             <label>Email:
                                 <input type="text"
@@ -70,7 +68,7 @@ class SessionForm extends React.Component {
                         </div>
                 </form>
                 </div>
-                {this.props.navLink}
+                <span>Need an account? {this.props.navLink}</span>
             </div>
         )
     }
