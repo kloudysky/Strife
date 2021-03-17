@@ -9,24 +9,28 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.currentUser) {
     const preloadedState = {
       entities: {
-        users: { [window.currentUser.id]: window.currentUser }
+        users: {
+          [window.currentUser.id]: window.currentUser
+        }
       },
-      session: { id: window.currentUser.id }
+      session: {
+        id: window.currentUser.id
+      }
     };
     store = configureStore(preloadedState);
     delete window.currentUser;
   } else {
-  store = configureStore();
-}
+    store = configureStore();
+  }
   // const store = configureStore();
   // TESTING START
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
   // TESTING END
   const root = document.getElementById("root");
-  ReactDOM.render(<Root store={store} />, root);
+  ReactDOM.render(<Root store={store}/>, root);
 });
 
-// window.login = api.login
-// window.signup = api.signup
-// window.logout = api.logout
+window.login = api.login
+window.signup = api.signup
+window.logout = api.logout
