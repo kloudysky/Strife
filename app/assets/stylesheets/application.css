@@ -35,12 +35,16 @@
 
  .login-button {
      line-height: 12px;
-     width: 18px;
+     width: 100px;
      margin-top: 30px;
      margin-right: 125px;
      position:absolute;
      top:0;
      right:0;
+ }
+
+ .logout-button {
+     margin-top: 10px;
  }
 
  .logo-span {

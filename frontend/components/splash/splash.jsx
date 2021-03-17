@@ -9,8 +9,8 @@ const Splash = ({ currentUser, logout }) => {
     );
     const loggedIn = () => (
         <nav className='login-button'>
-            <Link to="/">Strife</Link>
-            <button onClick={logout}>Log Out</button>
+            <Link to="/">Open Strife</Link>
+            <button className='logout-button' onClick={logout}>Log Out</button>
         </nav>
     );
 
