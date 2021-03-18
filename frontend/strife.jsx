@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Root from './components/root'
-import configureStore from "./store/store"
-// import * as actions from "./actions/server_actions"
+import Root from "./components/root";
+import configureStore from "./store/store";
+import * as actions from "./actions/server_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -10,12 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const preloadedState = {
       entities: {
         users: {
-          [window.currentUser.id]: window.currentUser
-        }
+          [window.currentUser.id]: window.currentUser,
+        },
       },
       session: {
-        id: window.currentUser.id
-      }
+        id: window.currentUser.id,
+      },
     };
     store = configureStore(preloadedState);
     delete window.currentUser;
@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.dispatch = store.dispatch;
   // TESTING END
   const root = document.getElementById("root");
-  ReactDOM.render(<Root store={store}/>, root);
+  ReactDOM.render(<Root store={store} />, root);
 });
 
-// window.getServers = actions.requestServers
+window.getServers = actions.requestServers;
+window.createServer = actions.createServer;

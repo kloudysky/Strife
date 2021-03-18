@@ -10,17 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_18_021213) do
+ActiveRecord::Schema.define(version: 2021_03_18_165608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
 
-  create_table "channels", force: :cascade do |t|
-    t.citext "channel_name", null: false
-    t.integer "server_id", null: false
+  create_table "channelmembers", force: :cascade do |t|
+    t.integer "channel_id", null: false
+    t.integer "recipient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.citext "channel_name", null: false
+    t.integer "server_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "channel_type", null: false
+    t.integer "owner_id"
     t.index ["server_id"], name: "index_channels_on_server_id"
   end
 
@@ -44,8 +53,8 @@ ActiveRecord::Schema.define(version: 2021_03_18_021213) do
 
   create_table "servers", force: :cascade do |t|
     t.citext "server_name", null: false
-    t.integer "owner_id", null: false
-    t.string "img_url"
+    t.integer "owner_id"
+    t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_id"], name: "index_servers_on_owner_id"
@@ -60,6 +69,8 @@ ActiveRecord::Schema.define(version: 2021_03_18_021213) do
     t.citext "email", null: false
     t.decimal "phone"
     t.date "birthday", null: false
+    t.string "avatar"
+    t.boolean "verified"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["phone"], name: "index_users_on_phone", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true

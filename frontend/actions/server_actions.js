@@ -61,18 +61,27 @@ export const updateServer = (server) => (dispatch) =>
       console.log(error.statusText);
     });
 
+export const addServerMember = (serverMember) => (dispatch) =>
+  APIUtil.addServerMember(serverMember)
+    .then(responseOk)
+    .catch((error) => {
+      console.log(error.statusText);
+    });
+
 const responseAllOk = (response) => {
   if (!response.ok) {
+    console.log(response);
     return response.json().then((error) => dispatch(receiveErrors(error)));
   } else {
     return response
       .json()
-      .then((server) => dispatch(receiveAllServers(server)));
+      .then((servers) => dispatch(receiveAllServers(servers)));
   }
 };
 
 const responseOk = (response) => {
   if (!response.ok) {
+    console.log(response);
     return response.json().then((error) => dispatch(receiveErrors(error)));
   } else {
     return response.json().then((server) => dispatch(receiveServer(server)));

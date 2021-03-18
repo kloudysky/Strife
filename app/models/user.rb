@@ -1,40 +1,49 @@
 class User < ApplicationRecord
-  validates :email, :username, :password_digest, :birthday, :session_token, presence: true
+  validates :email,
+            :username,
+            :password_digest,
+            :birthday,
+            :session_token,
+            presence: true
   validates :username, uniqueness: true
   validates :email, uniqueness: true
   validates :phone, uniqueness: true, allow_nil: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, length: { minimum: 6 }, allow_nil: true
 
   after_initialize :ensure_session_token
 
-  has_many :owned_servers, 
-  foreign_key: :owner_id,
-  class_name: :Server,
-  dependent: :destroy
+  has_many :owned_servers,
+           foreign_key: :owner_id,
+           class_name: :Server,
+           dependent: :destroy
 
   has_many :server_memberships,
-  foreign_key: :member_id,
-  class_name: :ServerMember
+           foreign_key: :member_id,
+           class_name: :ServerMember,
+           dependent: :destroy
 
-  has_many :membered_servers,
-  through: :server_memberships,
-  source: :server
+  has_many :membered_servers, through: :server_memberships, source: :server
 
-  has_many :channels,
-  through: :owned_servers,
-  source: :channels
+  has_many :owned_channels, foreign_key: :owner_id, class_name: :Channel
+
+  has_many :channel_memberships,
+           foreign_key: :member_id,
+           class_name: :ChannelMember
+
+  has_many :membered_channels, through: :channel_memberships, source: :channel
 
   has_many :messages,
-  foreign_key: :author_id,
-  class_name: :Message
+           foreign_key: :author_id,
+           class_name: :Message,
+           dependent: :destroy
 
   attr_reader :password
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil unless user
-    
+
     user.is_password?(password) ? user : nil
   end
 
@@ -61,7 +70,9 @@ class User < ApplicationRecord
 
   def generate_unique_session_token
     self.session_token = new_session_token
-    self.session_token = new_session_token while User.find_by(session_token: session_token)
+    while User.find_by(session_token: session_token)
+      self.session_token = new_session_token
+    end
     session_token
   end
 

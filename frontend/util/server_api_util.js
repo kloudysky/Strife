@@ -48,3 +48,24 @@ export const deleteServer = (serverId) =>
       "X-CSRF-Token": Rails.csrfToken(),
     },
   });
+
+export const addServerMember = (serverMember) =>
+  fetch(`/api/servers/member`, {
+    method: "POST",
+    body: JSON.stringify({
+      serverMember,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-Token": Rails.csrfToken(),
+    },
+  });
+
+export const removeServerMember = (memberId) =>
+  fetch(`/api/servers/member/${memberId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-Token": Rails.csrfToken(),
+    },
+  });
