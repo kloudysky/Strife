@@ -5,11 +5,13 @@ import { Provider } from 'react-redux';
 
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
+import ServerIndexContainer from './desktop_app/server/server_index_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
 
 const App = () => (
     <div>     
         <Switch>
+            <ProtectedRoute exact path="/servers" component={ServerIndexContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <Route exact path="/" component={SplashContainer} />
