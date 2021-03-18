@@ -13,6 +13,10 @@ class Server < ApplicationRecord
     through: :servermembers,
     source: :member
 
+    has_many :channels, 
+    foreign_key: :server_id,
+    class_name: :Channel
+
     private
 
     def check_if_member

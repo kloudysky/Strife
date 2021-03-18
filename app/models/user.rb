@@ -21,6 +21,14 @@ class User < ApplicationRecord
   through: :server_memberships,
   source: :server
 
+  has_many :channels,
+  through: :owned_servers,
+  source: :channels
+
+  has_many :messages,
+  foreign_key: :author_id,
+  class_name: :Message
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)
