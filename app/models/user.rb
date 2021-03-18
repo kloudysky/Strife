@@ -28,8 +28,8 @@ class User < ApplicationRecord
   has_many :owned_channels, foreign_key: :owner_id, class_name: :Channel
 
   has_many :channel_memberships,
-           foreign_key: :member_id,
-           class_name: :ChannelMember
+           foreign_key: :recipient_id,
+           class_name: :Channelmember
 
   has_many :membered_channels, through: :channel_memberships, source: :channel
 

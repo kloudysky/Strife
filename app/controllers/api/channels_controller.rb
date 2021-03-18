@@ -2,7 +2,7 @@ class Api::ChannelsController < ApplicationController
     before_action :require_logged_in
 
     def index
-        @channels = Server.find_by(id: params[:id]).channels
+        @channels = current_user.membered_channels
         render :index
     end
 
@@ -12,7 +12,7 @@ class Api::ChannelsController < ApplicationController
         if @channel.save
             render :show
         else
-            render json @channel.errors.full_messages, status: 422
+            render json: @channel.errors.full_messages, status: 422
         end
     end
 
@@ -32,7 +32,7 @@ class Api::ChannelsController < ApplicationController
         if @channel.update(channel_params)
             render :show
         else
-            render :json @channel.errors.full_messages, status: 422
+            render json: @channel.errors.full_messages, status: 422
         end
     end
 
@@ -40,6 +40,11 @@ class Api::ChannelsController < ApplicationController
         @message = Message.find(params[:id])
         @message.destroy
         render :index
+    end
+
+    def dm_channels
+        @dm_channels = current_user.membered_channels.where('channel_type > 0')
+        render :dmchannels
     end
 
     private

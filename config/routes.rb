@@ -10,6 +10,7 @@ Rails
       post '/servers/member', to: 'servers#add_member', as: 'add_server_member'
       delete '/servers/member', to: 'servers#remove_member', as: 'remove_server_member'
       resources :channels
+      get '/dmchannels', to: 'channels#dm_channels', as: 'dm_channels'
       resources :messages
     end
 
