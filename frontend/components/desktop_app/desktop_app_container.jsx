@@ -13,6 +13,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   requestServers: () => dispatch(serverActions.requestServers()),
   requestDMChannels: () => dispatch(channelActions.requestDMChannels()),
+  requestServerChannels: (serverId) =>
+    dispatch(channelActions.requestServerChannels(serverId)),
   logout: () => dispatch(sessionActions.logout()),
 });
 

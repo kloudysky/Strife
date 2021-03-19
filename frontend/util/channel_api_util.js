@@ -37,6 +37,15 @@ export const requestChannel = (channelId) =>
     },
   });
 
+export const requestServerChannels = (serverId) =>
+  fetch(`/api/serverchannels/${serverId}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-Token": Rails.csrfToken(),
+    },
+  });
+
 export const updateChannel = (channel) =>
   fetch(`/api/channels/${channel.id}`, {
     method: "PUT",

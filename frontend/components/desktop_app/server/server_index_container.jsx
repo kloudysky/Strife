@@ -1,13 +1,17 @@
 import { connect } from "react-redux";
-import * as actions from "../../../actions/server_actions"
-import ServerIndex from "./server_index"
+import * as serverActions from "../../../actions/server_actions";
+import * as channelActions from "../../../actions/channel_actions";
+import ServerIndex from "./server_index";
 
-const mapStateToProps = state => ({
-    servers: Object.values(state.entities.servers)
+const mapStateToProps = (state) => ({
+  servers: Object.values(state.entities.servers),
 });
 
-const mapDispatchToProps = dispatch => ({
-    requestServers: () => dispatch(actions.requestServers()),
-})
+const mapDispatchToProps = (dispatch) => ({
+  requestServers: () => dispatch(serverActions.requestServers()),
+  requestDMChannels: () => dispatch(channelActions.requestDMChannels()),
+  requestServerChannels: (serverId) =>
+    dispatch(channelActions.requestServerChannels(serverId)),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(ServerIndex)
+export default connect(mapStateToProps, mapDispatchToProps)(ServerIndex);

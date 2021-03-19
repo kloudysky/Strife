@@ -6,10 +6,9 @@ class Api::ServersController < ApplicationController
     @server = Server.new(server_params)
 
     if @server.save
-      firstMember = ServerMember.new(server_id: @server.id, member_id: @server.owner_id)
-      if firstMember.save
-        render :show
-      end
+      firstMember =
+        ServerMember.new(server_id: @server.id, member_id: @server.owner_id)
+      render :index if firstMember.save
     else
       render json @server.errors.full_messages, status: 422
     end
@@ -49,9 +48,9 @@ class Api::ServersController < ApplicationController
     @server_member = ServerMember.new(server_member_params)
 
     if @server_member.save
-        render :show
+      render :show
     else
-        render json: @server_member.errors.full_messages, status: 422
+      render json: @server_member.errors.full_messages, status: 422
     end
   end
 

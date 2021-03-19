@@ -46,6 +46,13 @@ export const requestDMChannels = () => (dispatch) =>
       console.log(error.statusText);
     });
 
+export const requestServerChannels = (serverId) => (dispatch) =>
+  APIUtil.requestServerChannels(serverId)
+    .then(responseAllOk)
+    .catch((error) => {
+      console.log(error.statusText);
+    });
+
 export const requestChannel = (channelId) => (dispatch) =>
   APIUtil.requestChannel(channelId)
     .then(responseOk)

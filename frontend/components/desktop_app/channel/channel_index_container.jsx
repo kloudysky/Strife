@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  requestChannels: () => dispatch(actions.requestChannels()),
+  requestDMChannels: () => dispatch(actions.requestDMChannels()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelIndex);
