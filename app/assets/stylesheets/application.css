@@ -264,6 +264,12 @@ nav {
   border-radius: 3px;
   border: #7289da solid;
   border-width: thin;
+  font-size: 15px;
+}
+
+.login-form-container input,
+label {
+  display: block;
 }
 
 /* .login-form-container {
