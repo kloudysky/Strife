@@ -35,7 +35,10 @@ class CreateUserForm extends React.Component {
   render() {
     return (
       <div className="login-form-container">
-        <div className="login-form-box">
+        <div className="logo-link">
+          <a href="/">STRIFE</a>
+        </div>
+        <div className="login-form-box fade-in">
           <h2 className="login-header">Create an account</h2>
           <div className="login-form-box">
             <form onSubmit={this.handleSubmit} className="login-form form">
