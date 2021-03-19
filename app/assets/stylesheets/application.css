@@ -21,37 +21,67 @@
 
 body {
   background-color: #23272a;
-  background-image: url(https://i.redd.it/y1ostvqnr4711.jpg);
   color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100%;
+  min-height: 100%; */
 }
 
 a {
   color: #ffffff;
+  text-decoration: none;
+}
+
+a.hover:hover {
+  text-decoration: underline;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.splash-container {
+}
+
+.first-section {
+  min-height: 630px;
+  background-color: rgb(39, 117, 235);
+}
+
+.header-section {
+  width: 100%;
+  padding-top: 20px;
+}
+
+nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  font-size: 15px;
+}
+
+.nav-collapse {
+  display: flex;
+}
+
+.nav-link {
+  padding: 15px;
+}
+
+.logo-span {
+  font-size: 30px;
 }
 
 .splash-button {
-  /* line-height: 12px; */
-  width: 45px;
-  margin-top: 30px;
-  margin-right: 200px;
-  position: absolute;
-  top: 0;
-  right: 0;
   background-color: #fff;
   border: none;
   color: black;
   padding: 10px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
   cursor: pointer;
   border-radius: 20px;
-  font-size: 13px;
 }
 
 .splash-button a {
@@ -59,19 +89,184 @@ a {
   text-decoration: none;
 }
 
-.logo-span {
-  font-size: 30px;
+.strife-intro {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.strife-intro > h1 {
+  font-size: 50px;
+}
+
+.strife-intro > p {
+  max-width: 650px;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  line-height: 1.9;
+  font-size: 19px;
+}
+
+.second-section {
+  display: flex;
+  background-color: #fff;
+  min-height: 500px;
   color: black;
-  line-height: 12px;
-  width: 18px;
-  margin-top: 30px;
-  margin-left: 100px;
-  position: absolute;
-  top: 0;
-  left: 0;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.second-section-caption {
+  width: 300px;
+  padding: 15px;
+  margin-right: 40px;
+}
+
+.second-section-image {
+  height: 150px;
+  width: 150px;
+  padding: 100px;
+}
+
+.second-section-caption > h1 {
+  font-size: 40px;
+}
+
+.third-section {
+  display: flex;
+  background-color: #fff;
+  min-height: 300px;
+  color: black;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.third-section-caption {
+  width: 500px;
+  padding: 15px;
+  margin-right: 40px;
+}
+
+.third-section-image {
+  height: 150px;
+  width: 150px;
+  padding: 100px;
+}
+
+.third-section-caption > h1 {
+  font-size: 40px;
+}
+
+.fourth-section {
+  display: flex;
+  background-color: #fff;
+  min-height: 300px;
+  color: black;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.fourth-section-caption {
+  width: 500px;
+  padding: 15px;
+  margin-right: 40px;
+}
+
+.fourth-section-image {
+  height: 150px;
+  width: 150px;
+  padding: 100px;
+}
+
+.fourth-section-caption > h1 {
+  font-size: 40px;
+}
+
+.fifth-section {
+  background-color: #fff;
+  min-height: 300px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fifth-section-caption > h1 {
+  font-size: 50px;
+}
+
+.fifth-section-caption > p {
+  max-width: 650px;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  line-height: 1.9;
+  font-size: 19px;
+}
+
+.call-to-action-box {
+  background-color: #fff;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.call-to-action {
+  width: 300px;
+  background-color: #7289da;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  border-radius: 20px;
 }
 
 .login-form-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: url(https://i.redd.it/y1ostvqnr4711.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form-container a {
+  color: #7289da;
+}
+
+.login-form-box {
+  background-color: #3d4044;
+  padding: 30px;
+  border-radius: 6px;
+}
+
+.login-form-container input {
+  height: 40px;
+  width: 350px;
+  border-radius: 3px;
+  background-color: #2c2f33;
+  border: black solid;
+  border-width: thin;
+}
+
+.form-login-button {
+  height: 40px;
+  background-color: #7289da;
+  border: none;
+  color: white;
+  width: 350px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: #7289da solid;
+  border-width: thin;
+}
+
+/* .login-form-container {
   background-color: #2c2f33;
   border-radius: 5px;
   width: 450px;
@@ -89,7 +284,7 @@ a {
   padding: 25px 25px 0;
   margin: 20px 20px 0;
   border-radius: 3px;
-}
+} */
 
 .desktop-app {
   width: 100%;
