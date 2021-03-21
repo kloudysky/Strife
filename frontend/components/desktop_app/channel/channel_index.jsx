@@ -9,9 +9,10 @@ class ChannelIndex extends React.Component {
 
   render() {
     const channels = this.props.channels;
+    const server = this.props.activeServer;
     return (
       <div className="channel-list-container">
-        <h3>Server Name</h3>
+        <h3>{server.id === -1 ? "Home" : `${server.server_name}`}</h3>
         <ul className="channel-list">
           {channels.map((channel) => (
             <li className="channel-list-item" key={channel.id}>

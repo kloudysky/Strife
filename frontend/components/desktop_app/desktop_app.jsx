@@ -5,14 +5,10 @@ import ChannelIndexContainer from "./channel/channel_index_container";
 class DesktopApp extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      activeServer: null,
-    };
   }
 
   componentDidMount() {
-    // this.props.requestDMChannels();
+    //this.props.requestDMChannels();
   }
 
   render() {
