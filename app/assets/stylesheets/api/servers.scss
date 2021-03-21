@@ -1,3 +1,39 @@
 // Place all the styles related to the api/servers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.server-component {
+  background-color: #23272a;
+  height: 100vh;
+  width: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.server-list {
+  list-style-type: none;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.server-list-item {
+  background-color: #32383b;
+  padding: 20px;
+  margin: 10px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.server-list-br {
+  background-color: #32383b;
+  height: 2px;
+  width: 30px;
+}

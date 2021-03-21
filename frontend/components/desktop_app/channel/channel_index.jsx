@@ -11,7 +11,7 @@ class ChannelIndex extends React.Component {
     const channels = this.props.channels;
     return (
       <div className="channel-list-container">
-        <h3>direct messages</h3>
+        <h3>Server Name</h3>
         <ul className="channel-list">
           {channels.map((channel) => (
             <li className="channel-list-item" key={channel.id}>
@@ -19,6 +19,11 @@ class ChannelIndex extends React.Component {
             </li>
           ))}
         </ul>
+        <div className="settings-section">
+          <button className="logout-button" onClick={this.props.logout}>
+            Logout
+          </button>
+        </div>
       </div>
     );
   }

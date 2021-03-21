@@ -9,25 +9,36 @@ class ServerIndex extends React.Component {
 
   render() {
     const servers = this.props.servers;
+
     return (
-      <div>
-        <h1>Server List</h1>
+      <div className="server-component">
         <ul className="server-list">
-          <li onClick={() => this.props.requestDMChannels()}>DM's</li>
-          {servers.map((server) => (
-            <li
-              className="server-list-item"
-              key={server.id}
-              onClick={() => this.props.requestServerChannels(server.id)}
-            >
-              {server.server_name}
-            </li>
-          ))}
+          <li
+            className="server-list-item"
+            onClick={() => this.props.requestDMChannels()}
+          >
+            DM's
+          </li>
+          <div className="server-list-br"></div>
+          {servers.map((server) => {
+            let serverName;
+            if (server.server_name.trim().indexOf(" ") != -1) {
+              const titleWords = server.server_name.split(" ");
+              serverName = titleWords[0][0] + titleWords[1][0];
+            } else {
+              serverName = server.server_name[0];
+            }
+            return (
+              <li
+                className="server-list-item"
+                key={server.id}
+                onClick={() => this.props.requestServerChannels(server.id)}
+              >
+                {server.icon ? `<img src='${server.icon}/>` : serverName}
+              </li>
+            );
+          })}
         </ul>
-        <br />
-        <button className="logout-button" onClick={this.props.logout}>
-          Logout
-        </button>
       </div>
     );
   }
