@@ -2,21 +2,84 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.channel-list-container {
+.channel-container {
   height: 100%;
   left: 70px;
   position: absolute;
   top: 0;
-  width: 170px;
+  width: 240px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  background-color: rgb(47, 49, 54);
+}
+
+.channel-list-header {
+  width: 240px;
+  position: absolute;
+  top: 0;
+  height: 50px;
+  background-color: rgb(47, 49, 54);
+  border-bottom: 1px solid rgb(36, 37, 41);
+  box-shadow: 0 4px 2px -2px rgb(45, 46, 50);
+  display: flex;
+  align-items: center;
+}
+
+.channel-list-header > h3 {
+  font-weight: 700;
+  font-size: 14px;
+  margin-left: 15px;
+}
+
+.channel-list-header-btn {
+  position: absolute;
+  right: 20px;
 }
 
 .settings-section {
-  width: 170px;
+  width: 240px;
   position: absolute;
   bottom: 0;
   height: 50px;
-  background-color: #32383b;
+  background-color: rgb(41, 43, 47);
+}
+
+.channel-text {
+  margin-top: 20px;
+  width: 170px;
+  position: absolute;
+  top: 50px;
+  height: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.channel-text:hover {
+  cursor: pointer;
+}
+
+.channel-text > p {
+  font-size: 11px;
+  margin: 4px;
+}
+
+.channel-text-btn {
+  left: 5px;
+}
+
+.channel-dm-list {
+  width: 170px;
+  position: absolute;
+  top: 50px;
+  height: 50px;
+}
+
+.channel-server-list {
+  width: 170px;
+  position: absolute;
+  top: 90px;
+  height: 100%;
 }

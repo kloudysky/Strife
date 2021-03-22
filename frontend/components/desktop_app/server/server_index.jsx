@@ -29,8 +29,12 @@ class ServerIndex extends React.Component {
     return (
       <div className="server-component">
         <ul className="server-list">
-          <li className="server-list-item" onClick={() => this.activateHome()}>
-            DM
+          <li
+            className="server-list-item server-home-btn"
+            onClick={() => this.activateHome()}
+          >
+            <div className="server-list-hover-shape"></div>
+            <i className="fas fa-gamepad"></i>
           </li>
           <div className="server-list-br"></div>
           {servers.map((server) => {
@@ -47,10 +51,24 @@ class ServerIndex extends React.Component {
                 key={server.id}
                 onClick={() => this.activateServer(server)}
               >
+                <div className="server-list-hover-shape"></div>
                 {server.icon ? `<img src='${server.icon}/>` : serverName}
               </li>
             );
           })}
+          <li className="server-list-item server-list-icon">
+            <div className="server-list-hover-shape"></div>
+            <i className="fas fa-plus"></i>
+          </li>
+          <li className="server-list-item server-list-icon">
+            <div className="server-list-hover-shape"></div>
+            <i className="fas fa-compass"></i>
+          </li>
+          <div className="server-list-br"></div>
+          <li className="server-list-item server-list-icon">
+            <div className="server-list-hover-shape"></div>
+            <i className="fas fa-download"></i>
+          </li>
         </ul>
       </div>
     );

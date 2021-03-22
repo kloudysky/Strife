@@ -18,6 +18,17 @@ body {
   background-color: rgb(39, 117, 235);
   color: #ffffff;
   font-family: Roboto;
+  height: 100%;
+  overflow: hidden;
+}
+
+ul,
+ul li,
+ul ul li {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  list-style-type: 0;
 }
 
 ul {
@@ -352,6 +363,8 @@ label {
 .desktop-app {
   width: 100%;
   height: 100vh;
+  height: 100%;
+  overflow: hidden;
   background-color: #2c2f33;
   position: absolute;
   top: 0;

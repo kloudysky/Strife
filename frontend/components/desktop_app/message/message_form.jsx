@@ -9,7 +9,7 @@ class MessageForm extends React.Component {
     return (
       <div>
         <form id="message-form" action="">
-          <input id="input" autocomplete="off" />
+          <input id="input" autoComplete="off" />
           <button>Send</button>
         </form>
       </div>

@@ -23,17 +23,56 @@
 }
 
 .server-list-item {
+  font-size: 17px;
   background-color: #32383b;
   padding: 20px;
   margin: 10px;
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  &:hover {
+    cursor: pointer;
+    border-radius: 25%;
+    background-color: #7289da;
+    .server-list-hover-shape {
+      transform: translateX(3px);
+    }
+  }
 }
 
 .server-list-br {
   background-color: #32383b;
   height: 2px;
   width: 30px;
+}
+
+.server-list-hover-shape {
+  // display: none;
+  left: -16px;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  transition: all 1s;
+  color: white;
+  position: absolute;
+  transition: left 1s;
+  border-radius: 3px;
+  transition: transform 250ms;
+}
+
+.server-home-btn {
+  font-size: 30px;
+}
+
+.server-list-icon {
+  color: #51ad7e;
+  font-size: 22px;
+  &:hover {
+    background-color: #51ad7e;
+    color: white;
+  }
 }
