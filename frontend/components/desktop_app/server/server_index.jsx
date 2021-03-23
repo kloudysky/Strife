@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
 class ServerIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -78,7 +76,10 @@ class ServerIndex extends React.Component {
               </li>
             );
           })}
-          <li className="server-list-item server-list-icon">
+          <li
+            className="server-list-item server-list-icon"
+            onClick={() => this.props.setCreateServerModalState(true)}
+          >
             <div className="server-list-hover-shape"></div>
             <i className="fas fa-plus"></i>
           </li>

@@ -17,9 +17,13 @@
 body {
   background-color: rgb(39, 117, 235);
   color: #ffffff;
-  font-family: Roboto;
+  font-family: "Open Sans", sans-serif;
   height: 100%;
   /* overflow: hidden; */
+}
+
+button {
+  font-family: "Open Sans", sans-serif;
 }
 
 ul,

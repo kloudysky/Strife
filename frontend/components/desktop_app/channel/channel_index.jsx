@@ -29,13 +29,13 @@ class ChannelIndex extends React.Component {
               <i className="fas fa-microphone-slash"></i>
             </button>
             <button className="channel-setting-btn">
-              <i class="fas fa-headphones"></i>
+              <i className="fas fa-headphones"></i>
             </button>
             <button
               className="logout-button channel-setting-btn"
               onClick={this.props.logout}
             >
-              <i class="fas fa-cog"></i>
+              <i className="fas fa-cog"></i>
             </button>
           </div>
         </div>

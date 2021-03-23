@@ -14,6 +14,7 @@ const mapStateToProps = (state) => {
   return {
     servers: Object.values(state.entities.servers),
     activeServer: activeServer,
+    createServerModalState: state.ui.createServerModalState,
   };
 };
 
@@ -23,6 +24,8 @@ const mapDispatchToProps = (dispatch) => ({
   requestServerChannels: (serverId) =>
     dispatch(channelActions.requestServerChannels(serverId)),
   setActiveServer: (server) => dispatch(uiActions.setActiveServer(server)),
+  setCreateServerModalState: (modalState) =>
+    dispatch(uiActions.setCreateServerModalState(modalState)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ServerIndex);
