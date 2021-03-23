@@ -14,6 +14,7 @@ const mapStateToProps = (state) => {
   return {
     channels: Object.values(state.entities.channels),
     activeServer: activeServer,
+    currentUser: state.entities.users.currentUser,
   };
 };
 

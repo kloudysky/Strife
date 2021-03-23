@@ -1,5 +1,4 @@
 import React from "react";
-import Server from "./server";
 import { Link } from "react-router-dom";
 
 class ServerIndex extends React.Component {
@@ -14,6 +13,7 @@ class ServerIndex extends React.Component {
   activateServer(server) {
     this.props.requestServerChannels(server.id);
     this.props.setActiveServer(server);
+    this.setState({ activeLink: server.id });
   }
 
   activateHome() {
@@ -23,17 +23,31 @@ class ServerIndex extends React.Component {
     });
   }
 
+  activeServer() {
+    return <div className="active-server"></div>;
+  }
+
   render() {
     const servers = this.props.servers;
+    const activeServer = this.props.activeServer;
+    const activeClass =
+      activeServer.id === null || activeServer.id === -1
+        ? "active-server-shape"
+        : "server-list-hover-shape";
 
     return (
       <div className="server-component">
         <ul className="server-list">
           <li
             className="server-list-item server-home-btn"
+            id={
+              activeServer.id === null || activeServer.id === -1
+                ? "active-server-item"
+                : ""
+            }
             onClick={() => this.activateHome()}
           >
-            <div className="server-list-hover-shape"></div>
+            <div className={activeClass}></div>
             <i className="fas fa-gamepad"></i>
           </li>
           <div className="server-list-br"></div>
@@ -48,10 +62,18 @@ class ServerIndex extends React.Component {
             return (
               <li
                 className="server-list-item"
+                id={activeServer.id === server.id ? "active-server-item" : ""}
                 key={server.id}
                 onClick={() => this.activateServer(server)}
               >
-                <div className="server-list-hover-shape"></div>
+                {/* <div className="server-list-hover-shape"></div> */}
+                <div
+                  className={
+                    activeServer.id === server.id
+                      ? "active-server-shape"
+                      : "server-list-hover-shape"
+                  }
+                ></div>
                 {server.icon ? `<img src='${server.icon}/>` : serverName}
               </li>
             );

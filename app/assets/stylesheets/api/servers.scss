@@ -25,8 +25,8 @@
 .server-list-item {
   font-size: 17px;
   background-color: #32383b;
-  padding: 20px;
-  margin: 10px;
+  padding: 18px;
+  margin: 4px;
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -36,7 +36,7 @@
   transition: all 0.2s;
   &:hover {
     cursor: pointer;
-    border-radius: 25%;
+    border-radius: 35%;
     background-color: #7289da;
     .server-list-hover-shape {
       transform: translateX(3px);
@@ -48,6 +48,8 @@
   background-color: #32383b;
   height: 2px;
   width: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .server-list-hover-shape {
@@ -61,7 +63,22 @@
   position: absolute;
   transition: left 1s;
   border-radius: 3px;
-  transition: transform 250ms;
+  transition: transform 750ms;
+}
+
+.active-server-shape {
+  left: -13px;
+  width: 16px;
+  height: 35px;
+  background-color: white;
+  color: white;
+  position: absolute;
+  border-radius: 3px;
+}
+
+#active-server-item {
+  border-radius: 35%;
+  background-color: #7289da;
 }
 
 .server-home-btn {

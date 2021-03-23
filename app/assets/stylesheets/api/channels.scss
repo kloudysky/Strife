@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.channel-container {
+.channel-component {
   height: 100%;
   left: 70px;
   position: absolute;
@@ -42,14 +42,15 @@
   position: absolute;
   bottom: 0;
   height: 50px;
-  background-color: rgb(41, 43, 47);
+  background-color: #292b2f;
+  display: flex;
+  align-items: center;
 }
 
-.channel-text {
+.server-channel-tab {
   margin-top: 20px;
+  margin-left: 5px;
   width: 170px;
-  position: absolute;
-  top: 50px;
   height: 15px;
   display: flex;
   justify-content: flex-start;
@@ -57,29 +58,98 @@
   flex-direction: row;
 }
 
-.channel-text:hover {
+.server-channel-icon {
+  margin-right: 10px;
+}
+
+.channel-tab:hover {
   cursor: pointer;
 }
 
-.channel-text > p {
+.channel-tab > p {
   font-size: 11px;
   margin: 4px;
 }
 
-.channel-text-btn {
+.channel-collapse-down {
   left: 5px;
 }
 
-.channel-dm-list {
-  width: 170px;
+.channels-container {
+  display: flex;
   position: absolute;
   top: 50px;
-  height: 50px;
+  flex-direction: column;
+  width: 240px;
+  color: rgb(143, 146, 150);
 }
 
-.channel-server-list {
+.dm-channel-tab {
+  margin-top: 20px;
   width: 170px;
+  height: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.dm-channel-tab:hover {
+  cursor: pointer;
+}
+
+.dm-channel-tab {
+  font-size: 11px;
+  margin: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.create-dm-btn {
+  right: 20px;
   position: absolute;
-  top: 90px;
-  height: 100%;
+}
+
+.channel-list {
+}
+
+.channel-list-item {
+  padding: 8px;
+  margin: 5px;
+}
+
+.channel-list-item:hover {
+  background-color: rgb(55, 57, 62);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.channel-profile-image {
+  width: 30px;
+  height: 30px;
+  padding-right: 8px;
+}
+
+.profile-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.channel-profile-username {
+  font-size: 12px;
+}
+
+.channel-settings-buttons {
+  right: 0;
+  position: absolute;
+}
+
+.channel-setting-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: rgb(185, 187, 190);
+  padding: 10px;
 }

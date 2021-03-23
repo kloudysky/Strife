@@ -7,7 +7,7 @@ import ServerIndex from "./server_index";
 const mapStateToProps = (state) => {
   let activeServer;
   if (state.ui.activeServer) {
-    activeServer = Object.values(state.ui.activeServer);
+    activeServer = state.ui.activeServer;
   } else {
     activeServer = { id: -1 };
   }

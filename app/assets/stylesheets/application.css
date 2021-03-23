@@ -19,7 +19,7 @@ body {
   color: #ffffff;
   font-family: Roboto;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 ul,
@@ -362,8 +362,9 @@ label {
 
 .desktop-app {
   width: 100%;
-  height: 100vh;
+
   height: 100%;
+  height: 100vh;
   overflow: hidden;
   background-color: #2c2f33;
   position: absolute;

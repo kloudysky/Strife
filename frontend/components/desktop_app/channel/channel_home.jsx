@@ -13,13 +13,19 @@ class ChannelHome extends React.Component {
         <div className="channel-list-header">
           <h3>SEARCH BAR</h3>
         </div>
-        <ul className="channel-dm-list">
-          {channels.map((channel) => (
-            <li className="channel-list-item" key={channel.id}>
-              {channel.channel_name}
-            </li>
-          ))}
-        </ul>
+        <div className="channels-container">
+          <div className="dm-channel-tab">
+            <p>DIRECT MESSAGES</p>
+            <i className="fas fa-plus create-dm-btn"></i>
+          </div>
+          <ul className="channel-list">
+            {channels.map((channel) => (
+              <li className="channel-list-item" key={channel.id}>
+                {channel.channel_name}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }
