@@ -13,6 +13,7 @@ class ChannelIndex extends React.Component {
     const server = this.props.activeServer;
     const user = this.props.currentUser;
     const requestMessages = this.props.requestMessages;
+    const setChannel = this.props.setChannel;
 
     return (
       <div className="channel-component">
@@ -21,12 +22,14 @@ class ChannelIndex extends React.Component {
             channels={channels}
             user={user}
             requestMessages={requestMessages}
+            setChannel={setChannel}
           />
         ) : (
           <ChannelServer
             server={server}
             channels={channels}
             requestMessages={requestMessages}
+            setChannel={setChannel}
           />
         )}
         <div className="settings-section">

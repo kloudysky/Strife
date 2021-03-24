@@ -10,7 +10,7 @@ class Api::MessagesController < ApplicationController
     @message = Message.new(message_params)
 
     if @message.save
-      render :show
+      render json: @message.to_json(include: :author)
     else
       render json: @message.errors.full_messages, status: 422
     end
@@ -18,17 +18,11 @@ class Api::MessagesController < ApplicationController
 
   def show
     @messages = Channel.find_by(id: params[:id]).messages
-    puts '-----------------'
-    puts params[:id]
-    puts @messages
     render :show
   end
 
   def channel_messages
     @messages = Channel.find_by(id: params[:id]).messages
-    puts '-----------------'
-    puts params[:id]
-    puts @messages
     render json: @messages.to_json(include: :author)
   end
 

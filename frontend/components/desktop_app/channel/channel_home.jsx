@@ -5,6 +5,11 @@ class ChannelHome extends React.Component {
     super(props);
   }
 
+  setActiveChannel(channel) {
+    this.props.requestMessages(channel.id);
+    this.props.setChannel(channel);
+  }
+
   generateDMChannelName(channel) {
     let channelName;
     if (channel.members.length === 2) {
@@ -37,7 +42,7 @@ class ChannelHome extends React.Component {
           <ul className="channel-list">
             {channels.map((channel) => (
               <li
-                onClick={() => this.props.requestMessages(channel.id)}
+                onClick={() => this.setActiveChannel(channel)}
                 className="channel-list-item"
                 key={channel.id}
               >

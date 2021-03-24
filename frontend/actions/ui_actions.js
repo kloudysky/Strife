@@ -1,4 +1,5 @@
 export const SET_ACTIVE_SERVER = "SET_ACTIVE_SERVER";
+export const SET_ACTIVE_CHANNEL = "SET_ACTIVE_CHANNEL";
 export const SET_CREATE_SERVER_MODAL_STATE = "SET_CREATE_SERVER_MODAL_STATE";
 
 export const setActiveServer = (server) => ({
@@ -9,4 +10,9 @@ export const setActiveServer = (server) => ({
 export const setCreateServerModalState = (modalState) => ({
   type: SET_CREATE_SERVER_MODAL_STATE,
   modalState,
+});
+
+export const setActiveChannel = (channel) => ({
+  type: SET_ACTIVE_CHANNEL,
+  channel,
 });

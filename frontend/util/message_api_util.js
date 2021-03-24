@@ -6,3 +6,15 @@ export const requestChannelMessages = (channelId) =>
       "X-CSRF-Token": Rails.csrfToken(),
     },
   });
+
+export const createMessage = (message) =>
+  fetch(`/api/channelmsg`, {
+    method: "POST",
+    body: JSON.stringify({
+      message,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-Token": Rails.csrfToken(),
+    },
+  });

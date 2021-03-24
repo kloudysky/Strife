@@ -20,6 +20,7 @@ Rails
       get '/channelmsgs/:id',
           to: 'messages#channel_messages',
           as: 'channel_messages'
+      post '/channelmsg', to: 'messages#create', as: 'channel_message'
     end
 
     root 'staticpages#root'
