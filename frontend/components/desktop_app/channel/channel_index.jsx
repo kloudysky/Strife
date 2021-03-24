@@ -12,12 +12,22 @@ class ChannelIndex extends React.Component {
     const channels = this.props.channels;
     const server = this.props.activeServer;
     const user = this.props.currentUser;
+    const requestMessages = this.props.requestMessages;
+
     return (
       <div className="channel-component">
         {server.id === -1 ? (
-          <ChannelHome channels={channels} />
+          <ChannelHome
+            channels={channels}
+            user={user}
+            requestMessages={requestMessages}
+          />
         ) : (
-          <ChannelServer server={server} channels={channels} />
+          <ChannelServer
+            server={server}
+            channels={channels}
+            requestMessages={requestMessages}
+          />
         )}
         <div className="settings-section">
           <div className="channel-profile-image">

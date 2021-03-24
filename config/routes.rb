@@ -17,6 +17,9 @@ Rails
           to: 'channels#server_channels',
           as: 'server_channels'
       resources :messages
+      get '/channelmsgs/:id',
+          to: 'messages#channel_messages',
+          as: 'channel_messages'
     end
 
     root 'staticpages#root'

@@ -17,8 +17,19 @@ class Api::MessagesController < ApplicationController
   end
 
   def show
-    @message = Message.find(params[:id])
+    @messages = Channel.find_by(id: params[:id]).messages
+    puts '-----------------'
+    puts params[:id]
+    puts @messages
     render :show
+  end
+
+  def channel_messages
+    @messages = Channel.find_by(id: params[:id]).messages
+    puts '-----------------'
+    puts params[:id]
+    puts @messages
+    render json: @messages.to_json(include: :author)
   end
 
   def edit

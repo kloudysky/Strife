@@ -21,7 +21,7 @@ export const deleteChannel = (channelId) => ({
 });
 
 export const receiveErrors = (errors) => ({
-  type: RECEIVE_channel_ERRORS,
+  type: RECEIVE_CHANNEL_ERRORS,
   errors,
 });
 

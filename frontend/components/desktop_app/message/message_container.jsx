@@ -1,7 +1,9 @@
 import { connect } from "react-redux";
 import Message from "./message";
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  messages: state.entities.messages,
+});
 
 const mapDispatchToProps = (dispatch) => ({});
 

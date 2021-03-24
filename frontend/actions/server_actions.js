@@ -27,7 +27,7 @@ export const receiveErrors = (errors) => ({
 
 export const createServer = (server) => (dispatch) =>
   APIUtil.createServer(server)
-    .then(responseOk)
+    .then(responseAllOk)
     .catch((error) => {
       console.log(error.statusText);
     });

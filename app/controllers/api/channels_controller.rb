@@ -18,7 +18,7 @@ class Api::ChannelsController < ApplicationController
 
   def show
     @channel = @channel.find(params[:id])
-    render :show
+    render json: @channel.to_json(include: :messages)
   end
 
   def edit
@@ -44,14 +44,12 @@ class Api::ChannelsController < ApplicationController
 
   def dm_channels
     @dm_channels = current_user.membered_channels.where('channel_type > 0')
-    render :dmchannels
+    render json: @dm_channels.to_json(include: :members)
   end
 
   def server_channels
     @server = Server.find_by(id: params[:id])
     @channels = @server.channels
-    puts '------------------------'
-    p @channels
     render :index
   end
 

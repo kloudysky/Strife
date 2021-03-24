@@ -6,8 +6,19 @@ class MessageForm extends React.Component {
   }
 
   render() {
+    const messages = this.props.messages;
+
     return (
       <div>
+        <div>
+          <ul>
+            {messages.map((message) => (
+              <li>
+                {message.author.username}:{message.content}
+              </li>
+            ))}
+          </ul>
+        </div>
         <form id="message-form" action="">
           <input id="input" autoComplete="off" />
           <button>Send</button>

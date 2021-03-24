@@ -6,11 +6,24 @@ class Api::ServersController < ApplicationController
     @server = Server.new(server_params)
 
     if @server.save
+      gen_channel =
+        Channel.new(
+          channel_name: 'General',
+          server_id: @server.id,
+          channel_type: 0,
+          owner_id: @server.owner_id,
+        )
+      gen_channel.save
       firstMember =
         ServerMember.new(server_id: @server.id, member_id: @server.owner_id)
-      render :index if firstMember.save
+      if firstMember.save
+        @servers = current_user.membered_servers
+        render :index
+      else
+        render json: @server.errors.full_messages, status: 422
+      end
     else
-      render json @server.errors.full_messages, status: 422
+      render json: @server.errors.full_messages, status: 422
     end
   end
 
@@ -26,7 +39,7 @@ class Api::ServersController < ApplicationController
 
   def show
     @server = Server.find(params[:id])
-    render :show
+    render json: @server.to_json(include: :members)
   end
 
   def update
@@ -63,7 +76,7 @@ class Api::ServersController < ApplicationController
   private
 
   def server_params
-    params.require(:server).permit(:owner_id, :server_name)
+    params.require(:server).permit(:owner_id, :server_name, :icon)
   end
 
   def server_member_params

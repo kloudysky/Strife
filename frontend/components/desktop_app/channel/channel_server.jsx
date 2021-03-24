@@ -38,7 +38,11 @@ class ChannelServer extends React.Component {
           <ul className="channel-list">
             <Collapse isOpened={this.state.showTextChannels}>
               {channels.map((channel) => (
-                <li className="channel-list-item" key={channel.id}>
+                <li
+                  className="channel-list-item"
+                  key={channel.id}
+                  onClick={() => this.props.requestMessages(channel.id)}
+                >
                   <i className="fas fa-hashtag server-channel-icon"></i>
                   {channel.channel_name}
                 </li>

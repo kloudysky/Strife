@@ -6,7 +6,7 @@ class Message extends React.Component {
     return (
       <div className="message-container">
         <div>
-          <MessageForm />
+          <MessageForm messages={this.props.messages} />
         </div>
       </div>
     );

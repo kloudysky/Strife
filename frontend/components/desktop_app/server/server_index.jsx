@@ -72,7 +72,7 @@ class ServerIndex extends React.Component {
                       : "server-list-hover-shape"
                   }
                 ></div>
-                {server.icon ? `<img src='${server.icon}/>` : serverName}
+                {server.icon ? <img src={`${server.icon}`} /> : serverName}
               </li>
             );
           })}

@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createServer: () => dispatch(serverActions.createServer(server)),
+  createServer: (server) => dispatch(serverActions.createServer(server)),
   setCreateServerModalState: (modalState) =>
     dispatch(uiActions.setCreateServerModalState(modalState)),
 });

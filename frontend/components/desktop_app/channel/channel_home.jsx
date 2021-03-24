@@ -5,13 +5,29 @@ class ChannelHome extends React.Component {
     super(props);
   }
 
+  generateDMChannelName(channel) {
+    let channelName;
+    if (channel.members.length === 2) {
+      channel.members.forEach((member) => {
+        if (member.id !== this.props.user.id) {
+          channelName = member.username;
+        }
+      });
+    } else {
+      channelName = "Group Message";
+    }
+    return channelName;
+  }
+
   render() {
     const channels = this.props.channels;
 
     return (
       <div>
         <div className="channel-list-header">
-          <h3>SEARCH BAR</h3>
+          <button className="search-modal-btn">
+            Find or start a conversation
+          </button>
         </div>
         <div className="channels-container">
           <div className="dm-channel-tab">
@@ -20,8 +36,12 @@ class ChannelHome extends React.Component {
           </div>
           <ul className="channel-list">
             {channels.map((channel) => (
-              <li className="channel-list-item" key={channel.id}>
-                {channel.channel_name}
+              <li
+                onClick={() => this.props.requestMessages(channel.id)}
+                className="channel-list-item"
+                key={channel.id}
+              >
+                {this.generateDMChannelName(channel)}
               </li>
             ))}
           </ul>
