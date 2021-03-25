@@ -12,6 +12,16 @@
   bottom: 0;
 }
 
+.welcome-header {
+}
+
+.welcome-hr {
+  border: none;
+  height: 1px;
+  color: gray;
+  background-color: rgb(72, 75, 80);
+}
+
 .message-list {
   bottom: 70px;
   position: absolute;
@@ -19,6 +29,8 @@
   top: 0;
   padding-bottom: 15px;
   margin-left: 20px;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .msg-input {

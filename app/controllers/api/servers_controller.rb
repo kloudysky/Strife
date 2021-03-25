@@ -18,7 +18,7 @@ class Api::ServersController < ApplicationController
         ServerMember.new(server_id: @server.id, member_id: @server.owner_id)
       if firstMember.save
         @servers = current_user.membered_servers
-        render :index
+        render json: @servers.to_json(inclulde: :channels)
       else
         render json: @server.errors.full_messages, status: 422
       end

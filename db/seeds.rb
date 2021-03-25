@@ -175,8 +175,8 @@ Channel.create(
   channel_type: 0,
   owner_id: 2,
 )
-Channel.create(channel_name: 'DM', channel_type: 1, owner_id: 1)
-Channel.create(channel_name: 'DM', channel_type: 2, owner_id: 2)
+Channel.create(channel_name: 'tifa', channel_type: 1, owner_id: 1)
+Channel.create(channel_name: 'Group DM', channel_type: 2, owner_id: 2)
 Channel.create(
   channel_name: 'final-projects',
   server_id: 2,
