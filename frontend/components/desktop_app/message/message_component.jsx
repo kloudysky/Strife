@@ -33,9 +33,11 @@ class MessageComponent extends React.Component {
       },
       {
         received: (message) => {
+          console.log(message);
           this.props.receiveMessage(message);
         },
         speak: function (message) {
+          console.log(message);
           return this.perform("speak", message);
         },
       }
