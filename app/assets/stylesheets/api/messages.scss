@@ -3,11 +3,64 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .message-container {
-  height: 100%;
+  top: 0;
   left: 310px;
   position: absolute;
   background: #37393e;
   display: flex;
   width: 100%;
+  bottom: 0;
+}
+
+.message-list {
+  bottom: 70px;
+  position: absolute;
   overflow-y: auto;
+  top: 0;
+  padding-bottom: 15px;
+  margin-left: 20px;
+}
+
+.msg-input {
+  width: 100%;
+  margin: 15px;
+  border-radius: 7px;
+  background-color: #44474d;
+  border: 1px solid #44474d;
+  height: 30px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.message-li {
+  margin: 10px;
+}
+
+.msg-username {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.user-msg {
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.message-form {
+  bottom: 0;
+  position: absolute;
+  background-color: #37393e;
+  height: 70px;
+  width: 100%;
+  .msg-submit {
+    background-color: #37393e;
+    border: 0.1px solid #37393e;
+    height: 0;
+    color: transparent;
+    width: 0;
+  }
 }

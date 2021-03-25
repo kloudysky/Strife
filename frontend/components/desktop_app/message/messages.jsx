@@ -11,17 +11,14 @@ class Messages extends React.Component {
     );
   }
   componentDidMount() {
-    console.log(this.props.channel);
-    console.log(this.CableApp);
+    this.scrollToBottom();
     this.CableApp.messages = this.CableApp.cable.subscriptions.create(
       {
         channel: "ChannelChannel",
         id: this.props.channel.id,
       },
       {
-        connected: () => {
-          console.log("CONNECTED");
-        },
+        connected: () => {},
         received: (message) => {
           //this.props.createMessage(message);
           this.getResponseMessage(message);
@@ -35,27 +32,33 @@ class Messages extends React.Component {
 
   getResponseMessage(message) {
     //Make sure not to display own message in chat logs
-    console.log(this.props.user.id);
     const response = JSON.parse(message.json);
-    console.log(response.author.username);
-    console.log(response);
     if (this.props.user.id !== response.author.id) {
       this.props.receiveMessage(response);
     }
+  }
+
+  scrollToBottom() {
+    // this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+  }
+
+  componentDidUpdate() {
+    // this.scrollToBottom();
   }
 
   render() {
     const messages = this.props.messages;
 
     return (
-      <div>
-        <ul>
+      <div className="message-list">
+        <div className="message-ul">
           {messages.map((message) => (
-            <li key={message.id}>
-              {message.author.username}:{message.content}
-            </li>
+            <div key={message.id} className="message-li">
+              <div className="msg-username">{message.author.username}</div>
+              <div className="user-msg">{message.content}</div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     );
   }

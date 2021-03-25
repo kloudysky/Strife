@@ -31,16 +31,16 @@ class MessageForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="message-form">
         <form onSubmit={this.handleSubmit} id="message-form">
           <input
-            id="input"
+            className="msg-input"
             autoComplete="off"
             placeholder={`Message #${this.state.channel_name}`}
             value={this.state.message}
             onChange={this.update("message")}
           />
-          <button type="submit">Send</button>
+          <input className="msg-submit" type="submit" />
         </form>
       </div>
     );
