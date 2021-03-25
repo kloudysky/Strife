@@ -4,24 +4,17 @@ class ChannelChannel < ApplicationCable::Channel
     stream_for @channel
   end
 
-  # def received(data)
-  #   ChannelChannel.broadcast_to(
-  #     @channel,
-  #     {
-  #       channel: @channel,
-  #       members: @channel.members,
-  #       messages: @channel.messages,
-  #     },
-  #   )
-  # end
-
-  def speak(data)
-    socket = {
-      content: data['content'],
-      author_id: data['author_id'],
-      channel_id: data['channel_id'],
-    }
-    ChannelChannel.broadcast_to(@channel, socket)
+  def received(data)
+    puts '/\/\/\/\/\/\//\/---------------------'
+    puts data
+    ChannelChannel.broadcast_to(
+      @channel,
+      {
+        channel: @channel,
+        members: @channel.members,
+        messages: @channel.messages,
+      },
+    )
   end
 
   def unsubscribed
