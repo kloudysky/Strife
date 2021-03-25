@@ -15,15 +15,14 @@
   overflow: auto;
 }
 
-.server-list {
-  overflow: scroll;
-  list-style-type: none;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-}
+// .server-list {
+//   overflow: scroll;
+//   overflow-y: scroll;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   margin-top: 10px;
+// }
 
 .server-list-item {
   font-size: 17px;
