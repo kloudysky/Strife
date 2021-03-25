@@ -20,7 +20,6 @@ class Messages extends React.Component {
       {
         connected: () => {},
         received: (message) => {
-          //this.props.createMessage(message);
           this.getResponseMessage(message);
         },
         speak: function (message) {
@@ -31,7 +30,6 @@ class Messages extends React.Component {
   }
 
   getResponseMessage(message) {
-    //Make sure not to display own message in chat logs
     const response = JSON.parse(message.json);
     if (this.props.user.id !== response.author.id) {
       this.props.receiveMessage(response);
@@ -54,6 +52,13 @@ class Messages extends React.Component {
         <div className="message-ul">
           {messages.map((message) => (
             <div key={message.id} className="message-li">
+              <div className="author-avatar">
+                <img
+                  className="avatar-img"
+                  src={`${message.author.avatar}`}
+                  alt=""
+                />
+              </div>
               <div className="msg-username">{message.author.username}</div>
               <div className="user-msg">{message.content}</div>
             </div>

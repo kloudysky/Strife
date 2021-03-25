@@ -42,6 +42,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
+  overflow: hidden;
   &:hover {
     cursor: pointer;
     border-radius: 35%;
@@ -49,15 +50,10 @@
     .server-list-hover-shape {
       transform: translateX(3px);
     }
-    img {
-      border-radius: 35%;
-    }
   }
   img {
-    float: right;
-    width: 400%;
-    border-radius: 50%;
-    transition: all 0.2s;
+    height: auto;
+    width: 48px;
   }
 }
 
@@ -81,7 +77,7 @@
   position: absolute;
   transition: left 1s;
   border-radius: 3px;
-  transition: transform 750ms;
+  transition: transform 100ms;
 }
 
 .active-server-shape {

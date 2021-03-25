@@ -11,22 +11,18 @@ class MessageComponent extends React.Component {
     const messages = this.props.messages;
     const messageComponent = (
       <div>
-        <div>
-          <Messages
-            channel={channel}
-            messages={messages}
-            receiveMessage={this.props.receiveMessage}
-            createMessage={this.props.createMessage}
-            user={this.props.currentUser}
-          />
-        </div>
-        <div>
-          <MessageForm
-            sendMessage={this.props.sendMessage}
-            channel={channel}
-            user={this.props.currentUser}
-          />
-        </div>
+        <Messages
+          channel={channel}
+          messages={messages}
+          receiveMessage={this.props.receiveMessage}
+          createMessage={this.props.createMessage}
+          user={this.props.currentUser}
+        />
+        <MessageForm
+          sendMessage={this.props.sendMessage}
+          channel={channel}
+          user={this.props.currentUser}
+        />
       </div>
     );
     return (

@@ -64,3 +64,27 @@
     width: 0;
   }
 }
+
+.message-ul {
+  width: 100%;
+}
+
+.user-msg {
+  white-space: pre-line;
+}
+
+.author-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  //border: 1px solid black;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar-img {
+  height: auto;
+  width: 50px;
+}
