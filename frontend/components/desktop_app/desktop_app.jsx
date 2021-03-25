@@ -6,7 +6,6 @@ import ServerFormContainer from "./server/server_form_container";
 
 class DesktopApp extends React.Component {
   render() {
-    console.log(this.state);
     return (
       <div className="desktop-app">
         <ServerIndexContainer />

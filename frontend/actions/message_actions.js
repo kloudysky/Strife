@@ -44,7 +44,6 @@ const responseAllOk = (response) => {
 };
 
 const responseOk = (response) => {
-  console.log("WHAT");
   if (!response.ok) {
     return response.json().then((errors) => dispatch(receiveErrors(errors)));
   } else {

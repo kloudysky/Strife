@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   sendMessage: (message) => dispatch(messageActions.createMessage(message)),
+  receiveMessage: (message) => dispatch(messageActions.receiveMessage(message)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MessageComponent);

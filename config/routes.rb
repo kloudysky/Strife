@@ -23,5 +23,6 @@ Rails
       post '/channelmsg', to: 'messages#create', as: 'channel_message'
     end
 
+    mount ActionCable.server => '/cable'
     root 'staticpages#root'
   end

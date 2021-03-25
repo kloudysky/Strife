@@ -1,6 +1,6 @@
 import React from "react";
 
-class MessageForm extends React.Component {
+class Messages extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -22,4 +22,4 @@ class MessageForm extends React.Component {
   }
 }
 
-export default MessageForm;
+export default Messages;

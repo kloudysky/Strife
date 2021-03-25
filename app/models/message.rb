@@ -6,5 +6,5 @@ class Message < ApplicationRecord
 
   belongs_to :author, foreign_key: :author_id, class_name: :User
 
-  # after_create_commit { MessageBroadcastJob.perform_later(self) }
+  after_create_commit { MessageBroadcastJob.perform_later(self) }
 end

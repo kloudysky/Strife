@@ -8,8 +8,12 @@ class Api::MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
-
+    @channel = Channel.find(message_params['channel_id'])
     if @message.save
+      ChannelChannel.broadcast_to(
+        @channel,
+        { json: @message.to_json(include: :author) },
+      )
       render json: @message.to_json(include: :author)
     else
       render json: @message.errors.full_messages, status: 422
