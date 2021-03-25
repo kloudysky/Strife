@@ -5,38 +5,22 @@ import actionCable from "actioncable";
 class MessageComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.CableApp = {};
-    this.CableApp.cable = actionCable.createConsumer(
-      // "wss://strifeapp.herokuapp.com/cable"
-      "ws://localhost:3000/cable"
-    );
   }
 
-  componentDidMount() {
-    console.log(this.CableApp);
-    this.CableApp.messages = this.CableApp.cable.subscriptions.create(
-      {
-        channel: "ChannelChannel",
-        id: this.props.activeChannel.id,
-      },
-      {
-        connected: () => {
-          console.log("CONNECTED");
-        },
-        received: (messages) => {
-          console.log(messages);
-          this.props.receiveMessage(messages);
-        },
-      }
-    );
-  }
+  componentDidMount() {}
 
   render() {
     const channel = this.props.activeChannel;
     const messages = this.props.messages;
     const messageComponent = (
       <div>
-        <Messages messages={messages} />
+        <Messages
+          channel={channel}
+          messages={messages}
+          receiveMessage={this.props.receiveMessage}
+          createMessage={this.props.createMessage}
+          user={this.props.currentUser}
+        />
         <MessageForm
           sendMessage={this.props.sendMessage}
           channel={channel}

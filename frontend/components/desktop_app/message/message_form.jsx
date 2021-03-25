@@ -25,6 +25,7 @@ class MessageForm extends React.Component {
       author_id: this.state.author_id,
     };
     this.props.sendMessage(msg);
+    //App.cable.subscriptions.subscriptions[0].speak(msg);
     this.setState({ message: "" });
   }
 
