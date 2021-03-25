@@ -18,12 +18,19 @@ const mapStateToProps = (state) => {
   } else {
     activeChannel = { id: -1 };
   }
+  let activeDMChannel;
+  if (state.ui.activeDMChannel) {
+    activeDMChannel = state.ui.activeDMChannel;
+  } else {
+    activeDMChannel = { id: -1 };
+  }
   return {
     channels: Object.values(state.entities.channels),
     activeServer: activeServer,
     currentUser: state.entities.users.currentUser,
     messages: state.entities.messages,
     activeChannel: activeChannel,
+    activeDMChannel: activeDMChannel,
   };
 };
 
@@ -32,6 +39,7 @@ const mapDispatchToProps = (dispatch) => ({
   requestMessages: (channelId) =>
     dispatch(messageActions.requestMessages(channelId)),
   setChannel: (channel) => dispatch(uiActions.setActiveChannel(channel)),
+  setDMChannel: (channel) => dispatch(uiActions.setActiveDMChannel(channel)),
   logout: () => dispatch(sessionActions.logout()),
 });
 

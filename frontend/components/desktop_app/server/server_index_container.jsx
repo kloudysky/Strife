@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import * as serverActions from "../../../actions/server_actions";
 import * as channelActions from "../../../actions/channel_actions";
+import * as messageActions from "../../../actions/message_actions";
 import * as uiActions from "../../../actions/ui_actions";
 import ServerIndex from "./server_index";
 
@@ -26,6 +27,9 @@ const mapDispatchToProps = (dispatch) => ({
   setActiveServer: (server) => dispatch(uiActions.setActiveServer(server)),
   setCreateServerModalState: (modalState) =>
     dispatch(uiActions.setCreateServerModalState(modalState)),
+  setActiveChannel: (channel) => dispatch(uiActions.setActiveChannel(channel)),
+  requestMessages: (channelId) =>
+    dispatch(messageActions.requestMessages(channelId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ServerIndex);

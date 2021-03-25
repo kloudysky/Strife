@@ -17,6 +17,11 @@ class ChannelServer extends React.Component {
     });
   }
 
+  setActiveChannel(channel) {
+    this.props.requestMessages(channel.id);
+    this.props.setChannel(channel);
+  }
+
   render() {
     const channels = this.props.channels;
     const server = this.props.server;
@@ -39,9 +44,13 @@ class ChannelServer extends React.Component {
             <Collapse isOpened={this.state.showTextChannels}>
               {channels.map((channel) => (
                 <li
-                  className="channel-list-item"
+                  className={`channel-list-item ${
+                    this.props.activeChannel.id === channel.id
+                      ? `active-channel`
+                      : ``
+                  }`}
                   key={channel.id}
-                  onClick={() => this.props.requestMessages(channel.id)}
+                  onClick={() => this.setActiveChannel(channel)}
                 >
                   <i className="fas fa-hashtag server-channel-icon"></i>
                   {channel.channel_name}

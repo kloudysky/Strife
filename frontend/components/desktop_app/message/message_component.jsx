@@ -3,6 +3,9 @@ import MessageForm from "./message_form";
 import Messages from "./messages";
 import actionCable from "actioncable";
 class MessageComponent extends React.Component {
+  componentDidMount() {
+    const channel = this.props.activeChannel;
+  }
   render() {
     const channel = this.props.activeChannel;
     const messages = this.props.messages;

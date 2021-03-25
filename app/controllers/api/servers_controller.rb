@@ -29,7 +29,7 @@ class Api::ServersController < ApplicationController
 
   def index
     @servers = current_user.membered_servers
-    render :index
+    render json: @servers.to_json(include: :channels)
   end
 
   def edit

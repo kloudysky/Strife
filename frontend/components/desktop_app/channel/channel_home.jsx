@@ -4,10 +4,17 @@ class ChannelHome extends React.Component {
   constructor(props) {
     super(props);
   }
+  componentDidMount() {
+    //this.props.requestMessages(this.props.activeChannel.id);
+    this.props.activeDMChannel.id > 0
+      ? this.props.requestMessages(this.props.activeDMChannel.id)
+      : console.log("HELLO");
+  }
 
   setActiveChannel(channel) {
     this.props.requestMessages(channel.id);
     this.props.setChannel(channel);
+    this.props.setDMChannel(channel);
   }
 
   generateDMChannelName(channel) {
@@ -43,7 +50,11 @@ class ChannelHome extends React.Component {
             {channels.map((channel) => (
               <li
                 onClick={() => this.setActiveChannel(channel)}
-                className="channel-list-item"
+                className={`channel-list-item ${
+                  this.props.activeDMChannel.id === channel.id
+                    ? `active-channel`
+                    : ``
+                }`}
                 key={channel.id}
               >
                 {this.generateDMChannelName(channel)}
