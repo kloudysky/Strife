@@ -7,22 +7,36 @@ class MessageComponent extends React.Component {
     super(props);
     this.CableApp = {};
     this.CableApp.cable = actionCable.createConsumer(
-      "wss://strifeapp.herokuapp.com/cable"
-      // "ws://localhost:3000/cable"
+      // "wss://strifeapp.herokuapp.com/cable"
+      "ws://localhost:3000/cable"
     );
   }
 
   componentDidMount() {
     console.log(this.CableApp);
-    this.CableApp.messages = this.CableApp.cable.subscriptions.create(
+    // this.CableApp.messages = this.CableApp.cable.subscriptions.create(
+    //   {
+    //     channel: "ChannelChannel",
+    //     id: this.props.activeChannel.id,
+    //   },
+    //   {
+    //     received: (messages) => {
+    //       console.log(messages);
+    //       this.props.receiveMessage(messages);
+    //     },
+    //   }
+    // );
+    App.cable.subscriptions.create(
       {
         channel: "ChannelChannel",
         id: this.props.activeChannel.id,
       },
       {
-        received: (messages) => {
-          console.log(messages);
-          this.props.receiveMessage(messages);
+        received: (message) => {
+          this.props.receiveMessage(message);
+        },
+        speak: function (message) {
+          return this.perform("speak", message);
         },
       }
     );
