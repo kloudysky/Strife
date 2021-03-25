@@ -7,7 +7,7 @@ class MessageComponent extends React.Component {
     super(props);
     this.CableApp = {};
     this.CableApp.cable = actionCable.createConsumer(
-      "ws://strifeapp.herokuapp.com/cable"
+      "wss://strifeapp.herokuapp.com/cable"
     );
   }
 
