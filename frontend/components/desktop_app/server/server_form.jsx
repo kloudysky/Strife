@@ -147,30 +147,34 @@ class ServerForm extends React.Component {
         <span className="close-modal" onClick={() => this.closeModal()}>
           <i className="fas fa-times"></i>
         </span>
-        <h2 className="create-server-header">Tell us more about your server</h2>
-        <p className="create-server-header-p">
-          In order to help you with your setup, is your new server for just a
-          few friends or a larger community?
-        </p>
-        <button className="server-type-btn" onClick={() => this.nextModal()}>
-          <img
-            src="https://discord.com/assets/a01602a0c0bd856ebed967db1785d5a7.svg"
-            alt=""
-          />
-          <h3>For a club or community</h3>
-          <i className="fas fa-chevron-right list-btn-arrow"></i>
-        </button>
-        <button className="server-type-btn" onClick={() => this.nextModal()}>
-          <img
-            src="https://discord.com/assets/5e8985b40ca5104dadceeccaa81c23ca.svg"
-            alt=""
-          />
-          <h3>For me and my friends</h3>
-          <i className="fas fa-chevron-right list-btn-arrow"></i>
-        </button>
-        <p className="skip-modal-p">
-          Not sure? You can <a href="">skip this question</a> for now
-        </p>
+        <div className="community-type-modal-content">
+          <h2 className="create-server-header">
+            Tell us more about your server
+          </h2>
+          <p className="create-server-header-p">
+            In order to help you with your setup, is your new server for just a
+            few friends or a larger community?
+          </p>
+          <button className="server-type-btn" onClick={() => this.nextModal()}>
+            <img
+              src="https://discord.com/assets/a01602a0c0bd856ebed967db1785d5a7.svg"
+              alt=""
+            />
+            <h3>For a club or community</h3>
+            <i className="fas fa-chevron-right list-btn-arrow"></i>
+          </button>
+          <button className="server-type-btn" onClick={() => this.nextModal()}>
+            <img
+              src="https://discord.com/assets/5e8985b40ca5104dadceeccaa81c23ca.svg"
+              alt=""
+            />
+            <h3>For me and my friends</h3>
+            <i className="fas fa-chevron-right list-btn-arrow"></i>
+          </button>
+          <p className="skip-modal-p">
+            Not sure? You can <a href="">skip this question</a> for now
+          </p>
+        </div>
         <div className="community-list-footer">
           <span className="back-form-btn" onClick={() => this.previousModal()}>
             Back

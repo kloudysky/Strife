@@ -31,6 +31,7 @@
   margin-left: 20px;
   display: flex;
   flex-direction: column-reverse;
+  width: 50%;
 }
 
 .content-area {
@@ -137,4 +138,25 @@ textarea {
 
 input.middle:focus {
   outline-width: 0;
+}
+
+.welcome-img-contianer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85px;
+  height: 85px;
+  //border: 1px solid black;
+  border-radius: 50%;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.welcome-img {
+  height: auto;
+  width: 85px;
+}
+
+.welcome-header {
+  margin-top: 10px;
 }

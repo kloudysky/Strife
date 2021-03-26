@@ -76,7 +76,11 @@ class Messages extends React.Component {
     return (
       <div className="channel-welcome">
         <div className="welcome-img-contianer">
-          <img src="" alt="" />
+          <img
+            className="welcome-img"
+            src={`${this.getOtherUsersImg(channel.members)}`}
+            alt=""
+          />
         </div>
         <h1 className="welcome-header">{channel.channel_name}</h1>
         <p className="welcome-text">
@@ -86,6 +90,18 @@ class Messages extends React.Component {
         <hr className="welcome-hr" />
       </div>
     );
+  }
+
+  getOtherUsersImg(members) {
+    let userImgUrl;
+    members.forEach((member) => {
+      console.log(member.username);
+      console.log(this.props.user.username);
+      if (member.id !== this.props.user.id) {
+        userImgUrl = member.avatar;
+      }
+    });
+    return userImgUrl;
   }
 
   welcomeMessage(channel) {
