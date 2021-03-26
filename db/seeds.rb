@@ -42,12 +42,16 @@ User.create(
   email: 'biggs@ff7.com',
   password: '123456',
   birthday: '03/12/1988',
+  avatar:
+    'https://www.siliconera.com/wp-content/uploads/2020/04/ICON_BIGGS.jpg',
 )
 User.create(
   username: 'wedge',
   email: 'wedge@ff7.com',
   password: '123456',
   birthday: '03/12/1988',
+  avatar:
+    'https://www.siliconera.com/wp-content/uploads/2020/04/ICON_WEDGE.jpg',
 )
 User.create(
   username: 'Rino',
