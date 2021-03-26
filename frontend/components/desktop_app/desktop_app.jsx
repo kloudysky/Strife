@@ -4,6 +4,7 @@ import ChannelIndexContainer from "./channel/channel_index_container";
 import MessagesContainer from "./message/messages_container";
 import ServerFormContainer from "./server/server_form_container";
 import StrifeNavBar from "./navbar/strife_navbar_container";
+import ServerMembersContainer from "./server/members/server_members_container";
 
 class DesktopApp extends React.Component {
   render() {
@@ -14,6 +15,7 @@ class DesktopApp extends React.Component {
         <ChannelIndexContainer />
         <MessagesContainer />
         <ServerFormContainer />
+        <ServerMembersContainer />
       </div>
     );
   }

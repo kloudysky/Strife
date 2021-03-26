@@ -37,8 +37,8 @@ class ChannelIndex extends React.Component {
           />
         )}
         <div className="settings-section">
-          <div className="channel-profile-image">
-            <img className="profile-img" src={user.avatar} alt="" />
+          <div className="settings-avatar">
+            <img className="settings-img" src={user.avatar} alt="" />
           </div>
           <p className="channel-profile-username">{user.username}</p>
           <div className="channel-settings-buttons">

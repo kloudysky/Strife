@@ -10,7 +10,7 @@ class MessageComponent extends React.Component {
     const channel = this.props.activeChannel;
     const messages = this.props.messages;
     const messageComponent = (
-      <div>
+      <div className="message-components">
         <Messages
           channel={channel}
           messages={messages}

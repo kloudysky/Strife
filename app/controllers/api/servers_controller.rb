@@ -35,7 +35,7 @@ class Api::ServersController < ApplicationController
 
   def index
     @servers = current_user.membered_servers
-    render json: @servers.to_json(include: :channels)
+    render json: @servers, include: %i[channels members]
   end
 
   def edit
@@ -71,6 +71,11 @@ class Api::ServersController < ApplicationController
     else
       render json: @server_member.errors.full_messages, status: 422
     end
+  end
+
+  def get_members
+    @server_members = Server.find_by(id: params[:id]).members
+    render json: @server_members
   end
 
   def remove_member

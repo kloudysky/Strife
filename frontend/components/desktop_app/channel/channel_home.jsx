@@ -17,6 +17,21 @@ class ChannelHome extends React.Component {
     this.props.setDMChannel(channel);
   }
 
+  generateChannelImg(channel) {
+    let imgUrl;
+    if (channel.members.length === 2) {
+      channel.members.forEach((member) => {
+        if (member.id !== this.props.user.id) {
+          imgUrl = member.avatar;
+        }
+      });
+    } else {
+      imgUrl =
+        "https://cdn1.iconfinder.com/data/icons/ui-colored-3-of-3/100/UI_3__23-512.png";
+    }
+    return imgUrl;
+  }
+
   generateDMChannelName(channel) {
     let channelName;
     if (channel.members.length === 2) {
@@ -57,7 +72,16 @@ class ChannelHome extends React.Component {
                 }`}
                 key={channel.id}
               >
-                {this.generateDMChannelName(channel)}
+                <div className="dm-list-avatar">
+                  <img
+                    className="dm-list-img"
+                    src={`${this.generateChannelImg(channel)}`}
+                    alt=""
+                  />
+                </div>
+                <div className="dm-user-name">
+                  {this.generateDMChannelName(channel)}
+                </div>
               </li>
             ))}
           </ul>

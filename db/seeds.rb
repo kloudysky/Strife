@@ -120,6 +120,14 @@ User.create(
   avatar: 'https://www.maiken2051.com/images/hirez/Killua%20shades.jpg',
 )
 
+User.create(
+  username: 'BORIS-8',
+  email: 'boris8@boris8.com',
+  password: '123456',
+  birthday: '03/12/1988',
+  avatar: 'https://www.maiken2051.com/images/hirez/Killua%20shades.jpg',
+)
+
 Server.create(owner_id: 2, server_name: '7th Heaven')
 Server.create(
   owner_id: 1,

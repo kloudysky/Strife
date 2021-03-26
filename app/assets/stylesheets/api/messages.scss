@@ -35,6 +35,8 @@
 
 .content-area {
   display: flex;
+  flex-direction: column;
+  margin-left: 15px;
 }
 
 .msg-input {
@@ -43,27 +45,35 @@
   border-radius: 7px;
   background-color: #44474d;
   border: 1px solid #44474d;
-  height: 30px;
-  font-size: 12px;
-  font-weight: 600;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.msg-input:focus {
+  outline: none;
 }
 
 .message-li {
   margin: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  margin-bottom: 30px;
 }
 
 .msg-username {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
-  margin-bottom: 0px;
+  margin-bottom: 3px;
   padding-bottom: 0px;
 }
 
 .user-msg {
-  font-size: 13px;
-  font-weight: 400;
+  font-size: 15px;
+  font-weight: 300;
   margin-top: 0px;
   padding-top: 0px;
+  color: #d8d8d7;
 }
 
 .message-form {
@@ -72,6 +82,7 @@
   background-color: #37393e;
   height: 70px;
   width: 100%;
+  margin-bottom: 15px;
   .msg-submit {
     background-color: #37393e;
     border: 0.1px solid #37393e;
@@ -82,6 +93,10 @@
 }
 
 .message-ul {
+  width: 100%;
+}
+
+.message-components {
   width: 100%;
 }
 
@@ -103,4 +118,14 @@
 .avatar-img {
   height: auto;
   width: 50px;
+}
+
+input,
+select,
+textarea {
+  color: #e2e2e2;
+}
+
+input.middle:focus {
+  outline-width: 0;
 }
