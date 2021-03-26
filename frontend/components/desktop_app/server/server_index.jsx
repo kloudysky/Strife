@@ -41,7 +41,7 @@ class ServerIndex extends React.Component {
     return (
       <div className="server-component">
         <div className="scroller"></div>
-        <div className="list-item">
+        <div className="list-item" key="list-item1">
           <div
             className="server-list-item server-home-btn"
             id={
@@ -55,11 +55,11 @@ class ServerIndex extends React.Component {
             <i className="fas fa-gamepad"></i>
           </div>
         </div>
-        <div className="list-item">
+        <div className="list-item" key="list-item2">
           <div className="server-list-br"></div>
         </div>
         {this.generateServerItem()}
-        <div className="list-item">
+        <div className="list-item" key="list-item3">
           <div
             className="server-list-item server-list-icon"
             onClick={() => this.props.setCreateServerModalState(true)}
@@ -68,16 +68,16 @@ class ServerIndex extends React.Component {
             <i className="fas fa-plus"></i>
           </div>
         </div>
-        <div className="list-item">
+        <div className="list-item" key="list-item4">
           <div className="server-list-item server-list-icon">
             <div className="server-list-hover-shape"></div>
             <i className="fas fa-compass"></i>
           </div>
         </div>
-        <div className="list-item">
+        <div className="list-item" key="list-item5">
           <div className="server-list-br"></div>
         </div>
-        <div className="list-item">
+        <div className="list-item" key="list-item6">
           <div className="server-list-item server-list-icon">
             <div className="server-list-hover-shape"></div>
             <i className="fas fa-download"></i>
@@ -88,7 +88,7 @@ class ServerIndex extends React.Component {
   }
 
   activeServer() {
-    return <div className="active-server"></div>;
+    return <div key="active" className="active-server"></div>;
   }
 
   generateServerItem() {
@@ -113,6 +113,7 @@ class ServerIndex extends React.Component {
             >
               {/* <div className="server-list-hover-shape"></div> */}
               <div
+                key={activeServer.id}
                 className={
                   activeServer.id === server.id
                     ? "active-server-shape"

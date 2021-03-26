@@ -48,15 +48,20 @@ class Messages extends React.Component {
       <div className="message-list">
         <div className="message-ul">
           {channel.channel_type > 0
-            ? this.welcomeDMMessage(channel.channel_name)
-            : this.welcomeMessage(channel.channel_name)}
+            ? this.welcomeDMMessage(channel)
+            : this.welcomeMessage(channel)}
           {messages.map((message) => (
             <div key={message.id} className="message-li">
               <div className="author-avatar">
                 <img className="avatar-img" src={`${message.author.avatar}`} />
               </div>
               <div className="content-area">
-                <div className="msg-username">{message.author.username}</div>
+                <div className="msg-username">
+                  {message.author.username}
+                  <div className="timestamp">
+                    {`${this.getTimeAgo(Date.parse(message.created_at))} ago`}
+                  </div>
+                </div>
                 <div className="user-msg">{message.content}</div>
               </div>
             </div>
@@ -67,32 +72,59 @@ class Messages extends React.Component {
     );
   }
 
-  welcomeDMMessage(name) {
+  welcomeDMMessage(channel) {
     return (
       <div className="channel-welcome">
         <div className="welcome-img-contianer">
           <img src="" alt="" />
         </div>
-        <h1 className="welcome-header">{name}</h1>
+        <h1 className="welcome-header">{channel.channel_name}</h1>
         <p className="welcome-text">
-          This is the beginning of your bond history with @{name}
+          This is the beginning of your bond history with{" "}
+          {channel.members.map((member) => `@${member.username} `)}
         </p>
         <hr className="welcome-hr" />
       </div>
     );
   }
 
-  welcomeMessage(name) {
+  welcomeMessage(channel) {
     return (
       <div className="channel-welcome">
         <div className="welcome-img-contianer">
           <img src="" alt="" />
         </div>
-        <h1 className="welcome-header">Welcome to {name}!</h1>
-        <p className="welcome-text">This is the start of your {name} plot</p>
+        <h1 className="welcome-header">
+          Welcome to the {channel.channel_name} channel!
+        </h1>
+        <p className="welcome-text">
+          This is the beginning of your {channel.channel_name} conversations.
+        </p>
         <hr className="welcome-hr" />
       </div>
     );
+  }
+  getTimeAgo(date) {
+    const MINUTE = 60,
+      HOUR = MINUTE * 60,
+      DAY = HOUR * 24,
+      YEAR = DAY * 365;
+    const secondsAgo = Math.round((+new Date() - date) / 1000);
+
+    if (secondsAgo < MINUTE) {
+      return secondsAgo + "s";
+    } else if (secondsAgo < HOUR) {
+      return Math.floor(secondsAgo / MINUTE) + "m";
+    } else if (secondsAgo < DAY) {
+      return Math.floor(secondsAgo / HOUR) + "h";
+    } else if (secondsAgo < YEAR) {
+      return date.toLocaleString("default", { day: "numeric", month: "short" });
+    } else {
+      return date.toLocaleString("default", {
+        year: "numeric",
+        month: "short",
+      });
+    }
   }
 }
 

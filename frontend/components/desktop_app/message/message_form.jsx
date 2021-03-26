@@ -13,6 +13,11 @@ class MessageForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    console.log(this.props.channel.channel_name);
+    this.setState({ channel_name: this.props.channel.channel_name });
+  }
+
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
@@ -36,7 +41,7 @@ class MessageForm extends React.Component {
           <input
             className="msg-input"
             autoComplete="off"
-            placeholder={`Message #${this.state.channel_name}`}
+            placeholder={`Message #${this.props.channel.channel_name}`}
             value={this.state.message}
             onChange={this.update("message")}
           />

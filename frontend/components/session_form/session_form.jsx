@@ -20,6 +20,22 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  demo1login() {
+    const user = {
+      email: "kloud@ff7.com",
+      password: "123456",
+    };
+    this.props.processForm(user);
+  }
+
+  demo2login() {
+    const user = {
+      email: "tifa@ff7.com",
+      password: "123456",
+    };
+    this.props.processForm(user);
+  }
+
   renderErrors() {
     return (
       <ul>
@@ -40,43 +56,60 @@ class SessionForm extends React.Component {
         <div className="logo-link">
           <a href="/">STRIFE</a>
         </div>
+
         <div className="login-form-box fade-in">
-          <h2 className="login-header">Welcome back!</h2>
-          <p className="login-header">We're so excited to see you again!</p>
-          <div className="login-form-box">
-            <form onSubmit={this.handleSubmit} className="form-login form">
-              {this.renderErrors()}
-              <div className="form-field">
-                <label>Email</label>
-                <input
-                  type="text"
-                  value={this.state.email}
-                  onChange={this.update("email")}
-                  className="login-input"
-                />
-              </div>
-              <br />
-              <div className="form-field">
-                <label>Password</label>
-                <input
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.update("password")}
-                  className="login-input"
-                />
-              </div>
-              <div className="form-field">
-                <a href="#">Forgot your password?</a>
-              </div>
-              <br />
-              <div className="form-field">
-                <button type="submit" className="form-login-button">
-                  Login
-                </button>
-              </div>
-            </form>
+          <div className="normal-login">
+            <h2 className="login-header">Welcome back!</h2>
+            <p className="login-header">We're so excited to see you again!</p>
+            <div className="login-form-box">
+              <form onSubmit={this.handleSubmit} className="form-login form">
+                {this.renderErrors()}
+                <div className="form-field">
+                  <label>Email</label>
+                  <input
+                    type="text"
+                    value={this.state.email}
+                    onChange={this.update("email")}
+                    className="login-input"
+                  />
+                </div>
+                <br />
+                <div className="form-field">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.update("password")}
+                    className="login-input"
+                  />
+                </div>
+                <div className="form-field">
+                  <a href="#">Forgot your password?</a>
+                </div>
+                <br />
+                <div className="form-field">
+                  <button type="submit" className="form-login-button">
+                    Login
+                  </button>
+                </div>
+              </form>
+            </div>
+            <span>Need an account? {this.props.navLink}</span>
           </div>
-          <span>Need an account? {this.props.navLink}</span>
+          <div className="demo-login">
+            <button
+              className="demo-login-btn"
+              onClick={() => this.demo1login()}
+            >
+              User 1 Demo Login
+            </button>
+            <button
+              className="demo-login-btn"
+              onClick={() => this.demo2login()}
+            >
+              User 2 Demo Login
+            </button>
+          </div>
         </div>
       </div>
     );

@@ -128,6 +128,59 @@ User.create(
   avatar: 'https://www.maiken2051.com/images/hirez/Killua%20shades.jpg',
 )
 
+User.create(
+  username: 'Cid',
+  email: 'cid@cid.com',
+  password: '123456',
+  birthday: '03/12/1988',
+  avatar:
+    'https://www.pngkey.com/png/detail/741-7416234_cid-highwind-ffvii-portrait.png',
+)
+
+User.create(
+  username: 'Yuffie',
+  email: 'yuffie@yuffie.com',
+  password: '123456',
+  birthday: '03/12/1988',
+  avatar:
+    'https://64.media.tumblr.com/20a8932307a4691f3db2384f21700f93/tumblr_prdwmcEUQi1s4ftpo_500.png',
+)
+
+User.create(
+  username: 'RedXIII',
+  email: 'yuffie@yuffie.com',
+  password: '123456',
+  birthday: '03/12/1988',
+  avatar:
+    'https://ih1.redbubble.net/image.808535852.8928/st,small,507x507-pad,600x600,f8f8f8.u1.jpg',
+)
+
+User.create(
+  username: 'Vincent',
+  email: 'vincent@vincent.com',
+  password: '123456',
+  birthday: '03/12/1988',
+  avatar: 'https://i.redd.it/nno95tuqm9h51.jpg',
+)
+
+User.create(
+  username: 'CaitSith',
+  email: 'cait@cait.com',
+  password: '123456',
+  birthday: '03/12/1988',
+  avatar:
+    'https://d.furaffinity.net/art/churgoii/1517501581/1517501581.churgoii_cait_sith_icon.png',
+)
+
+User.create(
+  username: 'Aerith',
+  email: 'aerith@aerith.com',
+  password: '123456',
+  birthday: '03/12/1988',
+  avatar:
+    'https://64.media.tumblr.com/1795a0c252624c7f4680ca6e4548647e/b477337d3c7a46d5-8f/s1280x1920/6e879ff1b1e0ed7812f962c3d278f1949cd54f9d.png',
+)
+
 Server.create(owner_id: 2, server_name: '7th Heaven')
 Server.create(
   owner_id: 1,
@@ -138,6 +191,7 @@ Server.create(
 Server.create(owner_id: 4, server_name: 'AVALANCHE')
 Server.create(owner_id: 3, server_name: 'SOLDIER')
 Server.create(owner_id: 9, server_name: 'SHINRA')
+Server.create(owner_id: 17, server_name: 'HIGHWIND')
 
 ServerMember.create(server_id: 1, member_id: 2)
 ServerMember.create(server_id: 1, member_id: 1)
@@ -148,6 +202,7 @@ ServerMember.create(server_id: 2, member_id: 12)
 ServerMember.create(server_id: 2, member_id: 13)
 ServerMember.create(server_id: 2, member_id: 14)
 ServerMember.create(server_id: 2, member_id: 15)
+ServerMember.create(server_id: 2, member_id: 16)
 ServerMember.create(server_id: 2, member_id: 4)
 ServerMember.create(server_id: 2, member_id: 1)
 ServerMember.create(server_id: 3, member_id: 3)
@@ -158,6 +213,16 @@ ServerMember.create(server_id: 4, member_id: 9)
 ServerMember.create(server_id: 4, member_id: 10)
 ServerMember.create(server_id: 4, member_id: 8)
 ServerMember.create(server_id: 4, member_id: 7)
+ServerMember.create(server_id: 6, member_id: 17)
+ServerMember.create(server_id: 6, member_id: 18)
+ServerMember.create(server_id: 6, member_id: 19)
+ServerMember.create(server_id: 6, member_id: 20)
+ServerMember.create(server_id: 6, member_id: 21)
+ServerMember.create(server_id: 6, member_id: 22)
+ServerMember.create(server_id: 6, member_id: 1)
+ServerMember.create(server_id: 6, member_id: 2)
+ServerMember.create(server_id: 6, member_id: 3)
+ServerMember.create(server_id: 6, member_id: 4)
 
 Channel.create(
   channel_name: 'general',
@@ -215,11 +280,27 @@ Channel.create(
   channel_type: 0,
   owner_id: 1,
 )
+
+Channel.create(
+  channel_name: 'general',
+  server_id: 6,
+  channel_type: 0,
+  owner_id: 1,
+)
+
+Channel.create(
+  channel_name: 'vacations',
+  server_id: 6,
+  channel_type: 0,
+  owner_id: 1,
+)
+
 Channelmember.create(channel_id: 5, recipient_id: 1)
 Channelmember.create(channel_id: 5, recipient_id: 2)
 Channelmember.create(channel_id: 6, recipient_id: 1)
 Channelmember.create(channel_id: 6, recipient_id: 9)
 Channelmember.create(channel_id: 6, recipient_id: 5)
+Channelmember.create(channel_id: 6, recipient_id: 2)
 Channelmember.create(channel_id: 1, recipient_id: 1)
 Channelmember.create(channel_id: 1, recipient_id: 3)
 Channelmember.create(channel_id: 1, recipient_id: 2)
@@ -230,6 +311,26 @@ Channelmember.create(channel_id: 8, recipient_id: 12)
 Channelmember.create(channel_id: 9, recipient_id: 13)
 Channelmember.create(channel_id: 10, recipient_id: 14)
 Channelmember.create(channel_id: 11, recipient_id: 15)
+Channelmember.create(channel_id: 12, recipient_id: 1)
+Channelmember.create(channel_id: 12, recipient_id: 2)
+Channelmember.create(channel_id: 12, recipient_id: 3)
+Channelmember.create(channel_id: 12, recipient_id: 17)
+Channelmember.create(channel_id: 12, recipient_id: 18)
+Channelmember.create(channel_id: 12, recipient_id: 19)
+Channelmember.create(channel_id: 12, recipient_id: 20)
+Channelmember.create(channel_id: 12, recipient_id: 21)
+Channelmember.create(channel_id: 12, recipient_id: 22)
+Channelmember.create(channel_id: 12, recipient_id: 4)
+Channelmember.create(channel_id: 13, recipient_id: 1)
+Channelmember.create(channel_id: 13, recipient_id: 2)
+Channelmember.create(channel_id: 13, recipient_id: 3)
+Channelmember.create(channel_id: 13, recipient_id: 17)
+Channelmember.create(channel_id: 13, recipient_id: 18)
+Channelmember.create(channel_id: 13, recipient_id: 19)
+Channelmember.create(channel_id: 13, recipient_id: 20)
+Channelmember.create(channel_id: 13, recipient_id: 21)
+Channelmember.create(channel_id: 13, recipient_id: 22)
+Channelmember.create(channel_id: 13, recipient_id: 4)
 
 Message.create(channel_id: 1, author_id: 1, content: 'hello')
 Message.create(channel_id: 1, author_id: 2, content: 'hello')

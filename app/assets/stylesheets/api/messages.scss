@@ -66,6 +66,8 @@
   font-weight: 600;
   margin-bottom: 3px;
   padding-bottom: 0px;
+  display: flex;
+  align-items: center;
 }
 
 .user-msg {
@@ -81,7 +83,7 @@
   position: absolute;
   background-color: #37393e;
   height: 70px;
-  width: 100%;
+  width: 50%;
   margin-bottom: 15px;
   .msg-submit {
     background-color: #37393e;
@@ -102,6 +104,13 @@
 
 .user-msg {
   white-space: pre-line;
+}
+
+.timestamp {
+  font-size: 10px;
+  margin-left: 10px;
+  font-weight: 100;
+  color: gray;
 }
 
 .author-avatar {

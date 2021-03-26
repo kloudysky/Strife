@@ -252,8 +252,8 @@ nav {
 }
 
 .logo-link {
-  top: 30px;
-  left: 100px;
+  top: 10px;
+  left: 10px;
   position: absolute;
   font-size: 30px;
   color: black;
@@ -268,9 +268,6 @@ nav {
   padding: 30px;
   border-radius: 6px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .fade-in {
@@ -378,4 +375,35 @@ label {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.normal-login {
+  background-color: #3d4044;
+  padding: 30px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.demo-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-login-btn {
+  height: 40px;
+  background-color: #7289da;
+  border: none;
+  color: white;
+  width: 350px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: #7289da solid;
+  border-width: thin;
+  font-size: 15px;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
