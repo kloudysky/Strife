@@ -160,3 +160,27 @@ input.middle:focus {
 .welcome-header {
   margin-top: 10px;
 }
+
+.welcome-img-multi {
+  display: flex;
+}
+
+.multi-img-container {
+  display: flex;
+}
+
+.multi-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85px;
+  height: 85px;
+  //border: 1px solid black;
+  border-radius: 50%;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.multi-img-container-1 {
+  display: flex;
+}

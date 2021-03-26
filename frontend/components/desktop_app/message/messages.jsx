@@ -75,10 +75,23 @@ class Messages extends React.Component {
   welcomeDMMessage(channel) {
     return (
       <div className="channel-welcome">
-        <div className="welcome-img-contianer">
+        <div
+          className={` ${
+            channel.members.length > 2
+              ? "multi-img-container-1"
+              : "welcome-img-contianer"
+          }`}
+        >
+          {channel.members.length > 2
+            ? this.getMultipleUserImgs(channel.members)
+            : ""}
           <img
             className="welcome-img"
-            src={`${this.getOtherUsersImg(channel.members)}`}
+            src={
+              channel.members.length === 2
+                ? `${this.getOtherUsersImg(channel.members)}`
+                : ""
+            }
             alt=""
           />
         </div>
@@ -90,6 +103,14 @@ class Messages extends React.Component {
         <hr className="welcome-hr" />
       </div>
     );
+  }
+
+  getMultipleUserImgs(members) {
+    return members.map((member) => (
+      <div className="multi-img-container">
+        <img className="welcome-img" src={`${member.avatar}`} alt="" />
+      </div>
+    ));
   }
 
   getOtherUsersImg(members) {
