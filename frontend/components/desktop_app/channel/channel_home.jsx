@@ -8,7 +8,7 @@ class ChannelHome extends React.Component {
     //this.props.requestMessages(this.props.activeChannel.id);
     this.props.activeDMChannel.id > 0
       ? this.props.requestMessages(this.props.activeDMChannel.id)
-      : console.log("HELLO");
+      : console.log("STRIFE APP");
   }
 
   setActiveChannel(channel) {

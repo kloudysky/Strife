@@ -1,7 +1,7 @@
 import * as APIUtil from "../util/server_api_util";
 
 export const RECEIVE_ALL_SERVERS = "RECEIVE_ALL_SERVERS";
-export const RECEIVE_SERVER = "RECEIVE_ALL_SERVER";
+export const RECEIVE_SERVER = "RECEIVE_SERVER";
 export const DELETE_SERVER = "DELETE_SERVER";
 export const RECEIVE_SERVER_ERRORS = "RECEIVE_SERVER_ERRORS";
 

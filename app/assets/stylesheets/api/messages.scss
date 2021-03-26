@@ -6,7 +6,7 @@
   top: 0;
   left: 310px;
   position: absolute;
-  background: #37393e;
+  background-color: #37393e;
   display: flex;
   width: 100%;
   bottom: 0;
@@ -31,6 +31,10 @@
   margin-left: 20px;
   display: flex;
   flex-direction: column-reverse;
+}
+
+.content-area {
+  display: flex;
 }
 
 .msg-input {

@@ -1,0 +1,77 @@
+.strife-nav-bar {
+  height: 50px;
+  color: gray;
+  background-color: #37393e;
+  position: absolute;
+  display: flex;
+  left: 310px;
+  z-index: 1;
+  width: 100%;
+  border-bottom: 1px solid rgb(36, 37, 41);
+  box-shadow: 0 4px 2px -2px rgb(45, 46, 50);
+  overflow: hidden;
+  float: none;
+}
+
+.home-nav {
+  display: flex;
+  width: 100vh;
+  justify-content: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  color: white;
+}
+
+.home-nav-inbox {
+  left: 20px;
+  display: flex;
+  font-size: 20px;
+  color: rgb(185, 187, 190);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-icon {
+  margin: 10px;
+}
+
+.at-nav-icon {
+  font-size: 20px;
+  color: #676b72;
+}
+
+.user-header {
+  font-size: 17px;
+  padding: 0;
+  margin: 0;
+  margin-left: 10px;
+}
+
+.at-user {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav-icons {
+  display: flex;
+  font-size: 20px;
+  color: rgb(185, 187, 190);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-bar-nav {
+  background: #202225;
+  width: 150px;
+  border: 1px solid #202225;
+  border-radius: 3px;
+  height: 25px;
+  margin-left: 20px;
+  color: rgb(114, 117, 123);
+  font-size: 12px;
+  font-weight: 500;
+  text-align: left;
+  margin-top: 5px;
+}

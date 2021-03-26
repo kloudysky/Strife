@@ -3,7 +3,7 @@ import * as channelActions from "../../../actions/channel_actions";
 import * as uiActions from "../../../actions/ui_actions";
 import * as sessionActions from "../../../actions/session_actions";
 import * as messageActions from "../../../actions/message_actions";
-import NavBar from "./navbar";
+import StrifeNavBar from "./strife_navbar";
 
 const mapStateToProps = (state) => {
   let activeServer;
@@ -38,4 +38,4 @@ const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(sessionActions.logout()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(StrifeNavBar);

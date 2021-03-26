@@ -1,7 +1,6 @@
 import React from "react";
 import ChannelHome from "./channel_home";
 import ChannelServer from "./channel_server";
-import { Link } from "react-router-dom";
 
 class ChannelIndex extends React.Component {
   componentDidMount() {

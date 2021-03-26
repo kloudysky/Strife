@@ -6,19 +6,25 @@ class Api::ServersController < ApplicationController
     @server = Server.new(server_params)
 
     if @server.save
-      gen_channel =
-        Channel.new(
-          channel_name: 'General',
-          server_id: @server.id,
-          channel_type: 0,
-          owner_id: @server.owner_id,
-        )
-      gen_channel.save
       firstMember =
         ServerMember.new(server_id: @server.id, member_id: @server.owner_id)
       if firstMember.save
-        @servers = current_user.membered_servers
-        render json: @servers.to_json(inclulde: :channels)
+        gen_channel =
+          Channel.create(
+            channel_name: 'General',
+            server_id: @server.id,
+            channel_type: 0,
+            owner_id: @server.owner_id,
+          )
+        firstChannelMember =
+          Channelmember.new(
+            channel_id: gen_channel.id,
+            recipient_id: @server.owner_id,
+          )
+        if firstChannelMember.save
+          @servers = current_user.membered_servers
+          render json: @servers.to_json(include: :channels)
+        end
       else
         render json: @server.errors.full_messages, status: 422
       end

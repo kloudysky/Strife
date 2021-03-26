@@ -9,13 +9,14 @@ class ServerIndex extends React.Component {
   }
 
   activateServer(server) {
+    this.props.requestServerChannels(server.id);
     if (server.channels.length) {
       this.props.setActiveChannel(server.channels[0]);
     }
     if (server.channels.length) {
       this.props.requestMessages(server.channels[0].id);
     }
-    this.props.requestServerChannels(server.id);
+
     this.props.setActiveServer(server);
     console.log(server.channels[0]);
 
@@ -27,6 +28,7 @@ class ServerIndex extends React.Component {
     this.props.setActiveServer({
       id: -1,
     });
+    this.props.setActiveChannel(this.props.activeDMChannel);
   }
 
   render() {

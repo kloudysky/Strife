@@ -19,7 +19,7 @@ User.create(
   password: '123456',
   birthday: '03/12/1988',
   avatar:
-    'https://static.wikia.nocookie.net/finalfantasy/images/6/67/DFFOO_Tifa.png/revision/latest/scale-to-width-down/540?cb=20180218225234',
+    'https://preview.redd.it/f67w2u343r631.jpg?width=400&format=pjpg&auto=webp&s=da19becfaafdec603ad3cbd1e62ea50c058dbe0f',
 )
 User.create(
   username: 'barret',
@@ -27,7 +27,7 @@ User.create(
   password: '123456',
   birthday: '03/12/1988',
   avatar:
-    'https://static.wikia.nocookie.net/finalfantasy/images/b/b9/DFFOO_Barret.png/revision/latest/scale-to-width-down/686?cb=20190111022426',
+    'https://static.wikia.nocookie.net/finalfantasy/images/a/ac/Barret_PortraitNB.png/revision/latest/scale-to-width-down/250?cb=20130203032221',
 )
 User.create(
   username: 'zack',
@@ -35,7 +35,7 @@ User.create(
   password: '123456',
   birthday: '03/12/1988',
   avatar:
-    'https://static.wikia.nocookie.net/finalfantasy/images/c/c2/DFFOO_Zack_Fair.png/revision/latest/scale-to-width-down/630?cb=20190111030541',
+    'https://static.wikia.nocookie.net/finalfantasy/images/5/55/BCVIIZack.jpg/revision/latest?cb=20110616014940',
 )
 User.create(
   username: 'biggs',
@@ -127,8 +127,8 @@ Server.create(
   icon:
     'https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png',
 )
-Server.create(owner_id: 4, server_name: 'SOLDIER')
-Server.create(owner_id: 3, server_name: 'AVALANCHE')
+Server.create(owner_id: 4, server_name: 'AVALANCHE')
+Server.create(owner_id: 3, server_name: 'SOLDIER')
 Server.create(owner_id: 9, server_name: 'SHINRA')
 
 ServerMember.create(server_id: 1, member_id: 2)
@@ -152,25 +152,25 @@ ServerMember.create(server_id: 4, member_id: 8)
 ServerMember.create(server_id: 4, member_id: 7)
 
 Channel.create(
-  channel_name: 'General',
+  channel_name: 'general',
   server_id: 3,
   channel_type: 0,
   owner_id: 3,
 )
 Channel.create(
-  channel_name: 'General',
+  channel_name: 'general',
   server_id: 2,
   channel_type: 0,
   owner_id: 4,
 )
 Channel.create(
-  channel_name: 'General',
+  channel_name: 'general',
   server_id: 4,
   channel_type: 0,
   owner_id: 9,
 )
 Channel.create(
-  channel_name: 'General',
+  channel_name: 'general',
   server_id: 1,
   channel_type: 0,
   owner_id: 2,

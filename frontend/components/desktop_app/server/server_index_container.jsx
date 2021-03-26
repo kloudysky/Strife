@@ -12,10 +12,17 @@ const mapStateToProps = (state) => {
   } else {
     activeServer = { id: -1 };
   }
+  let activeDMChannel;
+  if (state.ui.activeDMChannel) {
+    activeDMChannel = state.ui.activeDMChannel;
+  } else {
+    activeDMChannel = { id: -1 };
+  }
   return {
     servers: Object.values(state.entities.servers),
     activeServer: activeServer,
     createServerModalState: state.ui.createServerModalState,
+    activeDMChannel: activeDMChannel,
   };
 };
 

@@ -55,8 +55,10 @@ class Messages extends React.Component {
               <div className="author-avatar">
                 <img className="avatar-img" src={`${message.author.avatar}`} />
               </div>
-              <div className="msg-username">{message.author.username}</div>
-              <div className="user-msg">{message.content}</div>
+              <div className="content-area">
+                <div className="msg-username">{message.author.username}</div>
+                <div className="user-msg">{message.content}</div>
+              </div>
             </div>
           ))}
           <div ref={this.bottom} id="spacer" />
