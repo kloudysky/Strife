@@ -35,7 +35,7 @@ User.create(
   password: '123456',
   birthday: '03/12/1988',
   avatar:
-    'https://static.wikia.nocookie.net/finalfantasy/images/5/55/BCVIIZack.jpg/revision/latest?cb=20110616014940',
+    'https://images2.fanpop.com/image/photos/10700000/Zack-crisis-core-zack-fair-10743888-165-165.jpg',
 )
 User.create(
   username: 'biggs',
@@ -125,7 +125,7 @@ User.create(
   email: 'boris8@boris8.com',
   password: '123456',
   birthday: '03/12/1988',
-  avatar: 'https://www.maiken2051.com/images/hirez/Killua%20shades.jpg',
+  avatar: 'http://clipart-library.com/data_images/234036.png',
 )
 
 User.create(
