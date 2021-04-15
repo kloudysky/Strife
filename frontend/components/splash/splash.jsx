@@ -48,7 +48,7 @@ const Splash = ({ currentUser, logout }) => {
                   href=""
                   className="btn btn-white btn-small btn-wrap btn-mobile"
                 >
-                  Login
+                  {currentUser ? loggedIn() : sessionLinks()}
                 </a>
                 <button className="btn-menu" aria-hidden="false">
                   <svg width="40" height="40" viewBox="0 0 40 40">
