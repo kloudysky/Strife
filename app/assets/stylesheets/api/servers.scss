@@ -997,14 +997,6 @@
   }
 }
 
-.create-server-modal-wrapper.inactive {
-  background-color: rgba(0, 0, 0, 0);
-  transition: 0.3s ease;
-  animation-name: disappear;
-  animation-duration: 0.3s;
-  animation-iteration-count: 1;
-}
-
 .right-arrow {
   margin-right: 10px;
 }

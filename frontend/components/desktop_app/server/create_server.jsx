@@ -120,14 +120,21 @@ export default class CreateServer extends React.Component {
   }
 
   closeModal() {
-    Popup.close();
-    this.props.setCreateServerModalState(false);
     this.setState({
       icon: "",
       server_name: "",
       currentModal: 1,
     });
-    this.props.clearErrors();
+    let wrapper = document.getElementById("create-server-modal-wrapper");
+    let modal = document.getElementById("create-server-modal");
+
+    modal.classList.add("transition-out");
+    wrapper.classList.add("inactive");
+
+    setTimeout(() => {
+      this.props.clearErrors();
+      this.props.setCreateServerModalState(false);
+    }, 100);
   }
 
   handleFormSubmit(e) {
