@@ -8,13 +8,21 @@ import ServerMembersContainer from "./server/members/server_members_container";
 
 class DesktopApp extends React.Component {
   render() {
+    const createServer = () => {
+      console.log(this.props.createServerModalState);
+      if (this.props.createServerModalState) {
+        return <ServerFormContainer />;
+      } else {
+        return null;
+      }
+    };
     return (
       <div className="desktop-app">
         <StrifeNavBar />
         <ServerIndexContainer />
+        {createServer()}
         <ChannelIndexContainer />
         <MessagesContainer />
-        <ServerFormContainer />
         <ServerMembersContainer />
       </div>
     );

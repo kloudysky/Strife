@@ -11,6 +11,8 @@ export default (state = [], action) => {
       return [];
     case actions.DELETE_SERVER:
       return [];
+    case actions.CLEAR_SERVER_ERRORS:
+      return [];
     default:
       return state;
   }

@@ -4,6 +4,7 @@ export const RECEIVE_ALL_SERVERS = "RECEIVE_ALL_SERVERS";
 export const RECEIVE_SERVER = "RECEIVE_SERVER";
 export const DELETE_SERVER = "DELETE_SERVER";
 export const RECEIVE_SERVER_ERRORS = "RECEIVE_SERVER_ERRORS";
+export const CLEAR_SERVER_ERRORS = "CLEAR_SERVER_ERRORS";
 
 export const receiveAllServers = (servers) => ({
   type: RECEIVE_ALL_SERVERS,
@@ -23,6 +24,10 @@ export const deleteServer = (serverId) => ({
 export const receiveErrors = (errors) => ({
   type: RECEIVE_SERVER_ERRORS,
   errors,
+});
+
+export const clearErrors = () => ({
+  type: CLEAR_SERVER_ERRORS,
 });
 
 export const createServer = (server) => (dispatch) =>

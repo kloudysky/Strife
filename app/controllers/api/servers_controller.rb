@@ -23,7 +23,7 @@ class Api::ServersController < ApplicationController
           )
         if firstChannelMember.save
           @servers = current_user.membered_servers
-          render json: @servers.to_json(include: :channels)
+          render json: @servers, include: %i[channels members]
         end
       else
         render json: @server.errors.full_messages, status: 422

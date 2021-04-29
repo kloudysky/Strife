@@ -1375,3 +1375,9 @@ label {
   flex-direction: column;
   align-items: center;
 }
+
+.render-error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 2px;
+}

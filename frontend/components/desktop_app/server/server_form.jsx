@@ -34,8 +34,13 @@ class ServerForm extends React.Component {
       server_name: this.state.server_name,
       owner_id: this.props.currentUser.id,
     };
-    this.props.createServer(server);
-    this.closeModal();
+    if (this.state.server_name.length < 1) {
+      console.log(this.state.server_name);
+      this.props.dispatchServerError(["Server name cannot be blank"]);
+    } else {
+      this.props.createServer(server);
+      this.closeModal();
+    }
   }
 
   closeModal() {
