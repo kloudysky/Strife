@@ -75,10 +75,18 @@ const Splash = ({ currentUser, logout }) => {
               </div>
             </div>
             <div className="cta-btns">
-              <a href="#" className="cta-btn">
+              <a
+                href="https://www.linkedin.com/in/kloudysky/"
+                className="cta-btn"
+                target="_blank"
+              >
                 LinkedIn
               </a>
-              <a href="#" className="cta-btn">
+              <a
+                href="https://github.com/kloudysky"
+                className="cta-btn"
+                target="_blank"
+              >
                 GitHub
               </a>
             </div>

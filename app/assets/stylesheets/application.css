@@ -26,7 +26,16 @@ body {
   height: 100%;
   text-rendering: optimizeLegibility;
   line-height: 1.15;
+  /* position: fixed; */
+  overflow: hidden;
   /* overflow: hidden; */
+}
+
+body > #root {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; /* enables “momentum” (smooth) scrolling */
 }
 
 button {

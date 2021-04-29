@@ -1,8 +1,6 @@
 import React from "react";
 import SplashContainer from "./splash/splash_container";
-import { Link, Redirect, Switch, HashRouter, Route } from "react-router-dom";
-import { Provider } from "react-redux";
-
+import { Switch, Route } from "react-router-dom";
 import SignupFormContainer from "./session_form/signup_form_container";
 import LoginFormContainer from "./session_form/login_form_container";
 import DesktopAppContainer from "./desktop_app/desktop_app_container";
