@@ -24,6 +24,12 @@
   box-shadow: 0 4px 2px -2px rgb(45, 46, 50);
   display: flex;
   align-items: center;
+  color: white;
+}
+
+.channel-list-header-server:hover {
+  cursor: pointer;
+  background-color: rgb(50, 53, 58);
 }
 
 .channel-list-header > h3 {
@@ -35,6 +41,7 @@
 .channel-list-header-btn {
   position: absolute;
   right: 20px;
+  cursor: pointer;
 }
 
 .settings-section {

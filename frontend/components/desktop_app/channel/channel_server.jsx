@@ -1,5 +1,6 @@
 import React from "react";
 import { Collapse } from "react-collapse";
+import ServerMenuContainer from "./menu/server_menu_container";
 
 class ChannelServer extends React.Component {
   constructor(props) {
@@ -22,16 +23,45 @@ class ChannelServer extends React.Component {
     this.props.setChannel(channel);
   }
 
+  toggleServerMenu() {
+    if (this.props.openServerMenu) {
+      this.hideServerMenu();
+    } else {
+      this.props.setServerMenu(true);
+    }
+  }
+
+  hideServerMenu() {
+    let modal = document.getElementById("server-menu-modal");
+
+    modal.classList.add("transition-out");
+    setTimeout(() => {
+      this.props.setServerMenu(false);
+    }, 100);
+  }
+
+  serverMenu() {
+    if (this.props.openServerMenu) {
+      return <ServerMenuContainer />;
+    } else {
+      return null;
+    }
+  }
+
   render() {
     const channels = this.props.channels;
     const server = this.props.server;
     return (
       <div>
-        <div className="channel-list-header">
+        <div
+          onClick={() => this.toggleServerMenu()}
+          className="channel-list-header channel-list-header-server"
+        >
           <h3>{server.server_name}</h3>
           <i className="fas fa-angle-down channel-list-header-btn"></i>
         </div>
         <div className="channels-container">
+          {this.serverMenu()}
           <div
             className="server-channel-tab channel-tab"
             onClick={() => this.toggleServerList()}

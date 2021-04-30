@@ -26,11 +26,12 @@ const mapStateToProps = (state) => {
   }
   return {
     channels: Object.values(state.entities.channels),
-    activeServer: activeServer,
+    activeServer,
     currentUser: state.entities.users.currentUser,
     messages: state.entities.messages,
-    activeChannel: activeChannel,
-    activeDMChannel: activeDMChannel,
+    activeChannel,
+    activeDMChannel,
+    openServerMenu: state.ui.openServerMenu,
   };
 };
 
@@ -40,6 +41,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(messageActions.requestMessages(channelId)),
   setChannel: (channel) => dispatch(uiActions.setActiveChannel(channel)),
   setDMChannel: (channel) => dispatch(uiActions.setActiveDMChannel(channel)),
+  setServerMenu: (modalState) => dispatch(uiActions.openServerMenu(modalState)),
   logout: () => dispatch(sessionActions.logout()),
 });
 

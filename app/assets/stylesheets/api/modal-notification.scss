@@ -1,0 +1,125 @@
+.modal-notification-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
+  animation-name: wrapperAppear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  z-index: 3;
+
+  .notification-modal {
+    position: absolute;
+    top: Calc(50% - 180px);
+    left: Calc(50% - 220px);
+    height: auto;
+    background-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    border-radius: 5px;
+    animation-name: appear;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    display: block;
+    border: none;
+  }
+
+  .notification-screens {
+    z-index: 2;
+    height: auto;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+  }
+
+  .notification-screen {
+    background-color: #2f3237;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 450px;
+    height: 200px;
+
+    .notification-prompt {
+      margin-left: 15px;
+      margin-right: 15px;
+      color: white;
+    }
+
+    .notification-footer {
+      height: 70px;
+      background-color: rgb(41, 43, 47);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .notification-btn {
+      color: white;
+      margin: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .notification-close {
+      background-color: none;
+      border: none;
+    }
+
+    .notification-action {
+      background-color: #ed3e3e;
+      border: none;
+      border-radius: 3px;
+      height: 40px;
+      width: 122px;
+    }
+  }
+}
+
+.notification-modal.transition-out {
+  animation-name: disappear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.5, 0.5);
+  }
+}
+
+@keyframes wrapperAppear {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+  }
+}

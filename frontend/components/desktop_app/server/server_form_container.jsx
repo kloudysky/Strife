@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import * as serverActions from "../../../actions/server_actions";
 import * as uiActions from "../../../actions/ui_actions";
-// import ServerForm from "./server_form";
 import CreateServer from "./create_server";
 
 const mapStateToProps = (state) => ({

@@ -5,6 +5,11 @@ const initialUIState = Object.freeze({
   activeChannel: { id: -1 },
   activeDMChannel: { id: -1 },
   createServerModalState: false,
+  openServerMenu: false,
+  deleteServerModalState: false,
+  leaveServerModalState: false,
+  openProfile: false,
+  editServerModalState: false,
 });
 
 export default (state = initialUIState, action) => {
@@ -15,6 +20,22 @@ export default (state = initialUIState, action) => {
     case actions.SET_CREATE_SERVER_MODAL_STATE:
       return Object.assign({}, state, {
         createServerModalState: action.modalState,
+      });
+    case actions.OPEN_SERVER_MENU:
+      return Object.assign({}, state, {
+        openServerMenu: action.modalState,
+      });
+    case actions.DELETE_SERVER:
+      return Object.assign({}, state, {
+        deleteServerModalState: action.modalState,
+      });
+    case actions.LEAVE_SERVER:
+      return Object.assign({}, state, {
+        leaveServerModalState: action.modalState,
+      });
+    case actions.EDIT_SERVER:
+      return Object.assign({}, state, {
+        editServerModalState: action.modalState,
       });
     case actions.SET_ACTIVE_CHANNEL:
       return Object.assign({}, state, { activeChannel: action.channel });
