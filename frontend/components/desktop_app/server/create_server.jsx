@@ -1,10 +1,4 @@
 import React from "react";
-import Popup from "react-popup";
-import {
-  RECEIVE_SERVER,
-  RECEIVE_SERVER_ERRORS,
-} from "../../../actions/server_actions";
-
 export default class CreateServer extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +25,6 @@ export default class CreateServer extends React.Component {
 
   unfinished(e) {
     e.preventDefault();
-    Popup.alert("Functionality not yet added");
   }
 
   forwardScreen(e) {
@@ -422,7 +415,6 @@ export default class CreateServer extends React.Component {
             </div>
           </div>
         </div>
-        <Popup />
       </div>
     );
   }

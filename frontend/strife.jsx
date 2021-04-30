@@ -21,14 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  // const store = configureStore();
-  // TESTING START
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  // TESTING END
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store} />, root);
 });
-
-// window.getChannels = actions.requestChannels;
-// window.createChannel = actions.createChannel;
