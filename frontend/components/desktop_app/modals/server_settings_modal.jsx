@@ -3,13 +3,13 @@ import React, { Component } from "react";
 export class ServerSettingsModal extends Component {
   closeModal() {
     // let wrapper = document.getElementById("modal-notification-wrapper");
-    let modal = document.getElementById("setting-modal");
+    let modal = document.getElementById("modal-setting-wrapper");
 
     modal.classList.add("transition-out");
     // wrapper.classList.add("inactive");
 
     setTimeout(() => {
-      this.props.setServerSettingModalState(false);
+      this.props.setEditServerModalState(false);
     }, 100);
   }
 
@@ -41,7 +41,10 @@ export class ServerSettingsModal extends Component {
             </div>
           </div>
           <div className="settings-close-btn-area">
-            <div className="settings-close-btn">
+            <div
+              onClick={() => this.closeModal()}
+              className="settings-close-btn"
+            >
               <div className="btn-escape">X</div>
               <div className="btn-escape-text">ESC</div>
             </div>
