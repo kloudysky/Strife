@@ -2,15 +2,15 @@
   height: 50px;
   color: gray;
   background-color: #37393e;
-  position: absolute;
   display: flex;
-  left: 310px;
   z-index: 1;
   width: 100%;
   border-bottom: 1px solid rgb(36, 37, 41);
   box-shadow: 0 4px 2px -2px rgb(45, 46, 50);
   overflow: hidden;
   float: none;
+  top: 0;
+  flex: 0 0 auto;
 }
 
 .home-nav {
@@ -24,8 +24,11 @@
   color: white;
 }
 
+.all-nav-icons {
+  display: flex;
+}
+
 .home-nav-inbox {
-  left: 20px;
   display: flex;
   font-size: 20px;
   color: rgb(185, 187, 190);
@@ -68,7 +71,6 @@
   border: 1px solid #202225;
   border-radius: 3px;
   height: 25px;
-  margin-left: 20px;
   color: rgb(114, 117, 123);
   font-size: 12px;
   font-weight: 500;

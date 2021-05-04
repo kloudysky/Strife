@@ -46,11 +46,15 @@ class DesktopApp extends React.Component {
     return (
       <>
         <div className="desktop-app">
-          <StrifeNavBar />
           <ServerIndexContainer />
           <ChannelIndexContainer />
-          <MessagesContainer />
-          <ServerMembersContainer />
+          <div class="main-container">
+            <StrifeNavBar />
+            <div className="message-area">
+              <MessagesContainer />
+              <ServerMembersContainer />
+            </div>
+          </div>
           {createServer()}
           {leaveServer()}
         </div>

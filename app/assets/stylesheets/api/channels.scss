@@ -3,28 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .channel-component {
-  height: 100%;
-  left: 70px;
-  position: absolute;
-  top: 0;
-  width: 240px;
+  height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   background-color: rgb(47, 49, 54);
+  position: relative;
+  -webkit-box-flex: 0;
 }
 
 .channel-list-header {
-  width: 240px;
-  position: absolute;
-  top: 0;
-  height: 50px;
+  width: 100%;
   background-color: rgb(47, 49, 54);
   border-bottom: 1px solid rgb(36, 37, 41);
   box-shadow: 0 4px 2px -2px rgb(45, 46, 50);
   display: flex;
   align-items: center;
   color: white;
+  // position: absolute;
+  height: 50px;
+
+  flex: 0 0 auto;
 }
 
 .channel-list-header-server:hover {
@@ -39,19 +38,21 @@
 }
 
 .channel-list-header-btn {
-  position: absolute;
   right: 20px;
   cursor: pointer;
 }
 
 .settings-section {
-  width: 240px;
-  position: absolute;
-  bottom: 0;
-  height: 50px;
+  width: 100%;
   background-color: #292b2f;
   display: flex;
   align-items: center;
+  color: white;
+  justify-content: space-between;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  height: 53px;
 }
 
 .server-channel-tab {
@@ -84,11 +85,13 @@
 
 .channels-container {
   display: flex;
-  position: absolute;
-  top: 50px;
+  overflow: hidden scroll;
   flex-direction: column;
-  width: 240px;
-  color: rgb(143, 146, 150);
+  width: 100%;
+  color: #8f9296;
+  height: 100%;
+  // bottom: -50px;
+  // position: absolute;
 }
 
 .dm-channel-tab {
@@ -135,6 +138,7 @@
   background-color: rgb(55, 57, 62);
   cursor: pointer;
   border-radius: 4px;
+  color: white;
 }
 
 .channel-profile-image {
@@ -151,13 +155,13 @@
 
 .channel-profile-username {
   font-size: 13px;
-  margin-left: 5px;
   font-weight: 700;
+  width: 69px;
+  padding-left: 7px;
 }
 
 .channel-settings-buttons {
-  right: 0;
-  position: absolute;
+  margin-right: 5px;
 }
 
 .channel-setting-btn {
@@ -165,8 +169,13 @@
   border: none;
   cursor: pointer;
   font-size: 18px;
-  color: rgb(185, 187, 190);
-  padding: 10px;
+  color: #b9bbbe;
+  border-radius: 3px;
+  height: 30px;
+}
+
+.channel-setting-btn:hover {
+  background-color: rgb(54, 58, 63);
 }
 
 .search-modal-btn {

@@ -52,7 +52,7 @@ class ChannelServer extends React.Component {
     const channels = this.props.channels;
     const server = this.props.server;
     return (
-      <div>
+      <>
         <div
           onClick={() => this.toggleServerMenu()}
           className="channel-list-header channel-list-header-server"
@@ -89,7 +89,7 @@ class ChannelServer extends React.Component {
             </Collapse>
           </ul>
         </div>
-      </div>
+      </>
     );
   }
 }

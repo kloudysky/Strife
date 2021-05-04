@@ -50,13 +50,27 @@ class ChannelHome extends React.Component {
     const channels = this.props.channels;
 
     return (
-      <div>
+      <>
         <div className="channel-list-header">
           <button className="search-modal-btn">
             Find or start a conversation
           </button>
         </div>
         <div className="channels-container">
+          <ul className="channel-list">
+            <li className="channel-list-item">
+              <div className="dm-list-avatar">
+                <i class="fas fa-user-friends"></i>
+              </div>
+              Friends
+            </li>
+            <li className="channel-list-item">
+              <div className="dm-list-avatar">
+                <i class="fas fa-meteor"></i>
+              </div>
+              Nitro
+            </li>
+          </ul>
           <div className="dm-channel-tab">
             <p>DIRECT MESSAGES</p>
             <i className="fas fa-plus create-dm-btn"></i>
@@ -86,7 +100,7 @@ class ChannelHome extends React.Component {
             ))}
           </ul>
         </div>
-      </div>
+      </>
     );
   }
 }

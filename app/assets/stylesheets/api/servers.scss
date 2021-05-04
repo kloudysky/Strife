@@ -5,8 +5,8 @@
 .server-component {
   background-color: #23272a;
   height: 100vh;
-  width: 70px;
-  position: absolute;
+  // width: 70px;
+  // position: absolute;
   top: 0;
   left: 0;
   display: flex;
@@ -14,6 +14,7 @@
   align-items: center;
   overflow: hidden scroll;
   color: white;
+  width: 100%;
 }
 
 .scroller {

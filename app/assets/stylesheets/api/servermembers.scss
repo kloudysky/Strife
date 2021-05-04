@@ -8,7 +8,6 @@
 
 .member-ul {
   width: 100%;
-  height: inherit;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -40,14 +39,10 @@
 }
 
 .server-members-container {
-  right: 0;
-  bottom: 0;
-  position: absolute;
   z-index: 0;
-  top: 51px;
   background-color: rgb(47, 49, 54);
   width: 240px;
-  //display: none;
+  overflow: hidden;
 }
 
 .server-members-container-true {

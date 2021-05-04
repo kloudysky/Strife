@@ -2,14 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.message-container {
-  top: 0;
-  left: 310px;
-  position: absolute;
-  background-color: #37393e;
+.main-container {
+  height: 100vh;
   display: flex;
-  width: 100%;
-  bottom: 0;
+  flex-direction: column;
+  -webkit-box-flex: 0;
+}
+
+.message-area {
+  display: grid;
+  grid-template-columns: auto min-content;
+  flex: 1 1 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.message-area-server {
+  display: grid;
+  grid-template-columns: auto 240px;
+}
+
+.message-container {
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
 }
 
 .welcome-header {
@@ -23,15 +39,12 @@
 }
 
 .message-list {
-  bottom: 70px;
-  position: absolute;
-  overflow-y: auto;
-  top: 0;
-  padding-bottom: 15px;
   margin-left: 20px;
   display: flex;
   flex-direction: column-reverse;
-  width: 50%;
+  height: 100%;
+  overflow: hidden scroll;
+  color: white;
 }
 
 .content-area {
@@ -42,7 +55,6 @@
 
 .msg-input {
   width: 100%;
-  margin: 15px;
   border-radius: 7px;
   background-color: #44474d;
   border: 1px solid #44474d;
@@ -77,26 +89,24 @@
   margin-top: 0px;
   padding-top: 0px;
   color: #d8d8d7;
+  word-break: break-all;
 }
 
 .message-form {
-  bottom: 0;
-  position: absolute;
-  background-color: #37393e;
-  height: 70px;
-  width: 50%;
-  margin-bottom: 15px;
+  flex: 1;
+  height: 50px;
+  width: 100%;
+  form {
+    -webkit-appearance: none;
+    display: flex;
+  }
   .msg-submit {
-    background-color: #37393e;
-    border: 0.1px solid #37393e;
-    height: 0;
-    color: transparent;
-    width: 0;
+    display: none;
   }
 }
 
 .message-ul {
-  width: 100%;
+  // width: 100%;
 }
 
 .message-components {
@@ -120,7 +130,6 @@
   align-items: center;
   width: 50px;
   height: 50px;
-  //border: 1px solid black;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -175,7 +184,6 @@ input.middle:focus {
   align-items: center;
   width: 85px;
   height: 85px;
-  //border: 1px solid black;
   border-radius: 50%;
   overflow: hidden;
   padding-bottom: 0;
