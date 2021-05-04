@@ -52,8 +52,11 @@ class Messages extends React.Component {
             : this.welcomeMessage(channel)}
           {messages.map((message) => (
             <div key={message.id} className="message-li">
-              <div className="author-avatar">
-                <img className="avatar-img" src={`${message.author.avatar}`} />
+              <div
+                className="author-avatar"
+                style={{ backgroundImage: `url(${message.author.avatar})` }}
+              >
+                {/* <img className="avatar-img" src={`${message.author.avatar}`} /> */}
               </div>
               <div className="content-area">
                 <div className="msg-username">
