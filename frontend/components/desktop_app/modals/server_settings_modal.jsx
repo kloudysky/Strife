@@ -13,6 +13,17 @@ export class ServerSettingsModal extends Component {
     }, 100);
   }
 
+  deleteServer() {
+    this.props.deleteServer(this.props.activeServer.id).then(() => {
+      this.props.requestDMChannels();
+      this.props.setActiveServer({
+        id: -1,
+      });
+      this.props.setActiveChannel(this.props.activeDMChannel);
+      this.closeModal();
+    });
+  }
+
   render() {
     return (
       <div id="modal-setting-wrapper" className="modal-setting-wrapper">
@@ -21,7 +32,12 @@ export class ServerSettingsModal extends Component {
             <h3>SERVER NAME</h3>
             <div className="settings-menu-btn">Overview</div>
             <div className="settings-menu-br"></div>
-            <div className="settings-menu-btn btn-danger">Leave Server</div>
+            <div
+              onClick={() => this.deleteServer()}
+              className="settings-menu-btn btn-danger"
+            >
+              Delete Server
+            </div>
           </div>
         </div>
         <div className="settings-grid-right">

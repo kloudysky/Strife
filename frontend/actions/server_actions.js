@@ -5,6 +5,7 @@ export const RECEIVE_SERVER = "RECEIVE_SERVER";
 export const DELETE_SERVER = "DELETE_SERVER";
 export const RECEIVE_SERVER_ERRORS = "RECEIVE_SERVER_ERRORS";
 export const CLEAR_SERVER_ERRORS = "CLEAR_SERVER_ERRORS";
+export const LEAVE_SERVER = "LEAVE_SERVER";
 
 export const receiveAllServers = (servers) => ({
   type: RECEIVE_ALL_SERVERS,
@@ -53,6 +54,14 @@ export const requestServer = (serverId) => (dispatch) =>
 
 export const removeServer = (serverId) => (dispatch) =>
   APIUtil.deleteServer(serverId)
+    .then((response) => response.json())
+    .then(() => dispatch(deleteServer(serverId)))
+    .catch((error) => {
+      console.log(error.statusText);
+    });
+
+export const leaveServer = (serverId) => (dispatch) =>
+  APIUtil.leaveServer(serverId)
     .then((response) => response.json())
     .then(() => dispatch(deleteServer(serverId)))
     .catch((error) => {

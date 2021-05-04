@@ -49,6 +49,15 @@ export const deleteServer = (serverId) =>
     },
   });
 
+export const leaveServer = (serverId) =>
+  fetch(`/api/servers/leave/${serverId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-Token": Rails.csrfToken(),
+    },
+  });
+
 export const addServerMember = (serverMember) =>
   fetch(`/api/servers/member`, {
     method: "POST",

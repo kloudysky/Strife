@@ -11,6 +11,15 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = current_user
+    if @user.update_attributes(user_params)
+      render json: @user.to_json
+    else
+      render json: @user.errors.fullmessages, status: 422
+    end
+  end
+
   private
 
   def user_params

@@ -12,6 +12,12 @@ const mapStateToProps = (state) => {
   } else {
     activeServer = { id: -1 };
   }
+  let activeDMChannel;
+  if (state.ui.activeDMChannel) {
+    activeDMChannel = state.ui.activeDMChannel;
+  } else {
+    activeDMChannel = { id: -1 };
+  }
   return {
     servers: Object.values(state.entities.servers),
     channels: Object.values(state.entities.channels),
@@ -21,6 +27,7 @@ const mapStateToProps = (state) => {
     editServerModalState: state.ui.editServerModalState,
     openProfile: state.ui.openProfile,
     activeServer,
+    activeDMChannel,
   };
 };
 
@@ -35,6 +42,11 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(uiActions.leaveServer(modalState)),
   setEditServerModalState: (modalstate) =>
     dispatch(uiActions.editServer(modalstate)),
+  deleteServer: (serverId) => dispatch(serverActions.removeServer(serverId)),
+  leaveServer: (serverId) => dispatch(serverActions.leaveServer(serverId)),
+  setActiveChannel: (channel) => dispatch(uiActions.setActiveChannel(channel)),
+  setActiveServer: (server) => dispatch(uiActions.setActiveServer(server)),
+  requestDMChannels: () => dispatch(channelActions.requestDMChannels()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DesktopApp);

@@ -25,6 +25,11 @@ class DesktopApp extends React.Component {
             setLeaveNotificationModalState={
               this.props.setLeaveNotificationModalState
             }
+            leaveServer={this.props.leaveServer}
+            setActiveChannel={this.props.setActiveChannel}
+            setActiveServer={this.props.setActiveServer}
+            requestDMChannels={this.props.requestDMChannels}
+            activeDMChannel={this.props.activeDMChannel}
           />
         );
       } else {
@@ -37,6 +42,11 @@ class DesktopApp extends React.Component {
           <ServerSettingsModal
             activeServer={this.props.activeServer}
             setEditServerModalState={this.props.setEditServerModalState}
+            deleteServer={this.props.deleteServer}
+            setActiveChannel={this.props.setActiveChannel}
+            setActiveServer={this.props.setActiveServer}
+            requestDMChannels={this.props.requestDMChannels}
+            activeDMChannel={this.props.activeDMChannel}
           />
         );
       } else {

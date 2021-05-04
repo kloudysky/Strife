@@ -13,6 +13,17 @@ export class LeaveServerModal extends Component {
     }, 100);
   }
 
+  leaveServer() {
+    this.props.leaveServer(this.props.activeServer.id).then(() => {
+      this.props.requestDMChannels();
+      this.props.setActiveServer({
+        id: -1,
+      });
+      this.props.setActiveChannel(this.props.activeDMChannel);
+      this.closeModal();
+    });
+  }
+
   render() {
     return (
       <div
@@ -36,7 +47,10 @@ export class LeaveServerModal extends Component {
                 >
                   Cancel
                 </button>
-                <button className="notification-btn notification-action">
+                <button
+                  onClick={() => this.leaveServer()}
+                  className="notification-btn notification-action"
+                >
                   Leave Server
                 </button>
               </div>

@@ -51,7 +51,7 @@ class Api::ServersController < ApplicationController
   def update
     @server = Server.find(params[:id])
     if @server.update(server_params)
-      render :show
+      render json: @server.to_json(include: :members)
     else
       render json: @server.errors.full_messages, status: 422
     end
@@ -60,7 +60,8 @@ class Api::ServersController < ApplicationController
   def destroy
     @server = Server.find(params[:id])
     @server.destroy
-    render :index
+    msg = { status: 'ok', message: 'Success!' }
+    render json: msg
   end
 
   def add_member
@@ -79,9 +80,23 @@ class Api::ServersController < ApplicationController
   end
 
   def remove_member
-    @server_member = ServerMember.find_by(member_id: params[:id])
+    @server = Server.find(params[:id])
+
+    @server_member =
+      ServerMember
+        .find_by(server_id: params[:id])
+        .where(user_id: current_user.id)
     @server_member.destroy
-    render :show
+    msg = { status: 'ok', message: 'Success!' }
+    format.json { render json: msg }
+  end
+
+  def leave_server
+    server_member =
+      ServerMember.find_by(server_id: params[:id], member_id: current_user.id)
+    server_member.destroy
+    msg = { status: 'ok', message: 'Success!' }
+    format.json { render json: msg }
   end
 
   private
