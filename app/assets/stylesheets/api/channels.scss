@@ -14,16 +14,15 @@
 
 .channel-list-header {
   width: 100%;
-  background-color: rgb(47, 49, 54);
-  border-bottom: 1px solid rgb(36, 37, 41);
-  box-shadow: 0 4px 2px -2px rgb(45, 46, 50);
+  background-color: #2f3136;
+  border-bottom: 1px solid #242529;
+  box-shadow: 0 4px 2px -2px #2d2e32;
   display: flex;
   align-items: center;
   color: white;
-  // position: absolute;
   height: 50px;
-
   flex: 0 0 auto;
+  justify-content: space-between;
 }
 
 .channel-list-header-server:hover {
@@ -38,8 +37,9 @@
 }
 
 .channel-list-header-btn {
-  right: 20px;
+  padding-right: 20px;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .settings-section {

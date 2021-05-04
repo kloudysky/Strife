@@ -19,21 +19,25 @@ class StrifeNavBar extends React.Component {
 
   homeNav() {
     return (
-      <div className="home-nav">
-        <div className="all-nav-icons">
-          <div className="main-nav-icons">
-            <i className="fas fa-phone nav-icon"></i>
-            <i className="fas fa-video nav-icon"></i>
-            <i className="fas fa-thumbtack nav-icon"></i>
-            <i className="fas fa-user-plus nav-icon"></i>
+      <>
+        <div className="home-main-nav-icons">
+          <div className="home-nav-icon">
+            <i class="fas fa-user-friends friend-nav-icon"></i>Friends
           </div>
-          <input className="search-bar-nav" type="text" placeholder="Search" />
-          <div className="home-nav-inbox">
-            <i className="fas fa-inbox nav-icon"></i>
-            <i className="fas fa-question-circle nav-icon"></i>
-          </div>
+          <div className="home-nav-br"></div>
+          <div className="home-nav-icon">Online</div>
+          <div className="home-nav-icon">All</div>
+          <div className="home-nav-icon">Pending</div>
+          <div className="home-nav-icon">Blocked</div>
+          <div className="home-nav-icon add-friend-btn">Add Friend</div>
         </div>
-      </div>
+        <div className="friends-nav-inbox">
+          <i class="fas fa-comments nav-icon"></i>
+          <div className="home-nav-br"></div>
+          <i className="fas fa-inbox nav-icon"></i>
+          <i className="fas fa-question-circle nav-icon"></i>
+        </div>
+      </>
     );
   }
 

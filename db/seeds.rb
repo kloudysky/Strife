@@ -191,11 +191,12 @@ Server.create(
   server_name: 'a/A 12-28-20',
   icon:
     'https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png',
+  invite_code: 'ff7r7h',
 )
-Server.create(owner_id: 4, server_name: 'AVALANCHE')
-Server.create(owner_id: 3, server_name: 'SOLDIER')
-Server.create(owner_id: 9, server_name: 'SHINRA')
-Server.create(owner_id: 17, server_name: 'HIGHWIND')
+Server.create(owner_id: 4, server_name: 'AVALANCHE', invite_code: 'ff7abc')
+Server.create(owner_id: 3, server_name: 'SOLDIER', invite_code: 'sol7f7')
+Server.create(owner_id: 9, server_name: 'SHINRA', invite_code: 'rrte47')
+Server.create(owner_id: 17, server_name: 'HIGHWIND', invite_code: 'ff7r89')
 
 ServerMember.create(server_id: 1, member_id: 2)
 ServerMember.create(server_id: 1, member_id: 1)
