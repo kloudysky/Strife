@@ -10,6 +10,7 @@ const initialUIState = Object.freeze({
   leaveServerModalState: false,
   openProfile: false,
   editServerModalState: false,
+  inviteMemberModalState: false,
 });
 
 export default (state = initialUIState, action) => {
@@ -32,6 +33,10 @@ export default (state = initialUIState, action) => {
     case actions.LEAVE_SERVER:
       return Object.assign({}, state, {
         leaveServerModalState: action.modalState,
+      });
+    case actions.INVITE_MEMBER:
+      return Object.assign({}, state, {
+        inviteMemberModalState: action.modalState,
       });
     case actions.EDIT_SERVER:
       return Object.assign({}, state, {

@@ -80,33 +80,33 @@ export default class CreateServer extends React.Component {
       });
     } else {
       let raw = this.state.inviteCode;
-      let iCode = parseInt(raw);
+      // let iCode = parseInt(raw);
 
       if (raw.length < 6) {
         this.setState({
           joinError: "- The invite is invalid or has expired",
         });
       } else {
-        if (raw.length > 6) {
-          iCode = parseInt(raw.slice(raw.length - 6));
-        }
+        // if (raw.length > 6) {
+        //   iCode = parseInt(raw.slice(raw.length - 6));
+        // }
 
-        this.props
-          .joinServer({ inviteCode: iCode })
-          .done((action) => {
-            this.props.closeCreateServerForm();
-            this.props.getServers();
-            this.props.history.push(
-              `/channels/${action.server.server.id}/${
-                Object.values(action.server.server.channels)[0].id
-              }`
-            );
-          })
-          .fail(() => {
-            this.setState({
-              joinError: "- The invite is invalid or has expired",
-            });
-          });
+        this.props.joinServer({ inviteCode: raw });
+        // .done((action) => {
+        //   this.props.closeCreateServerForm();
+        //   this.props.getServers();
+        //   this.props.history.push(
+        //     `/channels/${action.server.server.id}/${
+        //       Object.values(action.server.server.channels)[0].id
+        //     }`
+        //   );
+        // })
+        // .fail(() => {
+        //   this.setState({
+        //     joinError: "- The invite is invalid or has expired",
+        //   });
+        // });
+        this.closeModal();
       }
     }
     // this.props.joinServer({inviteCode: this.state.inviteCode})

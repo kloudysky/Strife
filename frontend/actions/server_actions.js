@@ -6,6 +6,7 @@ export const DELETE_SERVER = "DELETE_SERVER";
 export const RECEIVE_SERVER_ERRORS = "RECEIVE_SERVER_ERRORS";
 export const CLEAR_SERVER_ERRORS = "CLEAR_SERVER_ERRORS";
 export const LEAVE_SERVER = "LEAVE_SERVER";
+export const JOIN_SERVER = "JOIN_SERVER";
 
 export const receiveAllServers = (servers) => ({
   type: RECEIVE_ALL_SERVERS,
@@ -33,6 +34,13 @@ export const clearErrors = () => ({
 
 export const createServer = (server) => (dispatch) =>
   APIUtil.createServer(server)
+    .then(responseAllOk)
+    .catch((error) => {
+      console.log(error.statusText);
+    });
+
+export const joinServer = (inviteCode) => (dispatch) =>
+  APIUtil.joinServer(inviteCode)
     .then(responseAllOk)
     .catch((error) => {
       console.log(error.statusText);

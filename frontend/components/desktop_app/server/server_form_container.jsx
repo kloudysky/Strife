@@ -16,6 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
   dispatchServerError: (errors) =>
     dispatch(serverActions.receiveErrors(errors)),
   clearErrors: () => dispatch(serverActions.clearErrors()),
+  joinServer: (inviteCode) => dispatch(serverActions.joinServer(inviteCode)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateServer);

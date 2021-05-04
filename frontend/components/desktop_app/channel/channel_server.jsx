@@ -1,5 +1,6 @@
 import React from "react";
 import { Collapse } from "react-collapse";
+import { Helmet } from "react-helmet";
 import ServerMenuContainer from "./menu/server_menu_container";
 
 class ChannelServer extends React.Component {
@@ -21,6 +22,11 @@ class ChannelServer extends React.Component {
   setActiveChannel(channel) {
     this.props.requestMessages(channel.id);
     this.props.setChannel(channel);
+    console.log("CHANNEL NAME");
+    console.log(channel.channel_name);
+    <Helmet>
+      <title>{channel.channel_name}</title>
+    </Helmet>;
   }
 
   toggleServerMenu() {

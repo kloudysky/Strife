@@ -58,6 +58,16 @@ export const leaveServer = (serverId) =>
     },
   });
 
+export const joinServer = (inviteCode) =>
+  fetch(`/api/servers/join`, {
+    method: "POST",
+    body: JSON.stringify(inviteCode),
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-Token": Rails.csrfToken(),
+    },
+  });
+
 export const addServerMember = (serverMember) =>
   fetch(`/api/servers/member`, {
     method: "POST",

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Helmet } from "react-helmet";
 class ChannelHome extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +15,9 @@ class ChannelHome extends React.Component {
     this.props.requestMessages(channel.id);
     this.props.setChannel(channel);
     this.props.setDMChannel(channel);
+    <Helmet>
+      <title>channel.channel_name</title>
+    </Helmet>;
   }
 
   generateChannelImg(channel) {

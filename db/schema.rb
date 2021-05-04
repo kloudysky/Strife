@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_18_165608) do
+ActiveRecord::Schema.define(version: 2021_05_04_181149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -31,6 +31,22 @@ ActiveRecord::Schema.define(version: 2021_03_18_165608) do
     t.integer "channel_type", null: false
     t.integer "owner_id"
     t.index ["server_id"], name: "index_channels_on_server_id"
+  end
+
+  create_table "friend_requests", force: :cascade do |t|
+    t.integer "requestor_id", null: false
+    t.integer "receiver_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["requestor_id", "receiver_id"], name: "index_friend_requests_on_requestor_id_and_receiver_id", unique: true
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "friend_a", null: false
+    t.integer "friend_b", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_a", "friend_b"], name: "index_friendships_on_friend_a_and_friend_b", unique: true
   end
 
   create_table "messages", force: :cascade do |t|
@@ -57,6 +73,8 @@ ActiveRecord::Schema.define(version: 2021_03_18_165608) do
     t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "invite_code"
+    t.index ["invite_code"], name: "index_servers_on_invite_code", unique: true
     t.index ["owner_id"], name: "index_servers_on_owner_id"
   end
 

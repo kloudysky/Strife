@@ -6,6 +6,7 @@ class Api::ServersController < ApplicationController
     @server = Server.new(server_params)
 
     if @server.save
+      @server.generate_unique_invite_code
       firstMember =
         ServerMember.new(server_id: @server.id, member_id: @server.owner_id)
       if firstMember.save
@@ -88,15 +89,33 @@ class Api::ServersController < ApplicationController
         .where(user_id: current_user.id)
     @server_member.destroy
     msg = { status: 'ok', message: 'Success!' }
-    format.json { render json: msg }
+    render json: msg
+  end
+
+  def join_server
+    print(params)
+    @server = Server.find_by(invite_code: params[:inviteCode])
+    member = ServerMember.new(server_id: @server.id, member_id: current_user.id)
+    if member.save
+      channels = @server.channels
+      channels.each do |channel|
+        Channelmember.create(
+          channel_id: channel.id,
+          recipient_id: current_user.id,
+        )
+      end
+      @servers = current_user.membered_servers
+      render json: @servers, include: %i[channels members]
+    end
   end
 
   def leave_server
+    @server = Server.find(params[:id])
     server_member =
       ServerMember.find_by(server_id: params[:id], member_id: current_user.id)
     server_member.destroy
     msg = { status: 'ok', message: 'Success!' }
-    format.json { render json: msg }
+    render json: msg
   end
 
   private

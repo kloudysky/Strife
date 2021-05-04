@@ -119,8 +119,6 @@ class Messages extends React.Component {
   getOtherUsersImg(members) {
     let userImgUrl;
     members.forEach((member) => {
-      console.log(member.username);
-      console.log(this.props.user.username);
       if (member.id !== this.props.user.id) {
         userImgUrl = member.avatar;
       }

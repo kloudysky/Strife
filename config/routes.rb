@@ -8,6 +8,7 @@ Rails
       resource :session, only: %i[create destroy show]
       resources :servers
       post '/servers/member', to: 'servers#add_member', as: 'add_server_member'
+      post '/servers/join/', to: 'servers#join_server', as: 'join_server'
       delete '/servers/member',
              to: 'servers#remove_member',
              as: 'remove_server_member'

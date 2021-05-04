@@ -8,6 +8,7 @@ export const LEAVE_SERVER = "LEAVE_SERVER";
 export const SERVER_INVITE = "SERVER_INVITE";
 export const OPEN_PROFILE = "OPEN_PROFILE";
 export const EDIT_SERVER = "EDIT_SERVER";
+export const INVITE_MEMBER = "INVITE_MEMBER";
 
 export const setActiveServer = (server) => ({
   type: SET_ACTIVE_SERVER,
@@ -31,6 +32,10 @@ export const deleteServer = (modalState) => ({
 
 export const leaveServer = (modalState) => ({
   type: LEAVE_SERVER,
+  modalState,
+});
+export const inviteMember = (modalState) => ({
+  type: INVITE_MEMBER,
   modalState,
 });
 

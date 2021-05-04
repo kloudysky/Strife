@@ -4,12 +4,20 @@ import ChannelIndexContainer from "./channel/channel_index_container";
 import MessagesContainer from "./message/messages_container";
 import ServerFormContainer from "./server/server_form_container";
 import LeaveServerModal from "./modals/leave_server_modal";
+import InviteMememberModal from "./modals/invite_member_modal";
 import ServerSettingsModal from "./modals/server_settings_modal";
 import StrifeNavBar from "./navbar/strife_navbar_container";
 import ServerMembersContainer from "./server/members/server_members_container";
 
 class DesktopApp extends React.Component {
   render() {
+    const inviteMember = () => {
+      if (this.props.inviteMemberModalState) {
+        return <InviteMemberModal />;
+      } else {
+        return null;
+      }
+    };
     const createServer = () => {
       if (this.props.createServerModalState) {
         return <ServerFormContainer />;
@@ -67,6 +75,7 @@ class DesktopApp extends React.Component {
           </div>
           {createServer()}
           {leaveServer()}
+          {inviteMember()}
         </div>
         {serverSettings()}
       </>
