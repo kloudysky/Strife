@@ -11,6 +11,11 @@ class ChannelHome extends React.Component {
       : console.log("STRIFE APP");
   }
 
+  setHomeChannel() {
+    this.props.setChannel({ id: -1 });
+    this.props.setDMChannel({ id: -1 });
+  }
+
   setActiveChannel(channel) {
     this.props.requestMessages(channel.id);
     this.props.setChannel(channel);
@@ -60,8 +65,12 @@ class ChannelHome extends React.Component {
           </button>
         </div>
         <div className="channels-container">
-          <ul className="channel-list">
-            <li className="channel-list-item">
+          <ul onClick={() => this.setHomeChannel()} className="channel-list">
+            <li
+              className={`channel-list-item ${
+                this.props.activeDMChannel.id === -1 ? `active-channel` : ``
+              }`}
+            >
               <div className="dm-list-avatar">
                 <i class="fas fa-user-friends"></i>
               </div>
