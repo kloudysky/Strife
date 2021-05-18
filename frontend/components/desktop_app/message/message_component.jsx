@@ -6,6 +6,15 @@ class MessageComponent extends React.Component {
   componentDidMount() {
     const channel = this.props.activeChannel;
   }
+
+  showWampus() {
+    return (
+      <div className="no-friends">
+        <div className="wampus"></div>;
+      </div>
+    );
+  }
+
   render() {
     const channel = this.props.activeChannel;
     const messages = this.props.messages;
@@ -27,7 +36,7 @@ class MessageComponent extends React.Component {
     );
     return (
       <div className="message-container">
-        {channel.id !== -1 ? messageComponent : "HOME"}
+        {channel.id !== -1 ? messageComponent : this.showWampus()}
       </div>
     );
   }

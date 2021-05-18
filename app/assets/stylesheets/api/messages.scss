@@ -198,3 +198,19 @@ input.middle:focus {
 .multi-img-container-1 {
   display: flex;
 }
+
+.no-friends {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wampus {
+  background-size: 100% 100%;
+  background-image: url(https://discord.com/assets/b669713872b43ca42333264abf9c858e.svg);
+  flex: 0 1 auto;
+  width: 415px;
+  height: 200px;
+}
