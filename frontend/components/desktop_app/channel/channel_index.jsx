@@ -54,7 +54,7 @@ class ChannelIndex extends React.Component {
             </button>
             <button
               className="logout-button channel-setting-btn"
-              onClick={this.props.logout}
+              onClick={() => this.props.openUserSettings(true)}
             >
               <i className="fas fa-cog"></i>
             </button>

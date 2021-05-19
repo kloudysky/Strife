@@ -2,6 +2,7 @@ export const SET_ACTIVE_SERVER = "SET_ACTIVE_SERVER";
 export const SET_ACTIVE_CHANNEL = "SET_ACTIVE_CHANNEL";
 export const SET_ACTIVE_DM_CHANNEL = "SET_ACTIVE_DM_CHANNEL";
 export const SET_CREATE_SERVER_MODAL_STATE = "SET_CREATE_SERVER_MODAL_STATE";
+export const OPEN_USER_SETTINGS = "OPEN_USER_SETTINGS";
 export const OPEN_SERVER_MENU = "OPEN_SERVER_MENU";
 export const DELETE_SERVER = "DELETE_SERVER";
 export const LEAVE_SERVER = "LEAVE_SERVER";
@@ -22,6 +23,11 @@ export const setCreateServerModalState = (modalState) => ({
 
 export const openServerMenu = (modalState) => ({
   type: OPEN_SERVER_MENU,
+  modalState,
+});
+
+export const openUserSettings = (modalState) => ({
+  type: OPEN_USER_SETTINGS,
   modalState,
 });
 

@@ -25,7 +25,7 @@ const mapStateToProps = (state) => {
     deleteServerModalState: state.ui.deleteServerModalState,
     leaveServerModalState: state.ui.leaveServerModalState,
     editServerModalState: state.ui.editServerModalState,
-    openProfile: state.ui.openProfile,
+    userSettingsModalState: state.ui.openUserSettings,
     activeServer,
     activeDMChannel,
   };
@@ -42,6 +42,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(uiActions.leaveServer(modalState)),
   setEditServerModalState: (modalstate) =>
     dispatch(uiActions.editServer(modalstate)),
+  setUserSettingsModalState: (modalstate) =>
+    dispatch(uiActions.openUserSettings(modalstate)),
   deleteServer: (serverId) => dispatch(serverActions.removeServer(serverId)),
   leaveServer: (serverId) => dispatch(serverActions.leaveServer(serverId)),
   setActiveChannel: (channel) => dispatch(uiActions.setActiveChannel(channel)),

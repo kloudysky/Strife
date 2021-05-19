@@ -42,6 +42,8 @@ const mapDispatchToProps = (dispatch) => ({
   setChannel: (channel) => dispatch(uiActions.setActiveChannel(channel)),
   setDMChannel: (channel) => dispatch(uiActions.setActiveDMChannel(channel)),
   setServerMenu: (modalState) => dispatch(uiActions.openServerMenu(modalState)),
+  openUserSettings: (modalState) =>
+    dispatch(uiActions.openUserSettings(modalState)),
   logout: () => dispatch(sessionActions.logout()),
 });
 

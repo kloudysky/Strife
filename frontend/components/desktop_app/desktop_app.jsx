@@ -6,6 +6,7 @@ import ServerFormContainer from "./server/server_form_container";
 import LeaveServerModal from "./modals/leave_server_modal";
 import InviteMememberModal from "./modals/invite_member_modal";
 import ServerSettingsModal from "./modals/server_settings_modal";
+import UserSettingsModal from "./modals/user_settings_modal";
 import StrifeNavBar from "./navbar/strife_navbar_container";
 import ServerMembersContainer from "./server/members/server_members_container";
 
@@ -61,6 +62,17 @@ class DesktopApp extends React.Component {
         return null;
       }
     };
+    const userSettings = () => {
+      if (this.props.userSettingsModalState) {
+        return (
+          <UserSettingsModal
+            setUserSettingsModalState={this.props.setUserSettingsModalState}
+          />
+        );
+      } else {
+        return null;
+      }
+    };
     return (
       <>
         <div className="desktop-app">
@@ -78,6 +90,7 @@ class DesktopApp extends React.Component {
           {inviteMember()}
         </div>
         {serverSettings()}
+        {userSettings()}
       </>
     );
   }

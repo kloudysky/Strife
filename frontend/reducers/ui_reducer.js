@@ -8,14 +8,16 @@ const initialUIState = Object.freeze({
   openServerMenu: false,
   deleteServerModalState: false,
   leaveServerModalState: false,
-  openProfile: false,
   editServerModalState: false,
   inviteMemberModalState: false,
+  openUserSettings: false,
 });
 
 export default (state = initialUIState, action) => {
   Object.freeze(state);
   switch (action.type) {
+    case actions.OPEN_USER_SETTINGS:
+      return Object.assign({}, state, { openUserSettings: action.modalState });
     case actions.SET_ACTIVE_SERVER:
       return Object.assign({}, state, { activeServer: action.server });
     case actions.SET_CREATE_SERVER_MODAL_STATE:
