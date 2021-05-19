@@ -202,9 +202,11 @@ input.middle:focus {
 .no-friends {
   height: 100%;
   width: 100%;
+  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: gray;
 }
 
 .wampus {
@@ -213,4 +215,5 @@ input.middle:focus {
   flex: 0 1 auto;
   width: 415px;
   height: 200px;
+  margin-bottom: 30px;
 }

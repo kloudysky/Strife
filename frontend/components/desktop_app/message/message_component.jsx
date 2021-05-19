@@ -10,7 +10,8 @@ class MessageComponent extends React.Component {
   showWampus() {
     return (
       <div className="no-friends">
-        <div className="wampus"></div>;
+        <div className="wampus"></div>
+        <p>Friendships aren't functional yet. Here's Wumpus for now.</p>
       </div>
     );
   }
