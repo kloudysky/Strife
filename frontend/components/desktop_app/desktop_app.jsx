@@ -67,6 +67,8 @@ class DesktopApp extends React.Component {
         return (
           <UserSettingsModal
             setUserSettingsModalState={this.props.setUserSettingsModalState}
+            currentUser={this.props.currentUser}
+            logout={this.props.logout}
           />
         );
       } else {

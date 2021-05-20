@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import * as serverActions from "../../actions/server_actions";
 import * as channelActions from "../../actions/channel_actions";
 import * as uiActions from "../../actions/ui_actions";
+import * as sessionActions from "../../actions/session_actions";
 
 import DesktopApp from "./desktop_app";
 
@@ -26,6 +27,7 @@ const mapStateToProps = (state) => {
     leaveServerModalState: state.ui.leaveServerModalState,
     editServerModalState: state.ui.editServerModalState,
     userSettingsModalState: state.ui.openUserSettings,
+    currentUser: state.entities.users.currentUser,
     activeServer,
     activeDMChannel,
   };
@@ -49,6 +51,7 @@ const mapDispatchToProps = (dispatch) => ({
   setActiveChannel: (channel) => dispatch(uiActions.setActiveChannel(channel)),
   setActiveServer: (server) => dispatch(uiActions.setActiveServer(server)),
   requestDMChannels: () => dispatch(channelActions.requestDMChannels()),
+  logout: () => dispatch(sessionActions.logout()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DesktopApp);

@@ -24,7 +24,13 @@ export class UserSettingsModal extends Component {
     });
   }
 
+  handleLogout() {
+    this.closeModal();
+    this.props.logout();
+  }
+
   render() {
+    const { currentUser } = this.props;
     return (
       <div id="modal-setting-wrapper" className="modal-setting-wrapper">
         <div className="settings-grid-left">
@@ -33,7 +39,7 @@ export class UserSettingsModal extends Component {
             <div className="settings-menu-btn">My Account</div>
             <div className="settings-menu-br"></div>
             <div
-              onClick={() => this.deleteServer()}
+              onClick={() => this.handleLogout()}
               className="settings-menu-btn btn-danger"
             >
               Log Out
