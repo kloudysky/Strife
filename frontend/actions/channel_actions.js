@@ -4,6 +4,7 @@ export const RECEIVE_ALL_CHANNELS = "RECEIVE_ALL_CHANNELS";
 export const RECEIVE_CHANNEL = "RECEIVE_ALL_CHANNEL";
 export const DELETE_CHANNEL = "DELETE_CHANNEL";
 export const RECEIVE_CHANNEL_ERRORS = "RECEIVE_CHANNEL_ERRORS";
+export const CLEAR_CHANNEL_ERRORS = "CLEAR_CHANNEL_ERRORS";
 
 export const receiveAllChannels = (channels) => ({
   type: RECEIVE_ALL_CHANNELS,
@@ -23,6 +24,10 @@ export const deleteChannel = (channelId) => ({
 export const receiveErrors = (errors) => ({
   type: RECEIVE_CHANNEL_ERRORS,
   errors,
+});
+
+export const clearErrors = () => ({
+  type: CLEAR_CHANNEL_ERRORS,
 });
 
 export const createChannel = (channel) => (dispatch) =>

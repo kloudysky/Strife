@@ -23,6 +23,7 @@ const mapStateToProps = (state) => {
     servers: Object.values(state.entities.servers),
     channels: Object.values(state.entities.channels),
     createServerModalState: state.ui.createServerModalState,
+    createChannelModalState: state.ui.createChannelModalState,
     deleteServerModalState: state.ui.deleteServerModalState,
     leaveServerModalState: state.ui.leaveServerModalState,
     editServerModalState: state.ui.editServerModalState,

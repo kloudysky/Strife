@@ -42,7 +42,10 @@ export default class ServerMenu extends Component {
               </button>
             ) : null}
             {currentUserId === ownerId ? (
-              <button className="server-menu-btn edit-server-btn">
+              <button
+                onClick={() => this.props.setCreateChannelModalState(true)}
+                className="server-menu-btn edit-server-btn"
+              >
                 Create Channel
                 <i class="server-menu-btn-icon fas fa-plus-circle"></i>
               </button>

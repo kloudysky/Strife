@@ -1,6 +1,7 @@
 import React from "react";
 import ServerIndexContainer from "./server/server_index_container";
 import ChannelIndexContainer from "./channel/channel_index_container";
+import CreateChannelContainer from "./channel/create_channel_container";
 import MessagesContainer from "./message/messages_container";
 import ServerFormContainer from "./server/server_form_container";
 import LeaveServerModal from "./modals/leave_server_modal";
@@ -22,6 +23,13 @@ class DesktopApp extends React.Component {
     const createServer = () => {
       if (this.props.createServerModalState) {
         return <ServerFormContainer />;
+      } else {
+        return null;
+      }
+    };
+    const createChannel = () => {
+      if (this.props.createChannelModalState) {
+        return <CreateChannelContainer />;
       } else {
         return null;
       }
@@ -88,6 +96,7 @@ class DesktopApp extends React.Component {
             </div>
           </div>
           {createServer()}
+          {createChannel()}
           {leaveServer()}
           {inviteMember()}
         </div>

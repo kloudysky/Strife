@@ -11,6 +11,8 @@ export default (state = [], action) => {
       return [];
     case actions.DELETE_CHANNEL:
       return [];
+    case actions.CLEAR_CHANNEL_ERRORS:
+      return [];
     default:
       return state;
   }

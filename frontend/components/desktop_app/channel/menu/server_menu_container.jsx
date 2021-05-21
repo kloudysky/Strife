@@ -30,6 +30,8 @@ const mapDispatchToProps = (dispatch) => ({
   setEditServerModalState: (modalstate) =>
     dispatch(uiActions.editServer(modalstate)),
   leaveServer: (serverId) => dispatch(serverActions.leaveServer(serverId)),
+  setCreateChannelModalState: (modalstate) =>
+    dispatch(uiActions.setCreateChannelModalState(modalstate)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ServerMenu);

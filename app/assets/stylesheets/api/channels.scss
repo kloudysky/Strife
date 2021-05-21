@@ -235,3 +235,26 @@
   font-size: 16px;
   margin-left: 10px;
 }
+
+.create-channel-modal {
+  position: absolute;
+  top: Calc(50% - 180px);
+  left: Calc(50% - 220px);
+  height: auto;
+  min-height: 505px;
+  min-width: 445px;
+  background-color: rgb(55, 57, 62);
+  overflow: hidden;
+  border-radius: 5px;
+  animation-name: appear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  display: block;
+  border: none;
+}
+
+.create-channel-modal.transition-out {
+  animation-name: disappear;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+}

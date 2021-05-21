@@ -10,6 +10,7 @@ export const SERVER_INVITE = "SERVER_INVITE";
 export const OPEN_PROFILE = "OPEN_PROFILE";
 export const EDIT_SERVER = "EDIT_SERVER";
 export const INVITE_MEMBER = "INVITE_MEMBER";
+export const CREATE_CHANNEL_MODAL_STATE = "CREATE_CHANNEL_MODAL_STATE";
 
 export const setActiveServer = (server) => ({
   type: SET_ACTIVE_SERVER,
@@ -18,6 +19,11 @@ export const setActiveServer = (server) => ({
 
 export const setCreateServerModalState = (modalState) => ({
   type: SET_CREATE_SERVER_MODAL_STATE,
+  modalState,
+});
+
+export const setCreateChannelModalState = (modalState) => ({
+  type: CREATE_CHANNEL_MODAL_STATE,
   modalState,
 });
 

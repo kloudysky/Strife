@@ -11,11 +11,16 @@ const initialUIState = Object.freeze({
   editServerModalState: false,
   inviteMemberModalState: false,
   openUserSettings: false,
+  createChannelModalState: false,
 });
 
 export default (state = initialUIState, action) => {
   Object.freeze(state);
   switch (action.type) {
+    case actions.CREATE_CHANNEL_MODAL_STATE:
+      return Object.assign({}, state, {
+        createChannelModalState: action.modalState,
+      });
     case actions.OPEN_USER_SETTINGS:
       return Object.assign({}, state, { openUserSettings: action.modalState });
     case actions.SET_ACTIVE_SERVER:
