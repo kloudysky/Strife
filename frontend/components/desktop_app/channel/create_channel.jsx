@@ -8,7 +8,7 @@ export default class CreateServer extends React.Component {
     };
 
     this.updateName = this.updateName.bind(this);
-    this.handleJoinSubmit = this.handleJoinSubmit.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.unfinished = this.unfinished.bind(this);
   }
 

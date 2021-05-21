@@ -251,6 +251,24 @@
   animation-iteration-count: 1;
   display: block;
   border: none;
+
+  .close-form {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    z-index: 3;
+    svg path {
+      transition: 0.2s;
+    }
+
+    .close-form:hover {
+      svg path {
+        fill: #2e3338;
+        transition: 0.2s;
+      }
+    }
+  }
 }
 
 .create-channel-modal.transition-out {
