@@ -89,6 +89,78 @@ export default class CreateServer extends React.Component {
               ></path>
             </svg>
           </div>
+          <div className="create-channel-header">Create Text Channel</div>
+          <div className="create-channel-body">
+            <div className="create-channel-type">
+              <div className="channel-type-text">CHANNEL TYPE</div>
+              <div role="radiogroup">
+                <div
+                  role="radio"
+                  aria-checked="true"
+                  className="text-channel-type"
+                >
+                  <div className="radio-bar">
+                    <svg
+                      aria-hidden="false"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                        fill="currentColor"
+                      ></path>
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="5"
+                        class="channel-type-select"
+                        fill="currentColor"
+                      ></circle>
+                    </svg>
+                  </div>
+                </div>
+                <div
+                  role="radio"
+                  aria-checked="false"
+                  className="text-channel-type"
+                >
+                  <div className="radio-bar">
+                    <svg
+                      aria-hidden="false"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="create-channel-name">
+              <div className="channel-type-text">CHANNEL NAME</div>
+              <div className="channel-name-input-wrapper">
+                <div className="channel-name-placeholder-hash">#</div>
+                <input
+                  className="channel-name-input-field"
+                  placeholder="new-channel"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="create-channel-footer">
+            <button className="create-channel-submit">Create Channel</button>
+            <button className="cancel-modal-button">Cancel</button>
+          </div>
         </div>
       </div>
     );
