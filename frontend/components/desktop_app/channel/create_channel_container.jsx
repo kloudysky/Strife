@@ -19,7 +19,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  createChannel: (channel) => dispatch(channelActions.createChhannel(channel)),
+  createChannel: (channel) => dispatch(channelActions.createChannel(channel)),
   setCreateChannelModalState: (modalState) =>
     dispatch(uiActions.setCreateChannelModalState(modalState)),
   dispatchChannelError: (errors) =>

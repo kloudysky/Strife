@@ -132,9 +132,7 @@ class Messages extends React.Component {
         <div className="welcome-img-contianer">
           <img src="" alt="" />
         </div>
-        <h1 className="welcome-header">
-          Welcome to the {channel.channel_name} channel!
-        </h1>
+        <h1 className="welcome-header">Welcome to #{channel.channel_name}!</h1>
         <p className="welcome-text">
           This is the beginning of your {channel.channel_name} conversations.
         </p>

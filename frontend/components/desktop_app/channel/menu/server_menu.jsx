@@ -18,6 +18,11 @@ export default class ServerMenu extends Component {
     this.props.setEditServerModalState(true);
   }
 
+  handleCreateChannel() {
+    this.props.setServerMenu(false);
+    this.props.setCreateChannelModalState(true);
+  }
+
   render() {
     const currentUserId = this.props.currentUser.id;
     const ownerId = this.props.activeServer.owner_id;
@@ -43,7 +48,7 @@ export default class ServerMenu extends Component {
             ) : null}
             {currentUserId === ownerId ? (
               <button
-                onClick={() => this.props.setCreateChannelModalState(true)}
+                onClick={() => this.handleCreateChannel()}
                 className="server-menu-btn edit-server-btn"
               >
                 Create Channel

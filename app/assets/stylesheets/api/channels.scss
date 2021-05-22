@@ -315,6 +315,39 @@
         background-color: #202225;
         color: white;
       }
+
+      .channel-type-info {
+        margin-right: 8px;
+        width: 100%;
+        display: flex;
+        grid-gap: 4px;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+
+        .channel-type-hash {
+          opacity: 0.6;
+          margin-right: 6px;
+          fill: #b9bbbe;
+        }
+
+        .channel-type-description {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .channel-type-heading {
+          font-size: 15px;
+          padding-bottom: 6px;
+          font-weight: 500;
+          color: #dcddde;
+        }
+
+        .channel-type-description-text {
+          font-size: 11px;
+          color: #dcddde;
+        }
+      }
     }
     .create-channel-name {
       margin-bottom: 20px;
@@ -378,6 +411,13 @@
     }
     .create-channel-submit:hover {
       background-color: #6a7fcc;
+    }
+
+    .create-channel-submit[disabled="true"] {
+      opacity: 0.5;
+    }
+    .create-channel-submit-true {
+      opacity: 0.5;
     }
   }
 }
