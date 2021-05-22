@@ -67,7 +67,7 @@ class ChannelHome extends React.Component {
         <div className="channels-container">
           <ul onClick={() => this.setHomeChannel()} className="channel-list">
             <li
-              className={`channel-list-item ${
+              className={`channel-list-item-home ${
                 this.props.activeDMChannel.id === -1 ? `active-channel` : ``
               }`}
             >
@@ -76,7 +76,7 @@ class ChannelHome extends React.Component {
               </div>
               Friends
             </li>
-            <li className="channel-list-item">
+            <li className="channel-list-item-home">
               <div className="dm-list-avatar">
                 <i class="fas fa-meteor"></i>
               </div>
@@ -91,7 +91,7 @@ class ChannelHome extends React.Component {
             {channels.map((channel) => (
               <li
                 onClick={() => this.setActiveChannel(channel)}
-                className={`channel-list-item ${
+                className={`channel-list-item-home ${
                   this.props.activeDMChannel.id === channel.id
                     ? `active-channel`
                     : ``

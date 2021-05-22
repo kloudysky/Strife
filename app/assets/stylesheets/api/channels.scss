@@ -57,30 +57,54 @@
 
 .server-channel-tab {
   margin-top: 20px;
-  margin-left: 5px;
-  width: 170px;
   height: 15px;
+  padding: 0 5px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: row;
+}
+
+.server-channel-tab-heading {
+  display: flex;
+  align-items: center;
 }
 
 .server-channel-icon {
   margin-right: 10px;
 }
 
+.fa-plus-channel {
+  margin-right: 15px;
+  font-size: 15px;
+}
+
+.fa-plus-channel:hover {
+  color: white;
+}
+
+.channel-member-plus {
+  display: none;
+}
+
 .channel-tab:hover {
   cursor: pointer;
 }
 
-.channel-tab > p {
-  font-size: 11px;
-  margin: 4px;
+.server-channel-tab-heading > p {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.text-channel-header-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .channel-collapse-down {
   left: 5px;
+  font-size: 10px;
+  margin-right: 5px;
 }
 
 .channels-container {
@@ -126,18 +150,40 @@
 .channel-list {
 }
 
+.fa-hashtag {
+  color: gray;
+}
+
 .channel-list-item {
   padding: 8px;
   margin: 5px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.channel-list-item-home {
+  padding: 8px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
   justify-content: flex-start;
+  cursor: pointer;
 }
 
 .channel-list-item:hover {
   background-color: rgb(55, 57, 62);
   cursor: pointer;
   border-radius: 4px;
+  color: white;
+}
+
+.channel-owner-actions {
+  color: gray;
+  font-size: 14px;
+}
+
+.channel-owner-action-btn:hover {
   color: white;
 }
 

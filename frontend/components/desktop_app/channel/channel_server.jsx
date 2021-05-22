@@ -54,9 +54,19 @@ class ChannelServer extends React.Component {
     }
   }
 
+  ownerActions() {
+    if (this.props.server.owner_id === this.props.currentUser.id) {
+      return (
+        <div className="channel-owner-actions">
+          <i class="fas fa-user-plus server-channel-icon channel-owner-action-btn"></i>
+          <i class="fas fa-cog server-channel-icon channel-owner-action-btn"></i>
+        </div>
+      );
+    }
+  }
+
   render() {
-    const channels = this.props.channels;
-    const server = this.props.server;
+    const { channels, server } = this.props;
     return (
       <>
         <div
@@ -68,12 +78,22 @@ class ChannelServer extends React.Component {
         </div>
         <div className="channels-container">
           {this.serverMenu()}
-          <div
-            className="server-channel-tab channel-tab"
-            onClick={() => this.toggleServerList()}
-          >
-            <i className="fas fa-angle-down channel-collapse-down"></i>
-            <p>TEXT CHANNELS</p>
+          <div className="server-channel-tab channel-tab">
+            <div
+              className="server-channel-tab-heading"
+              onClick={() => this.toggleServerList()}
+            >
+              <i className="fas fa-angle-down channel-collapse-down"></i>
+              <p>TEXT CHANNELS</p>
+            </div>
+            <i
+              class={`fas fa-plus fa-plus-channel ${
+                this.props.server.owner_id == this.props.currentUser.id
+                  ? ""
+                  : "channel-member-plus"
+              }`}
+              onClick={() => this.props.setCreateChannelModalState(true)}
+            ></i>
           </div>
 
           <ul className="channel-list">
@@ -88,8 +108,13 @@ class ChannelServer extends React.Component {
                   key={channel.id}
                   onClick={() => this.setActiveChannel(channel)}
                 >
-                  <i className="fas fa-hashtag server-channel-icon"></i>
-                  {channel.channel_name}
+                  <div className="channel-list-title">
+                    <i className="fas fa-hashtag server-channel-icon"></i>
+                    {channel.channel_name}
+                  </div>
+                  {this.props.activeChannel.id === channel.id
+                    ? this.ownerActions()
+                    : null}
                 </li>
               ))}
             </Collapse>

@@ -8,43 +8,50 @@ class ChannelIndex extends React.Component {
   }
 
   render() {
-    const channels = this.props.channels;
-    const server = this.props.activeServer;
-    const user = this.props.currentUser;
-    const requestMessages = this.props.requestMessages;
-    const setChannel = this.props.setChannel;
-    const activeChannel = this.props.activeChannel;
-    const setServerMenu = this.props.setServerMenu;
-    const openServerMenu = this.props.openServerMenu;
+    const {
+      channels,
+      activeServer,
+      requestMessages,
+      setChannel,
+      activeChannel,
+      setServerMenu,
+      openServerMenu,
+      currentUser,
+      setDMChannel,
+      activeDMChannel,
+      setCreateChannelModalState,
+    } = this.props;
 
     return (
       <div className="channel-component">
-        {server.id === -1 ? (
+        {activeServer.id === -1 ? (
           <ChannelHome
             channels={channels}
-            user={user}
+            user={currentUser}
             requestMessages={requestMessages}
             setChannel={setChannel}
-            setDMChannel={this.props.setDMChannel}
-            activeDMChannel={this.props.activeDMChannel}
+            setDMChannel={setDMChannel}
+            activeDMChannel={activeDMChannel}
             activeChannel={activeChannel}
           />
         ) : (
           <ChannelServer
-            server={server}
+            server={activeServer}
             channels={channels}
             requestMessages={requestMessages}
             setChannel={setChannel}
             activeChannel={activeChannel}
             setServerMenu={setServerMenu}
             openServerMenu={openServerMenu}
+            currentUser={currentUser}
+            setCreateChannelModalState={setCreateChannelModalState}
           />
         )}
         <div className="settings-section">
           <div className="settings-avatar">
-            <img className="settings-img" src={user.avatar} alt="" />
+            <img className="settings-img" src={currentUser.avatar} alt="" />
           </div>
-          <p className="channel-profile-username">{user.username}</p>
+          <p className="channel-profile-username">{currentUser.username}</p>
           <div className="channel-settings-buttons">
             <button className="channel-setting-btn">
               <i className="fas fa-microphone-slash"></i>

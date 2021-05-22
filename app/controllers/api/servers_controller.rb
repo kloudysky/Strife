@@ -12,7 +12,7 @@ class Api::ServersController < ApplicationController
       if firstMember.save
         gen_channel =
           Channel.create(
-            channel_name: 'General',
+            channel_name: 'general',
             server_id: @server.id,
             channel_type: 0,
             owner_id: @server.owner_id,
