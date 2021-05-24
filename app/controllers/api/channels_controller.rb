@@ -8,8 +8,13 @@ class Api::ChannelsController < ApplicationController
 
   def create
     @channel = Channel.new(channel_params)
+    members = Server.find_by(id: channel_params[:server_id]).members
+    puts members
 
     if @channel.save
+      members.each do |member|
+        Channelmember.create(channel_id: @channel.id, recipient_id: member.id)
+      end
       render :show
     else
       render json: @channel.errors.full_messages, status: 422
