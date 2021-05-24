@@ -47,6 +47,7 @@ export default class CreateServer extends React.Component {
       channel_name: this.state.channel_name,
       owner_id: this.props.currentUser.id,
       server_id: this.props.activeServer.id,
+      channel_type: 0,
     };
 
     if (this.state.channel_name.length < 1) {
