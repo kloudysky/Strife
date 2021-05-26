@@ -20,6 +20,7 @@ class ChannelIndex extends React.Component {
       setDMChannel,
       activeDMChannel,
       setCreateChannelModalState,
+      openChannelSettings,
     } = this.props;
 
     return (
@@ -45,6 +46,7 @@ class ChannelIndex extends React.Component {
             openServerMenu={openServerMenu}
             currentUser={currentUser}
             setCreateChannelModalState={setCreateChannelModalState}
+            openChannelSettings={openChannelSettings}
           />
         )}
         <div className="settings-section">

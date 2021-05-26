@@ -5,6 +5,8 @@ import CreateChannelContainer from "./channel/create_channel_container";
 import MessagesContainer from "./message/messages_container";
 import ServerFormContainer from "./server/server_form_container";
 import LeaveServerModal from "./modals/leave_server_modal";
+import ChannelSettingsModal from "./modals/channel_settings_modal";
+import ChannelNotificationModal from "./modals/notification_modal";
 import InviteMememberModal from "./modals/invite_member_modal";
 import ServerSettingsModal from "./modals/server_settings_modal";
 import UserSettingsModal from "./modals/user_settings_modal";
@@ -83,6 +85,41 @@ class DesktopApp extends React.Component {
         return null;
       }
     };
+    const channelNotification = () => {
+      if (this.props.showChannelNotificationModalState) {
+        return (
+          <ChannelNotificationModal
+            setChannelNotificationModalState={
+              this.props.setChannelNotificationModalState
+            }
+          />
+        );
+      } else {
+        return null;
+      }
+    };
+    const channelSettings = () => {
+      if (this.props.channelSettingsModalState) {
+        return (
+          <ChannelSettingsModal
+            setChannelSettingsModalState={
+              this.props.setChannelSettingsModalState
+            }
+            activeChannel={this.props.activeChannel}
+            activeServer={this.props.activeServer}
+            currentUser={this.props.currentUser}
+            requestServerChannels={this.props.requestServerChannels}
+            deleteChannel={this.props.deleteChannel}
+            setActiveChannel={this.props.setActiveChannel}
+            setChannelNotificationModalState={
+              this.props.setChannelNotificationModalState
+            }
+          />
+        );
+      } else {
+        return null;
+      }
+    };
     return (
       <>
         <div className="desktop-app">
@@ -102,6 +139,7 @@ class DesktopApp extends React.Component {
         </div>
         {serverSettings()}
         {userSettings()}
+        {channelSettings()}
       </>
     );
   }

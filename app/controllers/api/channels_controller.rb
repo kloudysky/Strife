@@ -42,8 +42,8 @@ class Api::ChannelsController < ApplicationController
   end
 
   def destroy
-    @message = Message.find(params[:id])
-    @message.destroy
+    @channel = Channel.find(params[:id])
+    @channel.destroy
     render :index
   end
 
