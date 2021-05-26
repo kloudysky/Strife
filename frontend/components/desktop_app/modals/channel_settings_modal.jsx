@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import ChannelNotificationModal from "./notification_modal";
 
 export class ChannelSettingsModal extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      new_channel_name: this.props.activeChannel.channel_name,
+    };
+  }
   closeModal() {
     // let wrapper = document.getElementById("modal-notification-wrapper");
     let modal = document.getElementById("modal-setting-wrapper");
@@ -16,6 +23,57 @@ export class ChannelSettingsModal extends Component {
 
   showChannelNotificationModal() {
     this.props.setChannelNotificationModalState(true);
+  }
+
+  updateName(value) {
+    this.setState({
+      new_channel_name: value,
+    });
+  }
+
+  message() {
+    return (
+      <ul>
+        {this.props.channelErrors.map((error, i) => (
+          <li
+            className={`render-error server-update-message ${
+              error === "Channel name updated" ? "update-name-message" : ""
+            }`}
+            key={i}
+          >
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    const channel = {
+      id: this.props.activeChannel.id,
+      channel_name: this.state.new_channel_name,
+      owner_id: this.props.currentUser.id,
+    };
+
+    if (this.state.new_channel_name.length < 1) {
+      this.props.dispatchChannelError(["Channel name cannot be blank"]);
+    } else {
+      this.props.updateChannel(channel).then(() => {
+        this.props
+          .requestServerChannels(this.props.activeServer.id)
+          .then(() => {
+            this.props.setActiveChannel(
+              this.props.channels.filter(
+                (channel) => channel.id === this.props.activeChannel.id
+              )[0]
+            );
+            this.props.dispatchChannelError(["Channel name updated"]);
+          });
+        // this.props.dispatchServerError(["Server name updated"]);
+      });
+    }
   }
 
   deleteChannel() {
@@ -56,10 +114,32 @@ export class ChannelSettingsModal extends Component {
               <div className="server-settings-img">
                 <h3>CHANNEL OVERVIEW</h3>
               </div>
-              <div className="server-settings-name">
-                <h3>CHANNEL NAME</h3>
-                <input type="text" />
-              </div>
+              <form>
+                <div className="server-settings-name">
+                  <h3>CHANNEL NAME</h3>
+                  <input
+                    name="name"
+                    onChange={(e) => this.updateName(e.target.value)}
+                    value={this.state.new_channel_name}
+                    type="text"
+                  />
+                  <button
+                    onClick={(e) => this.handleSubmit(e)}
+                    type="submit"
+                    className={`save-btn save-btn-${
+                      this.state.new_channel_name ===
+                      this.props.activeChannel.channel_name
+                    }`}
+                    disabled={
+                      this.state.new_channel_name ===
+                      this.props.activeChannel.channel_name
+                    }
+                  >
+                    Save
+                  </button>
+                  {this.message()}
+                </div>
+              </form>
             </div>
           </div>
           <div className="settings-close-btn-area">

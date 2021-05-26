@@ -23,7 +23,6 @@ export class ServerSettingsModal extends Component {
   }
 
   updateName(value) {
-    // e.preventDefault();
     this.setState({
       new_server_name: value,
     });

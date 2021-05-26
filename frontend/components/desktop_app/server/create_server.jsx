@@ -178,11 +178,11 @@ export default class CreateServer extends React.Component {
     //   }
     // });
     if (this.state.server_name.length < 1) {
-      console.log(this.state.server_name);
       this.props.dispatchServerError(["Server name cannot be blank"]);
     } else {
-      this.props.createServer(server);
-      this.closeModal();
+      this.props.createServer(server).then(() => {
+        this.closeModal();
+      });
     }
   }
 

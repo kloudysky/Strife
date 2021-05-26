@@ -120,6 +120,8 @@ class DesktopApp extends React.Component {
             setChannelNotificationModalState={
               this.props.setChannelNotificationModalState
             }
+            channelErrors={this.props.channelErrors}
+            dispatchChannelError={this.props.dispatchChannelError}
           />
         );
       } else {

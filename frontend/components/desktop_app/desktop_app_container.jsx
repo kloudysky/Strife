@@ -38,6 +38,7 @@ const mapStateToProps = (state) => {
     currentUser: state.entities.users.currentUser,
     showChannelNotificationModalState: state.ui.showChannelNotification,
     serverErrors: state.errors.server,
+    channelErrors: state.errors.channel,
     activeServer,
     activeDMChannel,
     activeChannel,
@@ -68,6 +69,8 @@ const mapDispatchToProps = (dispatch) => ({
   updateServer: (server) => dispatch(serverActions.updateServer(server)),
   dispatchServerError: (errors) =>
     dispatch(serverActions.receiveErrors(errors)),
+  dispatchChannelError: (errors) =>
+    dispatch(channelActions.dispatchChannelError(errors)),
   setActiveChannel: (channel) => dispatch(uiActions.setActiveChannel(channel)),
   setActiveServer: (server) => dispatch(uiActions.setActiveServer(server)),
   requestDMChannels: () => dispatch(channelActions.requestDMChannels()),
