@@ -1529,3 +1529,35 @@ label {
   font-size: 12px;
   margin-bottom: 2px;
 }
+
+.save-btn {
+  border: none;
+  color: #fff;
+  background-color: #48b94b;
+  height: 38px;
+  max-width: 96px;
+  min-height: 38px;
+  border-radius: 3px;
+  font-size: 13px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 15px;
+}
+
+.save-btn[disabled="true"] {
+  opacity: 0.5;
+}
+
+.save-btn-true {
+  opacity: 0.5;
+  cursor: auto;
+}
+
+.update-name-message {
+  color: rgb(4, 170, 4);
+}
+
+.server-update-message {
+  margin-top: 10px;
+}

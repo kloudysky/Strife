@@ -37,6 +37,7 @@ const mapStateToProps = (state) => {
     userSettingsModalState: state.ui.openUserSettings,
     currentUser: state.entities.users.currentUser,
     showChannelNotificationModalState: state.ui.showChannelNotification,
+    serverErrors: state.errors.server,
     activeServer,
     activeDMChannel,
     activeChannel,
@@ -64,6 +65,9 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(channelActions.removeChannel(channelId)),
   deleteServer: (serverId) => dispatch(serverActions.removeServer(serverId)),
   leaveServer: (serverId) => dispatch(serverActions.leaveServer(serverId)),
+  updateServer: (server) => dispatch(serverActions.updateServer(server)),
+  dispatchServerError: (errors) =>
+    dispatch(serverActions.receiveErrors(errors)),
   setActiveChannel: (channel) => dispatch(uiActions.setActiveChannel(channel)),
   setActiveServer: (server) => dispatch(uiActions.setActiveServer(server)),
   requestDMChannels: () => dispatch(channelActions.requestDMChannels()),

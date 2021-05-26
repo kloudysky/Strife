@@ -66,6 +66,12 @@ class DesktopApp extends React.Component {
             setActiveServer={this.props.setActiveServer}
             requestDMChannels={this.props.requestDMChannels}
             activeDMChannel={this.props.activeDMChannel}
+            currentUser={this.props.currentUser}
+            updateServer={this.props.updateServer}
+            serverErrors={this.props.serverErrors}
+            dispatchServerError={this.props.dispatchServerError}
+            requestServers={this.props.requestServers}
+            servers={this.props.servers}
           />
         );
       } else {

@@ -78,7 +78,7 @@ export const leaveServer = (serverId) => (dispatch) =>
 
 export const updateServer = (server) => (dispatch) =>
   APIUtil.updateServer(server)
-    .then(responseOk)
+    .then(receiveMessage)
     .catch((error) => {
       console.log(error.statusText);
     });
@@ -107,5 +107,14 @@ const responseOk = (response) => {
     return response.json().then((error) => dispatch(receiveErrors(error)));
   } else {
     return response.json().then((server) => dispatch(receiveServer(server)));
+  }
+};
+
+const receiveMessage = (response) => {
+  if (!response.ok) {
+    console.log(response);
+    return response.json().then((error) => dispatch(receiveErrors(error)));
+  } else {
+    return response.json().then((message) => dispatch(receiveErrors(message)));
   }
 };
