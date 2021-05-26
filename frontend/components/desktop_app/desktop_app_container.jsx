@@ -59,7 +59,7 @@ const mapDispatchToProps = (dispatch) => ({
   setChannelSettingsModalState: (modalState) =>
     dispatch(uiActions.openChannelSettings(modalState)),
   setChannelNotificationModalState: (modalState) =>
-    dispatch(uiActions.showChannelNotificationModalState(modalState)),
+    dispatch(uiActions.showChannelNotification(modalState)),
   deleteChannel: (channelId) =>
     dispatch(channelActions.removeChannel(channelId)),
   deleteServer: (serverId) => dispatch(serverActions.removeServer(serverId)),

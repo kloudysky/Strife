@@ -140,6 +140,7 @@ class DesktopApp extends React.Component {
         {serverSettings()}
         {userSettings()}
         {channelSettings()}
+        {channelNotification()}
       </>
     );
   }

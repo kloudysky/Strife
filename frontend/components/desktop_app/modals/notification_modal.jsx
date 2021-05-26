@@ -13,17 +13,6 @@ export class ChannelNotificationModal extends Component {
     }, 100);
   }
 
-  leaveServer() {
-    this.props.leaveServer(this.props.activeServer.id).then(() => {
-      this.props.requestDMChannels();
-      this.props.setActiveServer({
-        id: -1,
-      });
-      this.props.setActiveChannel(this.props.activeDMChannel);
-      this.closeModal();
-    });
-  }
-
   render() {
     return (
       <div
@@ -34,10 +23,10 @@ export class ChannelNotificationModal extends Component {
           <div className="notification-screens">
             <div className="notification-screen">
               <div className="notification-prompt">
-                <h3>Hold up '{this.props.activeServer.server_name}'</h3>
+                <h3>Hold up</h3>
                 <p>
                   You only have one channel left. Create another channel, then
-                  you can delete this one {this.props.activeServer.server_name}?
+                  you can delete this one.
                 </p>
               </div>
               <div className="notification-footer">
@@ -55,3 +44,5 @@ export class ChannelNotificationModal extends Component {
     );
   }
 }
+
+export default ChannelNotificationModal;
