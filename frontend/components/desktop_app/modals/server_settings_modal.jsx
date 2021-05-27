@@ -18,6 +18,7 @@ export class ServerSettingsModal extends Component {
     // wrapper.classList.add("inactive");
 
     setTimeout(() => {
+      this.props.clearServerErrors();
       this.props.setEditServerModalState(false);
     }, 100);
   }

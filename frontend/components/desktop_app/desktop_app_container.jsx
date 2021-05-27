@@ -66,11 +66,13 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(channelActions.removeChannel(channelId)),
   deleteServer: (serverId) => dispatch(serverActions.removeServer(serverId)),
   leaveServer: (serverId) => dispatch(serverActions.leaveServer(serverId)),
+  clearServerErrors: (serverId) => dispatch(serverActions.clearErrors()),
   updateServer: (server) => dispatch(serverActions.updateServer(server)),
   dispatchServerError: (errors) =>
     dispatch(serverActions.receiveErrors(errors)),
   dispatchChannelError: (errors) =>
     dispatch(channelActions.dispatchChannelError(errors)),
+  clearChannelErrors: () => dispatch(channelActions.clearErrors()),
   setActiveChannel: (channel) => dispatch(uiActions.setActiveChannel(channel)),
   setActiveServer: (server) => dispatch(uiActions.setActiveServer(server)),
   requestDMChannels: () => dispatch(channelActions.requestDMChannels()),

@@ -72,6 +72,7 @@ class DesktopApp extends React.Component {
             dispatchServerError={this.props.dispatchServerError}
             requestServers={this.props.requestServers}
             servers={this.props.servers}
+            clearServerErrors={this.props.clearServerErrors}
           />
         );
       } else {
@@ -122,6 +123,7 @@ class DesktopApp extends React.Component {
             }
             channelErrors={this.props.channelErrors}
             dispatchChannelError={this.props.dispatchChannelError}
+            clearChannelErrors={this.props.clearChannelErrors}
           />
         );
       } else {

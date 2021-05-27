@@ -16,6 +16,7 @@ export class ChannelSettingsModal extends Component {
     modal.classList.add("transition-out");
     // wrapper.classList.add("inactive");
 
+    this.props.clearChannelErrors();
     setTimeout(() => {
       this.props.setChannelSettingsModalState(false);
     }, 100);
