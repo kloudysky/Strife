@@ -35,7 +35,8 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
 
     if @channel.update(channel_params)
-      render :show
+      msg = ['Server name updated']
+      render json: msg
     else
       render json: @channel.errors.full_messages, status: 422
     end

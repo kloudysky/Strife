@@ -124,6 +124,8 @@ class DesktopApp extends React.Component {
             channelErrors={this.props.channelErrors}
             dispatchChannelError={this.props.dispatchChannelError}
             clearChannelErrors={this.props.clearChannelErrors}
+            updateChannel={this.props.updateChannel}
+            channels={this.props.channels}
           />
         );
       } else {

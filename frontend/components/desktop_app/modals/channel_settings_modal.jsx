@@ -98,7 +98,18 @@ export class ChannelSettingsModal extends Component {
       <div id="modal-setting-wrapper" className="modal-setting-wrapper">
         <div className="settings-grid-left">
           <div className="settings-menu">
-            <h3>CHANNEL NAME</h3>
+            <div
+              style={{
+                display: "flex",
+                color: "#8f9296",
+                alignItems: "baseline",
+              }}
+            >
+              <h3># {this.props.activeChannel.channel_name.toUpperCase()}</h3>
+              <p style={{ fontSize: "10px", marginLeft: "5px" }}>
+                TEXT CHANNELS
+              </p>
+            </div>
             <div className="settings-menu-btn">Overview</div>
             <div className="settings-menu-br"></div>
             <div
@@ -111,7 +122,7 @@ export class ChannelSettingsModal extends Component {
         </div>
         <div className="settings-grid-right">
           <div className="settings-info-wrapper">
-            <h3>CHANNEL OVERVIEW</h3>
+            <h3 style={{ color: "white" }}>OVERVIEW</h3>
             <form>
               <div className="server-settings-name">
                 <h3 style={{ color: "white" }}>CHANNEL NAME</h3>

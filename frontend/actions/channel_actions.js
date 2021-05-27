@@ -75,7 +75,7 @@ export const removeChannel = (channelId) => (dispatch) =>
 
 export const updateChannel = (channel) => (dispatch) =>
   APIUtil.updateChannel(channel)
-    .then(responseOk)
+    .then(receiveMessage)
     .catch((error) => {
       console.log(error.statusText);
     });
@@ -104,5 +104,14 @@ const responseOk = (response) => {
     return response.json().then((error) => dispatch(receiveErrors(error)));
   } else {
     return response.json().then((channel) => dispatch(receiveChannel(channel)));
+  }
+};
+
+const receiveMessage = (response) => {
+  if (!response.ok) {
+    console.log(response);
+    return response.json().then((error) => dispatch(receiveErrors(error)));
+  } else {
+    return response.json().then((message) => dispatch(receiveErrors(message)));
   }
 };
