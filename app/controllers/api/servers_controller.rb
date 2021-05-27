@@ -1,6 +1,7 @@
 class Api::ServersController < ApplicationController
   before_action :require_logged_in
-  before_action :check_if_owner, only: %i[edit update destroy]
+
+  # before_action :check_if_owner, only: %i[edit update destroy]
 
   def create
     @server = Server.new(server_params)

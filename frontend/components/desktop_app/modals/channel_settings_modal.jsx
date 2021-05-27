@@ -110,37 +110,33 @@ export class ChannelSettingsModal extends Component {
         </div>
         <div className="settings-grid-right">
           <div className="settings-info-wrapper">
-            <div className="server-settings-info">
-              <div className="server-settings-img">
-                <h3>CHANNEL OVERVIEW</h3>
+            <h3>CHANNEL OVERVIEW</h3>
+            <form>
+              <div className="server-settings-name">
+                <h3 style={{ color: "white" }}>CHANNEL NAME</h3>
+                <input
+                  name="name"
+                  onChange={(e) => this.updateName(e.target.value)}
+                  value={this.state.new_channel_name}
+                  type="text"
+                />
+                <button
+                  onClick={(e) => this.handleSubmit(e)}
+                  type="submit"
+                  className={`save-btn save-btn-${
+                    this.state.new_channel_name ===
+                    this.props.activeChannel.channel_name
+                  }`}
+                  disabled={
+                    this.state.new_channel_name ===
+                    this.props.activeChannel.channel_name
+                  }
+                >
+                  Save
+                </button>
+                {this.message()}
               </div>
-              <form>
-                <div className="server-settings-name">
-                  <h3>CHANNEL NAME</h3>
-                  <input
-                    name="name"
-                    onChange={(e) => this.updateName(e.target.value)}
-                    value={this.state.new_channel_name}
-                    type="text"
-                  />
-                  <button
-                    onClick={(e) => this.handleSubmit(e)}
-                    type="submit"
-                    className={`save-btn save-btn-${
-                      this.state.new_channel_name ===
-                      this.props.activeChannel.channel_name
-                    }`}
-                    disabled={
-                      this.state.new_channel_name ===
-                      this.props.activeChannel.channel_name
-                    }
-                  >
-                    Save
-                  </button>
-                  {this.message()}
-                </div>
-              </form>
-            </div>
+            </form>
           </div>
           <div className="settings-close-btn-area">
             <div
