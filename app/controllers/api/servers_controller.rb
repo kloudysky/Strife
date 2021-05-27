@@ -4,8 +4,10 @@ class Api::ServersController < ApplicationController
   # before_action :check_if_owner, only: %i[edit update destroy]
 
   def create
+    puts 'creating server'
+    puts server_params
     @server = Server.new(server_params)
-
+    puts @server
     if @server.save
       @server.generate_unique_invite_code
       firstMember =
@@ -52,6 +54,7 @@ class Api::ServersController < ApplicationController
 
   def update
     @server = Server.find(params[:id])
+
     if @server.update(server_params)
       # render json: @server.to_json(include: :members)
       msg = ['Server name updated']
