@@ -19,7 +19,7 @@ class Server < ApplicationRecord
   end
 
   def generate_unique_invite_code
-    self.invite_code = new_invite_code
+    self.invite_code = self.new_invite_code
     while Server.find_by(invite_code: invite_code)
       self.invite_code = new_invite_code
     end
