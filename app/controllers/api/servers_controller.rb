@@ -9,7 +9,7 @@ class Api::ServersController < ApplicationController
     @server = Server.new(server_params)
     puts @server
     if @server.save
-      @server.generate_unique_invite_code
+      # @server.generate_unique_invite_code
       firstMember =
         ServerMember.new(server_id: @server.id, member_id: @server.owner_id)
       if firstMember.save
