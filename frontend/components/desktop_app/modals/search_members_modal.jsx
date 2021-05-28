@@ -44,7 +44,11 @@ export default class SearchMembersModal extends React.Component {
           <div
             id={user.username}
             onClick={() => this.toggleAddUser(user.username)}
-            className="search-user-checkbox"
+            className={`search-user-checkbox ${
+              this.state.users.includes(user.username)
+                ? "search-user-checkbox-checked"
+                : ""
+            }`}
           ></div>
         </div>
       ));
@@ -54,21 +58,18 @@ export default class SearchMembersModal extends React.Component {
   }
 
   toggleAddUser(username) {
+    console.log(username);
     if (this.state.users.includes(username)) {
       let users = this.state.users;
-      let checkbox = document.getElementById(username);
       const index = users.indexOf(username);
       if (index > -1) {
         users.splice(index, 1);
         this.setState({ users });
-        checkbox.classList.remove("search-user-checkbox-checked");
       }
     } else {
       let users = this.state.users;
       users.push(username);
       this.setState({ users });
-      let checkbox = document.getElementById(username);
-      checkbox.classList.add("search-user-checkbox-checked");
     }
   }
 
@@ -92,7 +93,7 @@ export default class SearchMembersModal extends React.Component {
     e.preventDefault();
 
     const channel = {
-      channel_name: this.state.channel_name,
+      channel_name: "DM",
       owner_id: this.props.currentUser.id,
       server_id: this.props.activeServer.id,
       channel_type: 0,
@@ -149,21 +150,15 @@ export default class SearchMembersModal extends React.Component {
             </div>
             <div className="search-member-list">{this.searchedUsers()}</div>
           </div>
-          <div className="create-channel-footer">
+          <div className="search-modal-footer">
             <button
-              className={`create-channel-submit create-channel-submit-${
-                this.state.username.length < 1
+              className={`search-modal-submit search-modal-submit-${
+                this.state.users.length < 1
               }`}
               onClick={this.handleFormSubmit}
-              disabled={this.state.username.length < 1}
+              disabled={this.state.users.length < 1}
             >
-              Create Channel
-            </button>
-            <button
-              className="cancel-modal-button"
-              onClick={() => this.closeModal()}
-            >
-              Cancel
+              Create Group DM
             </button>
           </div>
         </div>
