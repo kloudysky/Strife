@@ -85,7 +85,10 @@ class ChannelHome extends React.Component {
           </ul>
           <div className="dm-channel-tab">
             <p>DIRECT MESSAGES</p>
-            <i className="fas fa-plus create-dm-btn"></i>
+            <i
+              className="fas fa-plus create-dm-btn"
+              onClick={() => this.props.setDMRequestModalState(true)}
+            ></i>
           </div>
           <ul className="channel-list">
             {channels.map((channel) => (

@@ -7,7 +7,7 @@ import ServerFormContainer from "./server/server_form_container";
 import LeaveServerModal from "./modals/leave_server_modal";
 import ChannelSettingsModal from "./modals/channel_settings_modal";
 import ChannelNotificationModal from "./modals/notification_modal";
-import InviteMememberModal from "./modals/invite_member_modal";
+import SearchMembersModal from "./modals/search_members_modal";
 import ServerSettingsModal from "./modals/server_settings_modal";
 import UserSettingsModal from "./modals/user_settings_modal";
 import StrifeNavBar from "./navbar/strife_navbar_container";
@@ -17,7 +17,28 @@ class DesktopApp extends React.Component {
   render() {
     const inviteMember = () => {
       if (this.props.inviteMemberModalState) {
-        return <InviteMemberModal />;
+        return (
+          <SearchMembersModal
+            searchStatus="invite"
+            setInviteMemberModalState={this.props.setInviteMemberModalState}
+            searchUsers={this.props.searchUsers}
+            searchedUsers={this.props.searchedUsers}
+          />
+        );
+      } else {
+        return null;
+      }
+    };
+    const dmRequest = () => {
+      if (this.props.dmRequestModalState) {
+        return (
+          <SearchMembersModal
+            searchStatus="dm"
+            setDMRequestModalState={this.props.setDMRequestModalState}
+            searchUsers={this.props.searchUsers}
+            searchedUsers={this.props.searchedUsers}
+          />
+        );
       } else {
         return null;
       }
@@ -148,6 +169,7 @@ class DesktopApp extends React.Component {
           {createChannel()}
           {leaveServer()}
           {inviteMember()}
+          {dmRequest()}
         </div>
         {serverSettings()}
         {userSettings()}

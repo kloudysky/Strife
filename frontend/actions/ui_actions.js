@@ -12,6 +12,7 @@ export const SERVER_INVITE = "SERVER_INVITE";
 export const OPEN_PROFILE = "OPEN_PROFILE";
 export const EDIT_SERVER = "EDIT_SERVER";
 export const INVITE_MEMBER = "INVITE_MEMBER";
+export const DM_REQUEST = "DM_REQUEST";
 export const CREATE_CHANNEL_MODAL_STATE = "CREATE_CHANNEL_MODAL_STATE";
 
 export const setActiveServer = (server) => ({
@@ -58,8 +59,14 @@ export const leaveServer = (modalState) => ({
   type: LEAVE_SERVER,
   modalState,
 });
+
 export const inviteMember = (modalState) => ({
   type: INVITE_MEMBER,
+  modalState,
+});
+
+export const DMRequest = (modalState) => ({
+  type: DM_REQUEST,
   modalState,
 });
 

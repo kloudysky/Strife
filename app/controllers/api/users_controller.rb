@@ -20,6 +20,13 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def search
+    username = params[:username]
+    @users = User.where('username ~ ?', username)
+
+    render :searchedUsers
+  end
+
   private
 
   def user_params

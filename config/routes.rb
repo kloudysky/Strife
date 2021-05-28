@@ -25,6 +25,7 @@ Rails
           to: 'messages#channel_messages',
           as: 'channel_messages'
       post '/channelmsg', to: 'messages#create', as: 'channel_message'
+      get '/search/:username', to: 'users#search', as: 'user_search'
     end
 
     mount ActionCable.server => '/cable'

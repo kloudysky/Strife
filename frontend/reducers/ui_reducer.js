@@ -10,6 +10,7 @@ const initialUIState = Object.freeze({
   leaveServerModalState: false,
   editServerModalState: false,
   inviteMemberModalState: false,
+  dmRequestModalState: false,
   openUserSettings: false,
   createChannelModalState: false,
   openChannelSettings: false,
@@ -54,6 +55,10 @@ export default (state = initialUIState, action) => {
     case actions.INVITE_MEMBER:
       return Object.assign({}, state, {
         inviteMemberModalState: action.modalState,
+      });
+    case actions.DM_REQUEST:
+      return Object.assign({}, state, {
+        dmRequestModalState: action.modalState,
       });
     case actions.EDIT_SERVER:
       return Object.assign({}, state, {

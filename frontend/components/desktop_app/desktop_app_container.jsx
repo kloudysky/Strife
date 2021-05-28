@@ -3,6 +3,7 @@ import * as serverActions from "../../actions/server_actions";
 import * as channelActions from "../../actions/channel_actions";
 import * as uiActions from "../../actions/ui_actions";
 import * as sessionActions from "../../actions/session_actions";
+import * as searchUserActions from "../../actions/search_actions";
 
 import DesktopApp from "./desktop_app";
 
@@ -35,10 +36,13 @@ const mapStateToProps = (state) => {
     leaveServerModalState: state.ui.leaveServerModalState,
     editServerModalState: state.ui.editServerModalState,
     userSettingsModalState: state.ui.openUserSettings,
+    inviteMemberModalState: state.ui.inviteMemberModalState,
+    dmRequestModalState: state.ui.dmRequestModalState,
     currentUser: state.entities.users.currentUser,
     showChannelNotificationModalState: state.ui.showChannelNotification,
     serverErrors: state.errors.server,
     channelErrors: state.errors.channel,
+    searchedUsers: state.entities.searchedUsers,
     activeServer,
     activeDMChannel,
     activeChannel,
@@ -77,6 +81,11 @@ const mapDispatchToProps = (dispatch) => ({
   setActiveChannel: (channel) => dispatch(uiActions.setActiveChannel(channel)),
   setActiveServer: (server) => dispatch(uiActions.setActiveServer(server)),
   requestDMChannels: () => dispatch(channelActions.requestDMChannels()),
+  setInviteMemberModalState: (modalState) =>
+    dispatch(uiActions.inviteMember(modalState)),
+  setDMRequestModalState: (modalState) =>
+    dispatch(uiActions.DMRequest(modalState)),
+  searchUsers: (username) => dispatch(searchUserActions.requestUsers(username)),
   logout: () => dispatch(sessionActions.logout()),
 });
 
