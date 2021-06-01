@@ -10,6 +10,8 @@ class ChannelServer extends React.Component {
     this.toggleServerList.bind(this);
     this.state = {
       showTextChannels: true,
+      showChannelActions: false,
+      hoverChannelId: -1,
     };
   }
 
@@ -22,8 +24,6 @@ class ChannelServer extends React.Component {
   setActiveChannel(channel) {
     this.props.requestMessages(channel.id);
     this.props.setChannel(channel);
-    console.log("CHANNEL NAME");
-    console.log(channel.channel_name);
     <Helmet>
       <title>{channel.channel_name}</title>
     </Helmet>;
@@ -54,6 +54,14 @@ class ChannelServer extends React.Component {
     }
   }
 
+  showChannelActions(show, channelId) {
+    if (this.props.activeChannel.id === channelId) {
+      this.setState({ showChannelActions: false, hoverChannelId: -1 });
+    } else {
+      this.setState({ showChannelActions: show, hoverChannelId: channelId });
+    }
+  }
+
   ownerActions() {
     if (this.props.server.owner_id === this.props.currentUser.id) {
       return (
@@ -69,7 +77,7 @@ class ChannelServer extends React.Component {
   }
 
   render() {
-    const { channels, server, openChannelSettings } = this.props;
+    const { channels, server } = this.props;
     return (
       <>
         <div
@@ -103,6 +111,8 @@ class ChannelServer extends React.Component {
             <Collapse isOpened={this.state.showTextChannels}>
               {channels.map((channel) => (
                 <li
+                  onMouseEnter={() => this.showChannelActions(true, channel.id)}
+                  onMouseLeave={() => this.showChannelActions(false, -1)}
                   className={`channel-list-item ${
                     this.props.activeChannel.id === channel.id
                       ? `active-channel`
@@ -116,6 +126,10 @@ class ChannelServer extends React.Component {
                     {channel.channel_name}
                   </div>
                   {this.props.activeChannel.id === channel.id
+                    ? this.ownerActions()
+                    : null}
+                  {this.state.showChannelActions &&
+                  this.state.hoverChannelId === channel.id
                     ? this.ownerActions()
                     : null}
                 </li>
