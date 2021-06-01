@@ -196,16 +196,21 @@
         }
 
         .search-server-user-checkbox {
-          border: 1px solid rgb(1, 138, 1);
+          border: 1px solid #0f9b0e;
           display: flex;
           justify-content: center;
           align-items: center;
           border-radius: 3px;
-          width: 50px;
-          height: 25px;
+          width: 70px;
+          height: 30px;
+          color: #0f9b0f;
+          font-size: 13px;
+          font-weight: 600;
         }
 
         .search-user-server-checkbox-checked {
+          background-color: #0f9b0e;
+          color: white;
         }
       }
     }

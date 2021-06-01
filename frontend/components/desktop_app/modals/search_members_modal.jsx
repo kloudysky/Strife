@@ -6,11 +6,21 @@ export default class SearchMembersModal extends React.Component {
     this.state = {
       username: "",
       users: [],
+      serverMembers: [],
     };
 
     this.updateName = this.updateName.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleAddMember = this.handleAddMember.bind(this);
     this.unfinished = this.unfinished.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.searchStatus === "invite") {
+      this.setState({
+        serverMembers: this.props.activeServer.members,
+      });
+    }
   }
 
   unfinished(e) {
@@ -77,7 +87,7 @@ export default class SearchMembersModal extends React.Component {
           <div
             id={user.username}
             className={`search-server-user-checkbox ${
-              this.state.users.includes(user.username)
+              this.state.serverMembers.includes(user.username)
                 ? "search-user-server-checkbox-checked"
                 : ""
             }`}
@@ -142,14 +152,30 @@ export default class SearchMembersModal extends React.Component {
     );
   }
 
+  copyInviteCode() {
+    navigator.clipboard
+      .writeText(this.props.activeServer.invite_code.toUpperCase())
+      .then(
+        function () {
+          console.log("Async: Copying to clipboard was successful!");
+        },
+        function (err) {
+          console.error("Async: Could not copy text: ", err);
+        }
+      );
+  }
+
   serverFooter() {
     return (
       <div className="search-server-modal-footer">
         <div style={{ width: "100%" }} className="search-server-invite-footer">
-          <p>SEND A SERVER INVITE LINK TO A FRIEND</p>
+          <p>SEND A SERVER INVITE CODE TO A FRIEND</p>
           <div className="search-server-invite-input-wrapper">
-            <input type="text" value="https://discord.gg/AKbnTegD" />
-            <button>Copy</button>
+            <input
+              type="text"
+              value={this.props.activeServer.invite_code.toUpperCase()}
+            />
+            <button onClick={() => this.copyInviteCode()}>Copy</button>
           </div>
         </div>
       </div>
@@ -158,7 +184,7 @@ export default class SearchMembersModal extends React.Component {
 
   handleFormSubmit(e) {
     e.preventDefault();
-    console.log(e);
+
     let channel_type = 1;
     if (this.state.users.length > 1) {
       channel_type = 2;
@@ -178,6 +204,15 @@ export default class SearchMembersModal extends React.Component {
       this.props.createChannel(channel);
       this.closeModal();
     }
+  }
+
+  handleAddMember(e) {
+    e.preventDefault();
+    console.log(e);
+
+    const serverMember = {
+      server_id: this.props.activeServer.id,
+    };
   }
 
   errors() {
