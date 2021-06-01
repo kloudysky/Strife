@@ -32,7 +32,10 @@ export default class SearchMembersModal extends React.Component {
   searchedUsers() {
     if (this.state.username.length > 0) {
       return this.props.searchedUsers.map((user) => (
-        <div className="searched-user-wrapper">
+        <div
+          className="searched-user-wrapper"
+          onClick={() => this.toggleAddUser(user.username)}
+        >
           <div className="searched-user">
             <div className="searched-user-avatar">
               <img className="settings-img" src={user.avatar} alt="" />
@@ -43,7 +46,6 @@ export default class SearchMembersModal extends React.Component {
           </div>
           <div
             id={user.username}
-            onClick={() => this.toggleAddUser(user.username)}
             className={`search-user-checkbox ${
               this.state.users.includes(user.username)
                 ? "search-user-checkbox-checked"
@@ -58,7 +60,6 @@ export default class SearchMembersModal extends React.Component {
   }
 
   toggleAddUser(username) {
-    console.log(username);
     if (this.state.users.includes(username)) {
       let users = this.state.users;
       const index = users.indexOf(username);
@@ -91,16 +92,22 @@ export default class SearchMembersModal extends React.Component {
 
   handleFormSubmit(e) {
     e.preventDefault();
+    console.log(e);
+    let channel_type = 1;
+    if (this.state.users.length > 1) {
+      channel_type = 2;
+    }
 
     const channel = {
-      channel_name: "DM",
+      channel_name: "Group DM",
       owner_id: this.props.currentUser.id,
-      server_id: this.props.activeServer.id,
-      channel_type: 0,
+      server_id: null,
+      channel_type,
+      users: this.state.users,
     };
 
-    if (this.state.channel_name.length < 1) {
-      this.props.dispatchChannelError(["Channel name cannot be blank"]);
+    if (this.state.users.length < 1) {
+      this.props.dispatchChannelError(["Group DM needs to have users"]);
     } else {
       this.props.createChannel(channel);
       this.closeModal();

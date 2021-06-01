@@ -149,6 +149,12 @@ export class ChannelSettingsModal extends Component {
                 {this.message()}
               </div>
             </form>
+            <div className="settings-bottom-img">
+              <img
+                src="https://discord.com/assets/bfffd518c76d3f6bc5e96eb52e4ae2cf.svg"
+                alt=""
+              />
+            </div>
           </div>
           <div className="settings-close-btn-area">
             <div

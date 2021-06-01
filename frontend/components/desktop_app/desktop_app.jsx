@@ -23,6 +23,8 @@ class DesktopApp extends React.Component {
             setInviteMemberModalState={this.props.setInviteMemberModalState}
             searchUsers={this.props.searchUsers}
             searchedUsers={this.props.searchedUsers}
+            createChannel={this.props.createChannel}
+            currentUser={this.props.currentUser}
           />
         );
       } else {
@@ -37,6 +39,8 @@ class DesktopApp extends React.Component {
             setDMRequestModalState={this.props.setDMRequestModalState}
             searchUsers={this.props.searchUsers}
             searchedUsers={this.props.searchedUsers}
+            createChannel={this.props.createChannel}
+            currentUser={this.props.currentUser}
           />
         );
       } else {

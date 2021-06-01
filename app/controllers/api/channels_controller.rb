@@ -7,8 +7,25 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
-    @channel = Channel.new(channel_params)
-    members = Server.find_by(id: channel_params[:server_id]).members
+    create_channel_params = {}
+    create_channel_params[:channel_name] = channel_params[:channel_name]
+    create_channel_params[:owner_id] = channel_params[:owner_id]
+    create_channel_params[:channel_type] = channel_params[:channel_type]
+    create_channel_params[:server_id] = channel_params[:server_id]
+    puts 'CHANNEL PARAMS------------------'
+    puts create_channel_params
+    puts '-------------------'
+    @channel = Channel.new(create_channel_params)
+    members = [current_user]
+    if channel_params[:users]
+      channel_params[:users].each do |member|
+        members.push(User.find_by(username: member))
+        puts 'MEMBERS---------'
+        puts members
+      end
+    else
+      members = Server.find_by(id: channel_params[:server_id]).members
+    end
     puts members
 
     if @channel.save
@@ -64,6 +81,6 @@ class Api::ChannelsController < ApplicationController
   def channel_params
     params
       .require(:channel)
-      .permit(:channel_name, :server_id, :owner_id, :channel_type)
+      .permit(:channel_name, :server_id, :owner_id, :channel_type, users: [])
   end
 end
