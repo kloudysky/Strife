@@ -140,11 +140,17 @@
   font-weight: 700;
   margin-top: 13px;
   margin-left: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
 }
 
 .create-dm-btn {
-  right: 20px;
-  position: absolute;
+}
+
+.create-dm-btn:hover {
+  color: rgb(194, 194, 194);
 }
 
 .channel-list {
@@ -163,8 +169,8 @@
 }
 
 .channel-list-item-home {
-  padding: 8px;
-  margin: 5px;
+  padding: 5px;
+  margin: 3px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
