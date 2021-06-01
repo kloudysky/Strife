@@ -22,7 +22,7 @@ class Api::UsersController < ApplicationController
 
   def search
     username = params[:username]
-    @users = User.where('username ~ ?', username)
+    @users = User.where('username ~ ? and id != ?', username, current_user.id)
 
     render :searchedUsers
   end

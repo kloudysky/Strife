@@ -66,7 +66,10 @@ class ChannelServer extends React.Component {
     if (this.props.server.owner_id === this.props.currentUser.id) {
       return (
         <div className="channel-owner-actions">
-          <i class="fas fa-user-plus server-channel-icon channel-owner-action-btn"></i>
+          <i
+            onClick={() => this.props.setInviteMemberModalState(true)}
+            class="fas fa-user-plus server-channel-icon channel-owner-action-btn"
+          ></i>
           <i
             onClick={() => this.props.openChannelSettings(true)}
             class="fas fa-cog server-channel-icon channel-owner-action-btn"

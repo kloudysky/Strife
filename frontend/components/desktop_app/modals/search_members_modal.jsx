@@ -29,7 +29,7 @@ export default class SearchMembersModal extends React.Component {
     }
   }
 
-  searchedUsers() {
+  searchedDMUsers() {
     if (this.state.username.length > 0) {
       return this.props.searchedUsers.map((user) => (
         <div
@@ -52,6 +52,38 @@ export default class SearchMembersModal extends React.Component {
                 : ""
             }`}
           ></div>
+        </div>
+      ));
+    } else {
+      return null;
+    }
+  }
+
+  searchedServerUsers() {
+    if (this.state.username.length > 0) {
+      return this.props.searchedUsers.map((user) => (
+        <div
+          className="searched-user-wrapper"
+          onClick={() => this.toggleAddUser(user.username)}
+        >
+          <div className="searched-user">
+            <div className="searched-user-avatar">
+              <img className="settings-img" src={user.avatar} alt="" />
+            </div>
+            <div className="searched-user-username" key={user.username}>
+              {user.username}
+            </div>
+          </div>
+          <div
+            id={user.username}
+            className={`search-server-user-checkbox ${
+              this.state.users.includes(user.username)
+                ? "search-user-server-checkbox-checked"
+                : ""
+            }`}
+          >
+            Add
+          </div>
         </div>
       ));
     } else {
@@ -86,8 +118,42 @@ export default class SearchMembersModal extends React.Component {
 
     setTimeout(() => {
       // this.props.clearErrors();
-      this.props.setDMRequestModalState(false);
+      if (this.props.searchStatus === "invite") {
+        this.props.setInviteMemberModalState(false);
+      } else {
+        this.props.setDMRequestModalState(false);
+      }
     }, 100);
+  }
+
+  dmFooter() {
+    return (
+      <div className="search-modal-footer">
+        <button
+          className={`search-modal-submit search-modal-submit-${
+            this.state.users.length < 1
+          }`}
+          onClick={this.handleFormSubmit}
+          disabled={this.state.users.length < 1}
+        >
+          Create Group DM
+        </button>
+      </div>
+    );
+  }
+
+  serverFooter() {
+    return (
+      <div className="search-server-modal-footer">
+        <div style={{ width: "100%" }} className="search-server-invite-footer">
+          <p>SEND A SERVER INVITE LINK TO A FRIEND</p>
+          <div className="search-server-invite-input-wrapper">
+            <input type="text" value="https://discord.gg/AKbnTegD" />
+            <button>Copy</button>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   handleFormSubmit(e) {
@@ -155,19 +221,15 @@ export default class SearchMembersModal extends React.Component {
                 onChange={this.updateName}
               />
             </div>
-            <div className="search-member-list">{this.searchedUsers()}</div>
+            <div className="search-member-list">
+              {this.props.searchStatus === "invite"
+                ? this.searchedServerUsers()
+                : this.searchedDMUsers()}
+            </div>
           </div>
-          <div className="search-modal-footer">
-            <button
-              className={`search-modal-submit search-modal-submit-${
-                this.state.users.length < 1
-              }`}
-              onClick={this.handleFormSubmit}
-              disabled={this.state.users.length < 1}
-            >
-              Create Group DM
-            </button>
-          </div>
+          {this.props.searchStatus === "invite"
+            ? this.serverFooter()
+            : this.dmFooter()}
         </div>
       </div>
     );
