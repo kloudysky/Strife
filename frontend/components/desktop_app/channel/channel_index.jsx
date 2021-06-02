@@ -23,6 +23,8 @@ class ChannelIndex extends React.Component {
       openChannelSettings,
       setInviteMemberModalState,
       setDMRequestModalState,
+      removeDMChannel,
+      requestDMChannels,
     } = this.props;
 
     return (
@@ -37,6 +39,8 @@ class ChannelIndex extends React.Component {
             activeDMChannel={activeDMChannel}
             activeChannel={activeChannel}
             setDMRequestModalState={setDMRequestModalState}
+            removeDMChannel={removeDMChannel}
+            requestDMChannels={requestDMChannels}
           />
         ) : (
           <ChannelServer

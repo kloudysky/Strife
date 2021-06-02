@@ -3,6 +3,11 @@ import { Helmet } from "react-helmet";
 class ChannelHome extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      showChannelActions: false,
+      hoverChannelId: -1,
+    };
   }
   componentDidMount() {
     //this.props.requestMessages(this.props.activeChannel.id);
@@ -54,6 +59,29 @@ class ChannelHome extends React.Component {
     return channelName;
   }
 
+  showChannelActions(show, channelId) {
+    this.setState({ showChannelActions: show, hoverChannelId: channelId });
+  }
+
+  dmActions(channelId) {
+    return (
+      <div className="channel-owner-actions">
+        <i
+          onClick={() => this.deleteChannel(channelId)}
+          class="fas fa-times server-channel-icon channel-owner-action-btn"
+        ></i>
+      </div>
+    );
+  }
+
+  deleteChannel(channelId) {
+    this.props.removeDMChannel(channelId).then(() => {
+      this.props.requestDMChannels().then(() => {
+        this.setHomeChannel();
+      });
+    });
+  }
+
   render() {
     const channels = this.props.channels;
 
@@ -93,24 +121,32 @@ class ChannelHome extends React.Component {
           <ul className="channel-list">
             {channels.map((channel) => (
               <li
+                onMouseEnter={() => this.showChannelActions(true, channel.id)}
+                onMouseLeave={() => this.showChannelActions(false, -1)}
                 onClick={() => this.setActiveChannel(channel)}
-                className={`channel-list-item-home ${
+                className={`channel-list-item-home dm-home-item ${
                   this.props.activeDMChannel.id === channel.id
-                    ? `active-channel`
+                    ? `active-channel-home`
                     : ``
                 }`}
                 key={channel.id}
               >
-                <div className="dm-list-avatar">
-                  <img
-                    className="dm-list-img"
-                    src={`${this.generateChannelImg(channel)}`}
-                    alt=""
-                  />
+                <div className="dm-user-wrapper">
+                  <div className="dm-list-avatar">
+                    <img
+                      className="dm-list-img"
+                      src={`${this.generateChannelImg(channel)}`}
+                      alt=""
+                    />
+                  </div>
+                  <div className="dm-user-name">
+                    {this.generateDMChannelName(channel)}
+                  </div>
                 </div>
-                <div className="dm-user-name">
-                  {this.generateDMChannelName(channel)}
-                </div>
+                {this.state.showChannelActions &&
+                this.state.hoverChannelId === channel.id
+                  ? this.dmActions(channel.id)
+                  : null}
               </li>
             ))}
           </ul>

@@ -38,6 +38,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   requestDMChannels: () => dispatch(channelActions.requestDMChannels()),
+  removeDMChannel: (channelId) =>
+    dispatch(channelActions.removeChannel(channelId)),
   requestMessages: (channelId) =>
     dispatch(messageActions.requestMessages(channelId)),
   setChannel: (channel) => dispatch(uiActions.setActiveChannel(channel)),

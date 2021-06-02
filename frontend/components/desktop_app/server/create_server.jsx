@@ -91,7 +91,28 @@ export default class CreateServer extends React.Component {
         //   iCode = parseInt(raw.slice(raw.length - 6));
         // }
 
-        this.props.joinServer({ inviteCode: raw });
+        this.props.joinServer({ inviteCode: raw }).then((response) => {
+          if (response.errors) {
+            console.log(response.errors);
+            if (
+              response.errors[0] ===
+              "Error You are already a member of this server"
+            ) {
+              this.setState({
+                joinError: "- You are already a member of this server",
+              });
+            } else if (
+              response.errors[0] ===
+              "Error The invite code is invalid or has expired"
+            ) {
+              this.setState({
+                joinError: "- The invite is invalid or has expired",
+              });
+            }
+          } else {
+            this.closeModal();
+          }
+        });
         // .done((action) => {
         //   this.props.closeCreateServerForm();
         //   this.props.getServers();
@@ -106,7 +127,6 @@ export default class CreateServer extends React.Component {
         //     joinError: "- The invite is invalid or has expired",
         //   });
         // });
-        this.closeModal();
       }
     }
     // this.props.joinServer({inviteCode: this.state.inviteCode})
@@ -244,13 +264,11 @@ export default class CreateServer extends React.Component {
             name="code"
             type="text"
             onChange={this.updateCode}
-            placeholder="https://discord.gg/hTKzmak"
+            placeholder="ff7abc"
           />
           <label>INVITES SHOULD LOOK LIKE</label>
           <div className="link-examples">
-            <h3>hTKzmak</h3>
-            <h3>https://discord.gg/hTKzmak</h3>
-            <h3>https://discord.gg/cool-people</h3>
+            <h3>ff7abc</h3>
           </div>
         </div>
         <div className="back-join">

@@ -188,10 +188,7 @@ export default class SearchMembersModal extends React.Component {
         <div style={{ width: "100%" }} className="search-server-invite-footer">
           <p>SEND A SERVER INVITE CODE TO A FRIEND</p>
           <div className="search-server-invite-input-wrapper">
-            <input
-              type="text"
-              value={this.props.activeServer.invite_code.toUpperCase()}
-            />
+            <input type="text" value={this.props.activeServer.invite_code} />
             <button onClick={() => this.copyInviteCode()}>Copy</button>
           </div>
         </div>
@@ -202,13 +199,10 @@ export default class SearchMembersModal extends React.Component {
   handleFormSubmit(e) {
     e.preventDefault();
 
-    let channel_type = 1;
-    if (this.state.users.length > 1) {
-      channel_type = 2;
-    }
-
+    const channel_type = this.state.users.length > 1 ? 2 : 1;
+    const channel_name = this.state.users.length === 1 ? "DM" : "Group DM";
     const channel = {
-      channel_name: "Group DM",
+      channel_name,
       owner_id: this.props.currentUser.id,
       server_id: null,
       channel_type,
@@ -217,8 +211,34 @@ export default class SearchMembersModal extends React.Component {
 
     if (this.state.users.length < 1) {
       this.props.dispatchChannelError(["Group DM needs to have users"]);
+    } else if (this.state.users.length === 1) {
+      let dmExists = false;
+      let dmChannel;
+      const dmUser = this.state.users[0];
+      const dmChannels = this.props.channels.filter(
+        (channel) => channel.members.length === 2
+      );
+      dmChannels.forEach((channel) => {
+        channel.members.forEach((member) => {
+          if (member.username === dmUser) {
+            dmExists = true;
+            dmChannel = channel;
+          }
+        });
+      });
+      if (dmExists) {
+        this.props.setActiveChannel(dmChannel);
+        this.closeModal();
+      } else {
+        this.props
+          .createChannel(channel)
+          .then((response) => console.log(response));
+        this.closeModal();
+      }
     } else {
-      this.props.createChannel(channel);
+      this.props
+        .createChannel(channel)
+        .then((response) => console.log(response));
       this.closeModal();
     }
   }

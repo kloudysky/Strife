@@ -146,14 +146,8 @@
   width: 200px;
 }
 
-.create-dm-btn {
-}
-
 .create-dm-btn:hover {
   color: rgb(194, 194, 194);
-}
-
-.channel-list {
 }
 
 .fa-hashtag {
@@ -166,6 +160,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .channel-list-item-home {
@@ -178,6 +173,18 @@
 }
 
 .channel-list-item:hover {
+  background-color: rgb(55, 57, 62);
+  cursor: pointer;
+  border-radius: 4px;
+  color: white;
+}
+
+.dm-user-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.channel-list-item-home:hover {
   background-color: rgb(55, 57, 62);
   cursor: pointer;
   border-radius: 4px;
@@ -247,6 +254,17 @@
   color: white;
   background-color: rgb(55, 57, 62);
   border-radius: 4px;
+}
+
+.active-channel-home {
+  color: white;
+  background-color: rgb(55, 57, 62);
+  border-radius: 4px;
+  justify-content: space-between;
+}
+
+.dm-home-item {
+  justify-content: space-between;
 }
 
 .settings-avatar {

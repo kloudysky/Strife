@@ -185,13 +185,18 @@ User.create(
     'https://64.media.tumblr.com/1795a0c252624c7f4680ca6e4548647e/b477337d3c7a46d5-8f/s1280x1920/6e879ff1b1e0ed7812f962c3d278f1949cd54f9d.png',
 )
 
-Server.create(owner_id: 2, server_name: '7th Heaven')
+Server.create(
+  owner_id: 2,
+  server_name: '7th Heaven',
+  invite_code: 'ff7r7h',
+  icon: 'https://i.imgur.com/WH0tzx0.jpg',
+)
 Server.create(
   owner_id: 1,
   server_name: 'a/A 12-28-20',
   icon:
     'https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png',
-  invite_code: 'ff7r7h',
+  invite_code: 'aA2020',
 )
 Server.create(owner_id: 4, server_name: 'AVALANCHE', invite_code: 'ff7abc')
 Server.create(owner_id: 3, server_name: 'SOLDIER', invite_code: 'sol7f7')

@@ -44,6 +44,8 @@ class DesktopApp extends React.Component {
             searchedUsers={this.props.searchedUsers}
             createChannel={this.props.createChannel}
             currentUser={this.props.currentUser}
+            channels={this.props.channels}
+            setActiveChannel={this.props.setActiveChannel}
           />
         );
       } else {
