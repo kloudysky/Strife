@@ -25,7 +25,7 @@ class MessageForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const msg = {
-      channel_id: this.state.channel_id,
+      channel_id: this.props.channel.id,
       content: this.state.message,
       author_id: this.state.author_id,
     };

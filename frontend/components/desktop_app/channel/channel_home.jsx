@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import actionCable from "actioncable";
 class ChannelHome extends React.Component {
   constructor(props) {
     super(props);
@@ -8,6 +9,12 @@ class ChannelHome extends React.Component {
       showChannelActions: false,
       hoverChannelId: -1,
     };
+
+    this.CableApp = {};
+    this.CableApp.cable = actionCable.createConsumer(
+      "wss://strifeapp.herokuapp.com/cable"
+      // "ws://localhost:3000/cable"
+    );
   }
   componentDidMount() {
     //this.props.requestMessages(this.props.activeChannel.id);
@@ -19,15 +26,43 @@ class ChannelHome extends React.Component {
   setHomeChannel() {
     this.props.setChannel({ id: -1 });
     this.props.setDMChannel({ id: -1 });
+    this.CableApp.messages.unsubscribe();
   }
 
   setActiveChannel(channel) {
+    if (this.CableApp.messages) {
+      console.log("UUNSUB");
+      this.CableApp.messages.unsubscribe();
+    }
     this.props.requestMessages(channel.id);
     this.props.setChannel(channel);
     this.props.setDMChannel(channel);
     <Helmet>
       <title>channel.channel_name</title>
     </Helmet>;
+    console.log("SUBSCRIBING");
+    this.CableApp.messages = this.CableApp.cable.subscriptions.create(
+      {
+        channel: "ChannelChannel",
+        id: channel.id,
+      },
+      {
+        connected: () => {},
+        received: (message) => {
+          this.getResponseMessage(message);
+        },
+        speak: function (message) {
+          return this.perform("speak", message);
+        },
+      }
+    );
+  }
+
+  getResponseMessage(message) {
+    const response = JSON.parse(message.json);
+    if (this.props.user.id !== response.author.id) {
+      this.props.receiveMessage(response);
+    }
   }
 
   generateChannelImg(channel) {
@@ -87,7 +122,10 @@ class ChannelHome extends React.Component {
 
     return (
       <>
-        <div className="channel-list-header">
+        <div
+          onClick={() => this.props.setDMRequestModalState(true)}
+          className="channel-list-header"
+        >
           <button className="search-modal-btn">
             Find or start a conversation
           </button>

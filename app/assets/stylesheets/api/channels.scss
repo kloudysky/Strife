@@ -23,6 +23,7 @@
   height: 50px;
   flex: 0 0 auto;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .channel-list-header-server:hover {
@@ -248,6 +249,7 @@
   font-size: 12px;
   font-weight: 500;
   text-align: left;
+  cursor: pointer;
 }
 
 .active-channel {

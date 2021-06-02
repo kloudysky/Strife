@@ -12,21 +12,26 @@ class Messages extends React.Component {
     );
   }
   componentDidMount() {
-    this.CableApp.messages = this.CableApp.cable.subscriptions.create(
-      {
-        channel: "ChannelChannel",
-        id: this.props.channel.id,
-      },
-      {
-        connected: () => {},
-        received: (message) => {
-          this.getResponseMessage(message);
-        },
-        speak: function (message) {
-          return this.perform("speak", message);
-        },
-      }
-    );
+    // console.log("SUBSCRIBING");
+    // this.CableApp.messages = this.CableApp.cable.subscriptions.create(
+    //   {
+    //     channel: "ChannelChannel",
+    //     id: this.props.channel.id,
+    //   },
+    //   {
+    //     connected: () => {},
+    //     received: (message) => {
+    //       this.getResponseMessage(message);
+    //     },
+    //     speak: function (message) {
+    //       return this.perform("speak", message);
+    //     },
+    //   }
+    // );
+  }
+
+  componentWillUnmount() {
+    console.log("UUNSUB");
   }
 
   getResponseMessage(message) {
