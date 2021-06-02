@@ -83,6 +83,8 @@ const mapDispatchToProps = (dispatch) => ({
   requestDMChannels: () => dispatch(channelActions.requestDMChannels()),
   setInviteMemberModalState: (modalState) =>
     dispatch(uiActions.inviteMember(modalState)),
+  addServerMember: (serverMember) =>
+    dispatch(serverActions.addServerMember(serverMember)),
   setDMRequestModalState: (modalState) =>
     dispatch(uiActions.DMRequest(modalState)),
   createChannel: (channel) => dispatch(channelActions.createChannel(channel)),

@@ -144,6 +144,14 @@
     .search-member-list {
       max-height: 200px;
       overflow: auto;
+      .no-searched-users {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+        color: #767575;
+        font-size: 15px;
+        font-weight: 700;
+      }
       .searched-user-wrapper {
         margin-bottom: 10px;
         display: flex;

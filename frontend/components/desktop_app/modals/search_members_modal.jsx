@@ -3,24 +3,29 @@ export default class SearchMembersModal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      username: "",
-      users: [],
-      serverMembers: [],
-    };
+    if (this.props.searchStatus === "invite") {
+      const serverMembers = this.props.activeServer.members.map(
+        (user) => user.username
+      );
+      this.state = {
+        username: "",
+        users: [],
+        serverMembers,
+      };
+    } else {
+      this.state = {
+        username: "",
+        users: [],
+        serverMembers: [],
+      };
+    }
+
+    console.log("CONSTRUCTOR");
 
     this.updateName = this.updateName.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleAddMember = this.handleAddMember.bind(this);
     this.unfinished = this.unfinished.bind(this);
-  }
-
-  componentDidMount() {
-    if (this.props.searchStatus === "invite") {
-      this.setState({
-        serverMembers: this.props.activeServer.members,
-      });
-    }
   }
 
   unfinished(e) {
@@ -41,6 +46,9 @@ export default class SearchMembersModal extends React.Component {
 
   searchedDMUsers() {
     if (this.state.username.length > 0) {
+      if (this.props.searchedUsers.length < 1) {
+        return <div className="no-searched-users">NO RESULTS FOUND</div>;
+      }
       return this.props.searchedUsers.map((user) => (
         <div
           className="searched-user-wrapper"
@@ -71,10 +79,18 @@ export default class SearchMembersModal extends React.Component {
 
   searchedServerUsers() {
     if (this.state.username.length > 0) {
+      if (this.props.searchedUsers.length < 1) {
+        return <div className="no-searched-users">NO RESULTS FOUND</div>;
+      }
       return this.props.searchedUsers.map((user) => (
         <div
+          key={user.username}
           className="searched-user-wrapper"
-          onClick={() => this.toggleAddUser(user.username)}
+          onClick={
+            this.state.serverMembers.includes(user.username)
+              ? null
+              : this.handleAddMember
+          }
         >
           <div className="searched-user">
             <div className="searched-user-avatar">
@@ -85,6 +101,7 @@ export default class SearchMembersModal extends React.Component {
             </div>
           </div>
           <div
+            value={user.username}
             id={user.username}
             className={`search-server-user-checkbox ${
               this.state.serverMembers.includes(user.username)
@@ -92,7 +109,7 @@ export default class SearchMembersModal extends React.Component {
                 : ""
             }`}
           >
-            Add
+            {this.state.serverMembers.includes(user.username) ? `Added` : `Add`}
           </div>
         </div>
       ));
@@ -208,11 +225,22 @@ export default class SearchMembersModal extends React.Component {
 
   handleAddMember(e) {
     e.preventDefault();
-    console.log(e);
+    console.log(e.target.id);
 
     const serverMember = {
       server_id: this.props.activeServer.id,
+      member_username: e.target.id,
     };
+
+    this.props.addServerMember(serverMember).then((response) => {
+      const server = response.servers.filter(
+        (server) => server.id === this.props.activeServer.id
+      )[0];
+      this.props.setActiveServer(server);
+      let serverMembers = this.state.serverMembers;
+      serverMembers.push(e.target.id);
+      this.setState({ serverMembers });
+    });
   }
 
   errors() {

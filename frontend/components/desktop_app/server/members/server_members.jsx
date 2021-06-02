@@ -21,7 +21,7 @@ class ServerMembers extends React.Component {
       return (
         <div className="server-members-container">
           <div className="member-ul">
-            <div className="online-status">ONLINE-{`${members.length}`}</div>
+            <div className="online-status">MEMBERS-{`${members.length}`}</div>
             {members.map((member) => (
               <div key={member.id} className="member-li">
                 <div className="member-avatar">

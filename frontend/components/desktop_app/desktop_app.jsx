@@ -26,6 +26,8 @@ class DesktopApp extends React.Component {
             createChannel={this.props.createChannel}
             currentUser={this.props.currentUser}
             activeServer={this.props.activeServer}
+            addServerMember={this.props.addServerMember}
+            setActiveServer={this.props.setActiveServer}
           />
         );
       } else {

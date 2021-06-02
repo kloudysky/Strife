@@ -7,6 +7,7 @@ export const RECEIVE_SERVER_ERRORS = "RECEIVE_SERVER_ERRORS";
 export const CLEAR_SERVER_ERRORS = "CLEAR_SERVER_ERRORS";
 export const LEAVE_SERVER = "LEAVE_SERVER";
 export const JOIN_SERVER = "JOIN_SERVER";
+export const RECEIVE_MEMBERS = "RECEIVE_MEMBERS";
 
 export const receiveAllServers = (servers) => ({
   type: RECEIVE_ALL_SERVERS,
@@ -30,6 +31,11 @@ export const receiveErrors = (errors) => ({
 
 export const clearErrors = () => ({
   type: CLEAR_SERVER_ERRORS,
+});
+
+export const receiveMembers = (server) => ({
+  type: RECEIVE_MEMBERS,
+  server,
 });
 
 export const createServer = (server) => (dispatch) =>
@@ -85,7 +91,7 @@ export const updateServer = (server) => (dispatch) =>
 
 export const addServerMember = (serverMember) => (dispatch) =>
   APIUtil.addServerMember(serverMember)
-    .then(responseOk)
+    .then(responseAllOk)
     .catch((error) => {
       console.log(error.statusText);
     });

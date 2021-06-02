@@ -18,6 +18,11 @@ export default class ServerMenu extends Component {
     this.props.setEditServerModalState(true);
   }
 
+  openInviteMember() {
+    this.props.setServerMenu(false);
+    this.props.setInviteMemberModalState(true);
+  }
+
   handleCreateChannel() {
     this.props.setServerMenu(false);
     this.props.setCreateChannelModalState(true);
@@ -33,9 +38,15 @@ export default class ServerMenu extends Component {
       <>
         <div id="server-menu-modal" className={serverMenuClass}>
           <div className="server-options">
-            <button className="server-menu-btn">
-              Invite People<i class="server-menu-btn-icon fas fa-user-plus"></i>
-            </button>
+            {currentUserId === ownerId ? (
+              <button
+                onClick={() => this.openInviteMember()}
+                className="server-menu-btn"
+              >
+                Invite People
+                <i class="server-menu-btn-icon fas fa-user-plus"></i>
+              </button>
+            ) : null}
             <div className="server-menu-br"></div>
             {currentUserId === ownerId ? (
               <button

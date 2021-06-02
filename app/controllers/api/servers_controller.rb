@@ -72,10 +72,16 @@ class Api::ServersController < ApplicationController
   end
 
   def add_member
-    @server_member = ServerMember.new(server_member_params)
+    user = User.find_by(username: [server_member_params[:member_username]])
+    @server_member =
+      ServerMember.new(
+        member_id: user.id,
+        server_id: server_member_params[:server_id],
+      )
 
     if @server_member.save
-      render :show
+      @servers = current_user.membered_servers
+      render json: @servers, include: %i[channels members]
     else
       render json: @server_member.errors.full_messages, status: 422
     end
@@ -131,7 +137,7 @@ class Api::ServersController < ApplicationController
   end
 
   def server_member_params
-    params.require(:serverMember).permit(:server_id, :member_id)
+    params.require(:serverMember).permit(:server_id, :member_username)
   end
 
   def check_if_member
