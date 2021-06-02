@@ -12,8 +12,8 @@ class ChannelHome extends React.Component {
 
     this.CableApp = {};
     this.CableApp.cable = actionCable.createConsumer(
-      "wss://strifeapp.herokuapp.com/cable"
-      // "ws://localhost:3000/cable"
+      // "wss://strifeapp.herokuapp.com/cable"
+      "ws://localhost:3000/cable"
     );
   }
   componentDidMount() {
