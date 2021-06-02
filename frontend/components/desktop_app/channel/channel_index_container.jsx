@@ -55,6 +55,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(uiActions.inviteMember(modalState)),
   setDMRequestModalState: (modalState) =>
     dispatch(uiActions.DMRequest(modalState)),
+  receiveMessage: (message) => dispatch(messageActions.receiveMessage(message)),
   logout: () => dispatch(sessionActions.logout()),
 });
 

@@ -5,29 +5,29 @@ class Messages extends React.Component {
   constructor(props) {
     super(props);
     this.bottom = React.createRef();
-    this.CableApp = {};
-    this.CableApp.cable = actionCable.createConsumer(
-      // "wss://strifeapp.herokuapp.com/cable"
-      "ws://localhost:3000/cable"
-    );
+    // this.CableApp = {};
+    // this.CableApp.cable = actionCable.createConsumer(
+    //   // "wss://strifeapp.herokuapp.com/cable"
+    //   "ws://localhost:3000/cable"
+    // );
   }
   componentDidMount() {
-    console.log("SUBSCRIBING");
-    this.CableApp.messages = this.CableApp.cable.subscriptions.create(
-      {
-        channel: "ChannelChannel",
-        id: this.props.channel.id,
-      },
-      {
-        connected: () => {},
-        received: (message) => {
-          this.getResponseMessage(message);
-        },
-        speak: function (message) {
-          return this.perform("speak", message);
-        },
-      }
-    );
+    // console.log("SUBSCRIBING");
+    // this.CableApp.messages = this.CableApp.cable.subscriptions.create(
+    //   {
+    //     channel: "ChannelChannel",
+    //     id: this.props.channel.id,
+    //   },
+    //   {
+    //     connected: () => {},
+    //     received: (message) => {
+    //       this.getResponseMessage(message);
+    //     },
+    //     speak: function (message) {
+    //       return this.perform("speak", message);
+    //     },
+    //   }
+    // );
   }
 
   componentWillUnmount() {

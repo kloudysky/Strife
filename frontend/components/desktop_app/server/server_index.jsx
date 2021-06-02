@@ -12,8 +12,6 @@ class ServerIndex extends React.Component {
     this.props.requestServerChannels(server.id);
     if (server.channels.length) {
       this.props.setActiveChannel(server.channels[0]);
-    }
-    if (server.channels.length) {
       this.props.requestMessages(server.channels[0].id);
     }
 

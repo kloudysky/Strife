@@ -2,6 +2,7 @@ import React from "react";
 import { Collapse } from "react-collapse";
 import { Helmet } from "react-helmet";
 import ServerMenuContainer from "./menu/server_menu_container";
+import actionCable from "actioncable";
 
 class ChannelServer extends React.Component {
   constructor(props) {
@@ -13,6 +14,16 @@ class ChannelServer extends React.Component {
       showChannelActions: false,
       hoverChannelId: -1,
     };
+
+    this.CableApp = {};
+    this.CableApp.cable = actionCable.createConsumer(
+      "wss://strifeapp.herokuapp.com/cable"
+      // "ws://localhost:3000/cable"
+    );
+  }
+
+  componentDidMount() {
+    console.log("CHANNEL SERVER MOUNT");
   }
 
   toggleServerList() {
@@ -22,11 +33,42 @@ class ChannelServer extends React.Component {
   }
 
   setActiveChannel(channel) {
+    if (this.CableApp.messages) {
+      // console.log("UUNSUB");
+      // console.log(this.CableApp.messages);
+      // this.CableApp.messages.unsubscribe();
+    }
     this.props.requestMessages(channel.id);
     this.props.setChannel(channel);
     <Helmet>
       <title>{channel.channel_name}</title>
     </Helmet>;
+
+    console.log("SUBSCRIBING");
+    this.CableApp.messages = this.CableApp.cable.subscriptions.create(
+      {
+        channel: "ChannelChannel",
+        id: channel.id,
+      },
+      {
+        connected: () => {},
+        received: (message) => {
+          this.getResponseMessage(message);
+        },
+        speak: function (message) {
+          return this.perform("speak", message);
+        },
+      }
+    );
+    // console.log(this.CableApp.messages);
+  }
+
+  getResponseMessage(message) {
+    console.log("RECEIVING MSG");
+    const response = JSON.parse(message.json);
+    if (this.props.currentUser.id !== response.author.id) {
+      this.props.receiveMessage(response);
+    }
   }
 
   toggleServerMenu() {

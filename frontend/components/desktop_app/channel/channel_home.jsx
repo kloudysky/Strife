@@ -12,8 +12,8 @@ class ChannelHome extends React.Component {
 
     this.CableApp = {};
     this.CableApp.cable = actionCable.createConsumer(
-      // "wss://strifeapp.herokuapp.com/cable"
-      "ws://localhost:3000/cable"
+      "wss://strifeapp.herokuapp.com/cable"
+      // "ws://localhost:3000/cable"
     );
   }
   componentDidMount() {
@@ -31,8 +31,9 @@ class ChannelHome extends React.Component {
 
   setActiveChannel(channel) {
     if (this.CableApp.messages) {
-      console.log("UUNSUB");
-      this.CableApp.messages.unsubscribe();
+      // console.log("UUNSUB");
+      // console.log(this.CableApp.messages);
+      // this.CableApp.messages.unsubscribe();
     }
     this.props.requestMessages(channel.id);
     this.props.setChannel(channel);
@@ -56,9 +57,11 @@ class ChannelHome extends React.Component {
         },
       }
     );
+    // console.log(this.CableApp.messages);
   }
 
   getResponseMessage(message) {
+    console.log("RECEIVING MSG");
     const response = JSON.parse(message.json);
     if (this.props.user.id !== response.author.id) {
       this.props.receiveMessage(response);

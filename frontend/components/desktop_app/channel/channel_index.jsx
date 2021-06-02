@@ -25,6 +25,7 @@ class ChannelIndex extends React.Component {
       setDMRequestModalState,
       removeDMChannel,
       requestDMChannels,
+      receiveMessage,
     } = this.props;
 
     return (
@@ -41,6 +42,7 @@ class ChannelIndex extends React.Component {
             setDMRequestModalState={setDMRequestModalState}
             removeDMChannel={removeDMChannel}
             requestDMChannels={requestDMChannels}
+            receiveMessage={receiveMessage}
           />
         ) : (
           <ChannelServer
@@ -55,6 +57,7 @@ class ChannelIndex extends React.Component {
             setCreateChannelModalState={setCreateChannelModalState}
             openChannelSettings={openChannelSettings}
             setInviteMemberModalState={setInviteMemberModalState}
+            receiveMessage={receiveMessage}
           />
         )}
         <div className="settings-section">
