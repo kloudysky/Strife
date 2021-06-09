@@ -32,10 +32,11 @@ const Splash = ({ currentUser, logout }) => {
                   Support
                 </a>
               </div>
-              <div className="btn-login-wrapper"></div>
-              <a className="btn btn-white btn-small btn-wrap">
-                {currentUser ? loggedIn() : sessionLinks()}
-              </a>
+              <div className="btn-login-wrapper">
+                <a className="btn btn-white btn-small btn-wrap">
+                  {currentUser ? loggedIn() : sessionLinks()}
+                </a>
+              </div>
             </nav>
           </header>
           <header className="nav nav-mobile">
