@@ -21,7 +21,7 @@ class StrifeNavBar extends React.Component {
     return (
       <>
         <div className="home-main-nav-icons">
-          <div className="home-nav-icon">
+          <div className="home-nav-icon home-nav-friends-icon">
             <i class="fas fa-user-friends friend-nav-icon"></i>Friends
           </div>
           <div className="home-nav-br"></div>

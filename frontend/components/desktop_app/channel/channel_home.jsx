@@ -26,6 +26,7 @@ class ChannelHome extends React.Component {
   setHomeChannel() {
     this.props.setChannel({ id: -1 });
     this.props.setDMChannel({ id: -1 });
+    console.log(this.CableApp.messages);
     this.CableApp.messages.unsubscribe();
   }
 
