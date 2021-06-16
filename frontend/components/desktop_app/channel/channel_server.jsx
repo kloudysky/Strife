@@ -33,6 +33,7 @@ class ChannelServer extends React.Component {
   }
 
   setActiveChannel(channel) {
+    this.setState({ hoverChannelId: -1 });
     if (this.CableApp.messages) {
       // console.log("UUNSUB");
       // console.log(this.CableApp.messages);

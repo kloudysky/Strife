@@ -78,19 +78,13 @@ export class ChannelSettingsModal extends Component {
   }
 
   deleteChannel() {
-    if (this.props.activeServer.channels.length > 1) {
-      this.props.deleteChannel(this.props.activeChannel.id).then(() => {
-        this.props
-          .requestServerChannels(this.props.activeServer.id)
-          .then(() => {
-            this.props.setActiveChannel(this.props.activeServer.channels[0]);
-          });
-
-        this.closeModal();
+    this.props.deleteChannel(this.props.activeChannel.id).then(() => {
+      this.props.requestServerChannels(this.props.activeServer.id).then(() => {
+        this.props.setActiveChannel(this.props.activeServer.channels[0]);
       });
-    } else {
-      this.showChannelNotificationModal();
-    }
+
+      this.closeModal();
+    });
   }
 
   render() {

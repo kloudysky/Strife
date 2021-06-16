@@ -85,6 +85,13 @@ export class ServerSettingsModal extends Component {
   }
 
   render() {
+    let serverName;
+    if (this.props.activeServer.server_name.trim().indexOf(" ") != -1) {
+      const titleWords = this.props.activeServer.server_name.split(" ");
+      serverName = titleWords[0][0] + titleWords[1][0];
+    } else {
+      serverName = server.server_name[0];
+    }
     return (
       <div id="modal-setting-wrapper" className="modal-setting-wrapper">
         <div className="settings-grid-left">
@@ -98,6 +105,9 @@ export class ServerSettingsModal extends Component {
             >
               Delete Server
             </div>
+            <div className="server-settings-invite-code">
+              Invite Code: {this.props.activeServer.invite_code}
+            </div>
           </div>
         </div>
         <div className="settings-grid-right">
@@ -106,7 +116,7 @@ export class ServerSettingsModal extends Component {
               <div className="server-settings-img">
                 <h3>SERVER OVERVIEW</h3>
                 <div className="server-img-select-area">
-                  <div className="server-img-select">SN</div>
+                  <div className="server-img-select">{serverName}</div>
                   <p>Change server image functionality does not work yet</p>
                 </div>
               </div>
