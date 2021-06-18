@@ -2,11 +2,11 @@
 
 ## About Strife
 
-### Strife is synonymous with Discord and also a clone of the existing application.
+### Strife is synonymous with [Discord](https://discord.com) and also a clone of the existing application.
 
 [Strife App](https://strifeapp.herokuapp.com/)
 
-### Strife is an invite-only environment to connect with people or groups via messaging, voice and even video.
+### Strife is an community driven environment to connect with people or groups via messaging.
 
 ## Strife Tech Stack
 
@@ -14,14 +14,22 @@
 
 - Ruby on Rails
 - PostgreSQL
+- Redis
+- ActionCable
 
 ### Frontend
 
 - JavaScript/React + Redux
 
-## Key Features to Note
+## Key Features
 
-- Users can DM privately or in groups and can build communities in Servers separated by channels.
+- CRUD for Servers
+- Add users to servers
+- CRUD for Channels
+- Live messaging within Server Channels
+- Create live DM's and Group DM's
+
+Live chat is the primary feature of Strife and utilizes Action Cable -Integrated WebSockets for Rails [Action Cable](https://www.npmjs.com/package/actioncable).
 
 ```Ruby
 ChannelChannel
@@ -30,8 +38,6 @@ def subscribed
     stream_for @channel
   end
 ```
-
-Live chat is the primary feature of Strife and utilizes Action Cable -Integrated WebSockets for Rails [Action Cable](https://www.npmjs.com/package/actioncable).
 
 ```Javascript
 this.CableApp.messages = this.CableApp.cable.subscriptions.create(
