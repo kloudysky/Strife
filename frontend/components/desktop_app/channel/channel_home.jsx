@@ -10,11 +10,11 @@ class ChannelHome extends React.Component {
       hoverChannelId: -1,
     };
 
-    this.CableApp = {};
-    this.CableApp.cable = actionCable.createConsumer(
-      "wss://strifeapp.herokuapp.com/cable"
-      // "ws://localhost:3000/cable"
-    );
+    // this.CableApp = {};
+    // this.CableApp.cable = actionCable.createConsumer(
+    //   // "wss://strifeapp.herokuapp.com/cable"
+    //   "ws://localhost:3000/cable"
+    // );
   }
   componentDidMount() {
     //this.props.requestMessages(this.props.activeChannel.id);
@@ -27,14 +27,14 @@ class ChannelHome extends React.Component {
     this.props.setChannel({ id: -1 });
     this.props.setDMChannel({ id: -1 });
     console.log(this.CableApp.messages);
-    this.CableApp.messages.unsubscribe();
+    this.props.CableApp.messages.unsubscribe();
   }
 
   setActiveChannel(channel) {
-    if (this.CableApp.messages) {
+    if (this.props.CableApp.messages) {
       // console.log("UUNSUB");
       // console.log(this.CableApp.messages);
-      // this.CableApp.messages.unsubscribe();
+      this.props.CableApp.messages.unsubscribe();
     }
     this.props.requestMessages(channel.id);
     this.props.setChannel(channel);
@@ -43,7 +43,7 @@ class ChannelHome extends React.Component {
       <title>channel.channel_name</title>
     </Helmet>;
     console.log("SUBSCRIBING");
-    this.CableApp.messages = this.CableApp.cable.subscriptions.create(
+    this.props.CableApp.messages = this.props.CableApp.cable.subscriptions.create(
       {
         channel: "ChannelChannel",
         id: channel.id,

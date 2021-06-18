@@ -23,6 +23,7 @@ const mapStateToProps = (state) => {
     activeServer: activeServer,
     createServerModalState: state.ui.createServerModalState,
     activeDMChannel: activeDMChannel,
+    currentUser: state.entities.users.currentUser,
   };
 };
 
@@ -37,6 +38,7 @@ const mapDispatchToProps = (dispatch) => ({
   setActiveChannel: (channel) => dispatch(uiActions.setActiveChannel(channel)),
   requestMessages: (channelId) =>
     dispatch(messageActions.requestMessages(channelId)),
+  receiveMessage: (message) => dispatch(messageActions.receiveMessage(message)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ServerIndex);

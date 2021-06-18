@@ -12,8 +12,17 @@ import ServerSettingsModal from "./modals/server_settings_modal";
 import UserSettingsModal from "./modals/user_settings_modal";
 import StrifeNavBar from "./navbar/strife_navbar_container";
 import ServerMembersContainer from "./server/members/server_members_container";
+import actionCable from "actioncable";
 
 class DesktopApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.CableApp = {};
+    this.CableApp.cable = actionCable.createConsumer(
+      // "wss://strifeapp.herokuapp.com/cable"
+      "ws://localhost:3000/cable"
+    );
+  }
   render() {
     const inviteMember = () => {
       if (this.props.inviteMemberModalState) {
@@ -165,8 +174,8 @@ class DesktopApp extends React.Component {
     return (
       <>
         <div className="desktop-app">
-          <ServerIndexContainer />
-          <ChannelIndexContainer />
+          <ServerIndexContainer CableApp={this.CableApp} />
+          <ChannelIndexContainer CableApp={this.CableApp} />
           <div class="main-container">
             <StrifeNavBar />
             <div className="message-area">

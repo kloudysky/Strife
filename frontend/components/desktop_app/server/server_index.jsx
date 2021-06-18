@@ -16,9 +16,38 @@ class ServerIndex extends React.Component {
     }
 
     this.props.setActiveServer(server);
+    this.props.setActiveChannel(server.channels[0]);
+    if (this.props.CableApp.messages) {
+      console.log("UUNSUB");
+      // console.log(this.CableApp.messages);
+      this.props.CableApp.messages.unsubscribe();
+    }
+    this.props.CableApp.messages = this.props.CableApp.cable.subscriptions.create(
+      {
+        channel: "ChannelChannel",
+        id: server.channels[0].id,
+      },
+      {
+        connected: () => {},
+        received: (message) => {
+          this.getResponseMessage(message);
+        },
+        speak: function (message) {
+          return this.perform("speak", message);
+        },
+      }
+    );
     console.log(server.channels[0]);
 
     this.setState({ activeLink: server.id });
+  }
+
+  getResponseMessage(message) {
+    console.log("RECEIVING MSG");
+    const response = JSON.parse(message.json);
+    if (this.props.currentUser.id !== response.author.id) {
+      this.props.receiveMessage(response);
+    }
   }
 
   activateHome() {
