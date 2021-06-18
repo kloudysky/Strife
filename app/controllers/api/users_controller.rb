@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.avatar =
-      'https://cdn.dribbble.com/users/745861/screenshots/3148795/happy_moogle.png?compress=1&resize=400x300'
+      'https://cdn.dribbble.com/users/745861/screenshots/3148795/happy_moogle.png'
     if @user.save
       login(@user)
       render :show

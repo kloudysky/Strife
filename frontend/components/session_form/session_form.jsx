@@ -19,7 +19,7 @@ export default class SessionForm extends React.Component {
         email: "",
         username: "",
         password: "",
-        birthdate: "",
+        birthday: "",
         day: "",
         month: "",
         year: "",
@@ -72,24 +72,23 @@ export default class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // this.handleErrors();
     this.props.clearErrors();
 
     let formattedState = {};
 
-    if (
-      this.state.day === "" ||
-      this.state.month === "" ||
-      this.state.year === ""
-    ) {
-      return;
-    }
+    // if (
+    //   this.state.day === "" ||
+    //   this.state.month === "" ||
+    //   this.state.year === ""
+    // ) {
+    //   return;
+    // }
     if (this.props.formType === "Sign Up") {
       formattedState = {
         email: this.state.email,
         username: this.state.username,
         password: this.state.password,
-        birthdate: new Date(this.state.birthdate),
+        birthday: new Date(this.state.birthday),
       };
     } else {
       formattedState = {
@@ -109,7 +108,7 @@ export default class SessionForm extends React.Component {
         },
         () => {
           this.setState({
-            birthdate:
+            birthday:
               this.state.month + "/" + this.state.day + "/" + this.state.year,
           });
         }

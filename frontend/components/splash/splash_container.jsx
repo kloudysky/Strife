@@ -4,7 +4,8 @@ import Splash from "./splash";
 
 const mapStateToProps = ({ session, entities: { users } }) => {
   return {
-    currentUser: users[session.id]
+    errors: state.errors.session,
+    currentUser: users[session.id],
   };
 };
 
