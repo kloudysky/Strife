@@ -26,14 +26,11 @@ class ChannelHome extends React.Component {
   setHomeChannel() {
     this.props.setChannel({ id: -1 });
     this.props.setDMChannel({ id: -1 });
-    console.log(this.CableApp.messages);
     this.props.CableApp.messages.unsubscribe();
   }
 
   setActiveChannel(channel) {
     if (this.props.CableApp.messages) {
-      // console.log("UUNSUB");
-      // console.log(this.CableApp.messages);
       this.props.CableApp.messages.unsubscribe();
     }
     this.props.requestMessages(channel.id);
@@ -42,7 +39,6 @@ class ChannelHome extends React.Component {
     <Helmet>
       <title>channel.channel_name</title>
     </Helmet>;
-    console.log("SUBSCRIBING");
     this.props.CableApp.messages = this.props.CableApp.cable.subscriptions.create(
       {
         channel: "ChannelChannel",
@@ -62,7 +58,6 @@ class ChannelHome extends React.Component {
   }
 
   getResponseMessage(message) {
-    console.log("RECEIVING MSG");
     const response = JSON.parse(message.json);
     if (this.props.user.id !== response.author.id) {
       this.props.receiveMessage(response);

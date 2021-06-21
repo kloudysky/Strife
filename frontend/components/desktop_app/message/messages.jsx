@@ -5,29 +5,6 @@ class Messages extends React.Component {
   constructor(props) {
     super(props);
     this.bottom = React.createRef();
-    // this.CableApp = {};
-    // this.CableApp.cable = actionCable.createConsumer(
-    //   // "wss://strifeapp.herokuapp.com/cable"
-    //   "ws://localhost:3000/cable"
-    // );
-  }
-  componentDidMount() {
-    // console.log("SUBSCRIBING");
-    // this.CableApp.messages = this.CableApp.cable.subscriptions.create(
-    //   {
-    //     channel: "ChannelChannel",
-    //     id: this.props.channel.id,
-    //   },
-    //   {
-    //     connected: () => {},
-    //     received: (message) => {
-    //       this.getResponseMessage(message);
-    //     },
-    //     speak: function (message) {
-    //       return this.perform("speak", message);
-    //     },
-    //   }
-    // );
   }
 
   componentWillUnmount() {
@@ -67,7 +44,7 @@ class Messages extends React.Component {
                 <div className="msg-username">
                   {message.author.username}
                   <div className="timestamp">
-                    {`${this.getTimeAgo(Date.parse(message.created_at))} ago`}
+                    {`${this.timeSince(Date.parse(message.created_at))} ago`}
                   </div>
                 </div>
                 <div className="user-msg">{message.content}</div>
@@ -145,27 +122,32 @@ class Messages extends React.Component {
       </div>
     );
   }
-  getTimeAgo(date) {
-    const MINUTE = 60,
-      HOUR = MINUTE * 60,
-      DAY = HOUR * 24,
-      YEAR = DAY * 365;
-    const secondsAgo = Math.round((+new Date() - date) / 1000);
 
-    if (secondsAgo < MINUTE) {
-      return secondsAgo + "s";
-    } else if (secondsAgo < HOUR) {
-      return Math.floor(secondsAgo / MINUTE) + "m";
-    } else if (secondsAgo < DAY) {
-      return Math.floor(secondsAgo / HOUR) + "h";
-    } else if (secondsAgo < YEAR) {
-      return date.toLocaleString("default", { day: "numeric", month: "short" });
-    } else {
-      return date.toLocaleString("default", {
-        year: "numeric",
-        month: "short",
-      });
+  timeSince(date) {
+    var seconds = Math.floor((new Date() - date) / 1000);
+
+    var interval = seconds / 31536000;
+
+    if (interval > 1) {
+      return Math.floor(interval) + " years";
     }
+    interval = seconds / 2592000;
+    if (interval > 1) {
+      return Math.floor(interval) + " months";
+    }
+    interval = seconds / 86400;
+    if (interval > 1) {
+      return Math.floor(interval) + " days";
+    }
+    interval = seconds / 3600;
+    if (interval > 1) {
+      return Math.floor(interval) + " hours";
+    }
+    interval = seconds / 60;
+    if (interval > 1) {
+      return Math.floor(interval) + " minutes";
+    }
+    return Math.floor(seconds) + " seconds";
   }
 }
 

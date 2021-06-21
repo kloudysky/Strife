@@ -30,7 +30,6 @@ class ServerIndex extends React.Component {
       {
         connected: () => {},
         received: (message) => {
-          console.log(message);
           this.getResponseMessage(message);
         },
         speak: function (message) {
@@ -38,13 +37,11 @@ class ServerIndex extends React.Component {
         },
       }
     );
-    console.log(server.channels[0]);
 
     this.setState({ activeLink: server.id });
   }
 
   getResponseMessage(message) {
-    console.log("RECEIVING MSG", message);
     const response = JSON.parse(message.json);
     if (this.props.currentUser.id !== response.author.id) {
       this.props.receiveMessage(response);
