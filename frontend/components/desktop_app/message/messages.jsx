@@ -58,6 +58,16 @@ class Messages extends React.Component {
   }
 
   welcomeDMMessage(channel) {
+    let channel_name;
+    if (channel.members.length === 2) {
+      const channel_member = channel.members.filter(
+        (member) => member.username !== this.props.user.username
+      );
+      channel_name = channel_member[0].username;
+    } else {
+      channel_name = channel.channel_name;
+    }
+    console.log(this.getChannelMemberNames(channel.members));
     return (
       <div className="channel-welcome">
         <div
@@ -80,13 +90,21 @@ class Messages extends React.Component {
             alt=""
           />
         </div>
-        <h1 className="welcome-header">{channel.channel_name}</h1>
+        <h1 className="welcome-header">{channel_name}</h1>
         <p className="welcome-text">
           This is the beginning of your bond history with{" "}
-          {channel.members.map((member) => `@${member.username} `)}
+          {this.getChannelMemberNames(channel.members).map(
+            (member) => `@${member.username} `
+          )}
         </p>
         <hr className="welcome-hr" />
       </div>
+    );
+  }
+
+  getChannelMemberNames(members) {
+    return members.filter(
+      (member) => member.username !== this.props.user.username
     );
   }
 

@@ -42,11 +42,20 @@ class StrifeNavBar extends React.Component {
   }
 
   dmNav(channel) {
+    let channel_name;
+    if (channel.members.length === 2) {
+      const channel_member = channel.members.filter(
+        (member) => member.username !== this.props.currentUser.username
+      );
+      channel_name = channel_member[0].username;
+    } else {
+      channel_name = channel.channel_name;
+    }
     return (
       <div className="home-nav">
         <div className="at-user">
           <i className="fas fa-at at-nav-icon"></i>
-          <h3 className="nav-icon user-header">{`${channel.channel_name}`}</h3>
+          <h3 className="nav-icon user-header">{`${channel_name}`}</h3>
         </div>
         <div className="all-nav-icons">
           <div className="main-nav-icons">
