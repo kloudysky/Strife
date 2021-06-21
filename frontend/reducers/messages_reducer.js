@@ -15,7 +15,12 @@ export default (state = [], action) => {
       }, []);
       return result;
     case actions.RECEIVE_CHANNEL_MESSAGE:
-      if (state.slice(-1)[0].author_id === action.message.author_id) {
+      console.log("message reducer", action);
+      console.log(state);
+      if (
+        state.length > 0 &&
+        state.slice(-1)[0].author_id === action.message.author_id
+      ) {
         const newMsg = Object.assign({}, action.message, {
           content: state.slice(-1)[0].content + "\n" + action.message.content,
         });
