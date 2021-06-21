@@ -176,7 +176,7 @@ class DesktopApp extends React.Component {
         <div className="desktop-app">
           <ServerIndexContainer CableApp={this.CableApp} />
           <ChannelIndexContainer CableApp={this.CableApp} />
-          <div class="main-container">
+          <div className="main-container">
             <StrifeNavBar />
             <div className="message-area">
               <MessagesContainer />

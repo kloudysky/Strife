@@ -102,7 +102,7 @@ class ChannelHome extends React.Component {
       <div className="channel-owner-actions">
         <i
           onClick={() => this.deleteChannel(channelId)}
-          class="fas fa-times server-channel-icon channel-owner-action-btn"
+          className="fas fa-times server-channel-icon channel-owner-action-btn"
         ></i>
       </div>
     );
@@ -137,13 +137,13 @@ class ChannelHome extends React.Component {
               }`}
             >
               <div className="dm-list-avatar">
-                <i class="fas fa-user-friends"></i>
+                <i className="fas fa-user-friends"></i>
               </div>
               Friends
             </li>
             <li className="channel-list-item-home">
               <div className="dm-list-avatar">
-                <i class="fas fa-meteor"></i>
+                <i className="fas fa-meteor"></i>
               </div>
               Nitro
             </li>

@@ -111,11 +111,11 @@ class ChannelServer extends React.Component {
         <div className="channel-owner-actions">
           <i
             onClick={() => this.props.setInviteMemberModalState(true)}
-            class="fas fa-user-plus server-channel-icon channel-owner-action-btn"
+            className="fas fa-user-plus server-channel-icon channel-owner-action-btn"
           ></i>
           <i
             onClick={() => this.props.openChannelSettings(true)}
-            class="fas fa-cog server-channel-icon channel-owner-action-btn"
+            className="fas fa-cog server-channel-icon channel-owner-action-btn"
           ></i>
         </div>
       );
@@ -144,7 +144,7 @@ class ChannelServer extends React.Component {
               <p>TEXT CHANNELS</p>
             </div>
             <i
-              class={`fas fa-plus fa-plus-channel ${
+              className={`fas fa-plus fa-plus-channel ${
                 this.props.server.owner_id == this.props.currentUser.id
                   ? ""
                   : "channel-member-plus"

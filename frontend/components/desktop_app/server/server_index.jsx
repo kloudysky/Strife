@@ -129,7 +129,7 @@ class ServerIndex extends React.Component {
           serverName = server.server_name[0];
         }
         return (
-          <div className="list-item">
+          <div className="list-item" key={server.id}>
             <div
               className="server-list-item"
               id={activeServer.id === server.id ? "active-server-item" : ""}
@@ -138,7 +138,6 @@ class ServerIndex extends React.Component {
             >
               {/* <div className="server-list-hover-shape"></div> */}
               <div
-                key={activeServer.id}
                 className={
                   activeServer.id === server.id
                     ? "active-server-shape"

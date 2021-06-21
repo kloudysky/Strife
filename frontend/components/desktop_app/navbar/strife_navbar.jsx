@@ -22,7 +22,7 @@ class StrifeNavBar extends React.Component {
       <>
         <div className="home-main-nav-icons">
           <div className="home-nav-icon home-nav-friends-icon">
-            <i class="fas fa-user-friends friend-nav-icon"></i>Friends
+            <i className="fas fa-user-friends friend-nav-icon"></i>Friends
           </div>
           <div className="home-nav-br"></div>
           <div className="home-nav-icon">Online</div>
@@ -32,7 +32,7 @@ class StrifeNavBar extends React.Component {
           <div className="home-nav-icon add-friend-btn">Add Friend</div>
         </div>
         <div className="friends-nav-inbox">
-          <i class="fas fa-comments nav-icon"></i>
+          <i className="fas fa-comments nav-icon"></i>
           <div className="home-nav-br"></div>
           <i className="fas fa-inbox nav-icon"></i>
           <i className="fas fa-question-circle nav-icon"></i>
@@ -45,7 +45,7 @@ class StrifeNavBar extends React.Component {
     return (
       <div className="home-nav">
         <div className="at-user">
-          <i class="fas fa-at at-nav-icon"></i>
+          <i className="fas fa-at at-nav-icon"></i>
           <h3 className="nav-icon user-header">{`${channel.channel_name}`}</h3>
         </div>
         <div className="all-nav-icons">
@@ -69,14 +69,14 @@ class StrifeNavBar extends React.Component {
     return (
       <div className="home-nav">
         <div className="at-user">
-          <i class="fas fa-hashtag at-nav-icon"></i>
+          <i className="fas fa-hashtag at-nav-icon"></i>
           <h3 className="nav-icon user-header">{`${channel.channel_name}`}</h3>
         </div>
         <div className="all-nav-icons">
           <div className="main-nav-icons">
-            <i class="fas fa-bell nav-icon"></i>
+            <i className="fas fa-bell nav-icon"></i>
             <i className="fas fa-thumbtack nav-icon"></i>
-            <i class="fas fa-user-friends nav-icon"></i>
+            <i className="fas fa-user-friends nav-icon"></i>
           </div>
           <input className="search-bar-nav" type="text" placeholder="Search" />
           <div className="home-nav-inbox">

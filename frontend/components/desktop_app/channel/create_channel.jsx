@@ -117,7 +117,7 @@ export default class CreateServer extends React.Component {
                           cx="12"
                           cy="12"
                           r="5"
-                          class="channel-type-select"
+                          className="channel-type-select"
                           fill="currentColor"
                         ></circle>
                       </svg>
@@ -126,7 +126,7 @@ export default class CreateServer extends React.Component {
                           width="24"
                           height="24"
                           viewBox="0 0 24 24"
-                          class="channel-type-hash"
+                          className="channel-type-hash"
                         >
                           <path
                             fill="currentColor"
@@ -168,7 +168,7 @@ export default class CreateServer extends React.Component {
                       </svg>
                       <div className="channel-type-info">
                         <svg
-                          class="channel-type-hash"
+                          className="channel-type-hash"
                           aria-hidden="false"
                           width="24"
                           height="24"
@@ -204,7 +204,7 @@ export default class CreateServer extends React.Component {
                       width="16"
                       height="16"
                       viewBox="0 0 24 24"
-                      class="inputPrefix-1gzNds"
+                      className="inputPrefix-1gzNds"
                     >
                       <path
                         fill="currentColor"

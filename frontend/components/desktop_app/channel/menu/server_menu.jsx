@@ -44,7 +44,7 @@ export default class ServerMenu extends Component {
                 className="server-menu-btn"
               >
                 Invite People
-                <i class="server-menu-btn-icon fas fa-user-plus"></i>
+                <i className="server-menu-btn-icon fas fa-user-plus"></i>
               </button>
             ) : null}
             <div className="server-menu-br"></div>
@@ -54,7 +54,7 @@ export default class ServerMenu extends Component {
                 className="server-menu-btn edit-server-btn settings-server-btn"
               >
                 Server Settings
-                <i class="server-menu-btn-icon fas fa-cog"></i>
+                <i className="server-menu-btn-icon fas fa-cog"></i>
               </button>
             ) : null}
             {currentUserId === ownerId ? (
@@ -63,7 +63,7 @@ export default class ServerMenu extends Component {
                 className="server-menu-btn edit-server-btn"
               >
                 Create Channel
-                <i class="server-menu-btn-icon fas fa-plus-circle"></i>
+                <i className="server-menu-btn-icon fas fa-plus-circle"></i>
               </button>
             ) : null}
             {currentUserId === ownerId ? null : (
@@ -72,7 +72,7 @@ export default class ServerMenu extends Component {
                 className="server-menu-btn leave-server-btn"
               >
                 Leave Server
-                <i class="server-menu-btn-icon fas fa-sign-out-alt"></i>
+                <i className="server-menu-btn-icon fas fa-sign-out-alt"></i>
               </button>
             )}
           </div>
