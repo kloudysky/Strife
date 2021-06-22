@@ -29,7 +29,7 @@
 - Live messaging within Server Channels
 - Create live DM's and Group DM's
 
-<p align="center"><a href="#" target="_blank"><img src="https://media.giphy.com/media/lIexU4K6lWBdFwYMP7/giphy.gif" width="1000"></a></p>
+<p align="center"><a href="#" target="_blank"><img src="https://github.com/kloudysky/Strife/blob/main/public/strife_intro.gif?raw=true" width="1000"></a></p>
 Live chat is the primary feature of Strife and utilizes ActionCable - Integrated WebSockets for Rails [Action Cable](https://www.npmjs.com/package/actioncable).
 
 ```Ruby
