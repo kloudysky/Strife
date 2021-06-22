@@ -11,11 +11,9 @@ export class ServerSettingsModal extends Component {
   }
 
   closeModal() {
-    // let wrapper = document.getElementById("modal-notification-wrapper");
     let modal = document.getElementById("modal-setting-wrapper");
 
     modal.classList.add("transition-out");
-    // wrapper.classList.add("inactive");
 
     setTimeout(() => {
       this.props.clearServerErrors();
@@ -68,7 +66,6 @@ export class ServerSettingsModal extends Component {
           );
           this.props.dispatchServerError(["Server name updated"]);
         });
-        // this.props.dispatchServerError(["Server name updated"]);
       });
     }
   }
@@ -94,6 +91,7 @@ export class ServerSettingsModal extends Component {
         serverName = this.props.activeServer.server_name[0];
       }
     }
+
     return (
       <div id="modal-setting-wrapper" className="modal-setting-wrapper">
         <div className="settings-grid-left">
