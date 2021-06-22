@@ -75,4 +75,6 @@ def create
 
 When a new message is created it broadcasts the message to the appopriate channel and for users who are subscribed to the channel they will receive the message in real time.
 
+<p align="center"><a href="#" target="_blank"><img src="https://media.giphy.com/media/3CFUoxJKBx9GI4u93L/giphy.gif" width="400"></a></p>
+
 - Users can create, edit and add members to servers and channels.
