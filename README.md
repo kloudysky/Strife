@@ -1,4 +1,4 @@
-<p align="center"><a href="#" target="_blank"><img src="https://i.imgur.com/yKQzyJc.png" width="400"></a></p>
+<p align="center"><a href="#" target="_blank"><img src="https://strifeapp.herokuapp.com/strifeapp_thumbnail.png" width="400"></a></p>
 
 ## About Strife
 
@@ -29,7 +29,8 @@
 - Live messaging within Server Channels
 - Create live DM's and Group DM's
 
-Live chat is the primary feature of Strife and utilizes Action Cable -Integrated WebSockets for Rails [Action Cable](https://www.npmjs.com/package/actioncable).
+<p align="center"><a href="#" target="_blank"><img src="https://media.giphy.com/media/lIexU4K6lWBdFwYMP7/giphy.gif" width="400"></a></p>
+Live chat is the primary feature of Strife and utilizes ActionCable - Integrated WebSockets for Rails [Action Cable](https://www.npmjs.com/package/actioncable).
 
 ```Ruby
 ChannelChannel
@@ -74,4 +75,4 @@ def create
 
 When a new message is created it broadcasts the message to the appopriate channel and for users who are subscribed to the channel they will receive the message in real time.
 
-- Users can create, edit and add members to servers and channels. Images are stored on AWS's S3 Storage System.
+- Users can create, edit and add members to servers and channels.

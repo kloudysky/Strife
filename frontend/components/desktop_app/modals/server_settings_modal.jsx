@@ -76,21 +76,23 @@ export class ServerSettingsModal extends Component {
   deleteServer() {
     this.props.deleteServer(this.props.activeServer.id).then(() => {
       this.props.requestDMChannels();
+      this.props.setActiveChannel(this.props.activeDMChannel);
       this.props.setActiveServer({
         id: -1,
       });
-      this.props.setActiveChannel(this.props.activeDMChannel);
       this.closeModal();
     });
   }
 
   render() {
     let serverName;
-    if (this.props.activeServer.server_name.trim().indexOf(" ") != -1) {
-      const titleWords = this.props.activeServer.server_name.split(" ");
-      serverName = titleWords[0][0] + titleWords[1][0];
-    } else {
-      serverName = server.server_name[0];
+    if (this.props.activeServer.id !== -1) {
+      if (this.props.activeServer.server_name.trim().indexOf(" ") != -1) {
+        const titleWords = this.props.activeServer.server_name.split(" ");
+        serverName = titleWords[0][0] + titleWords[1][0];
+      } else {
+        serverName = this.props.activeServer.server_name[0];
+      }
     }
     return (
       <div id="modal-setting-wrapper" className="modal-setting-wrapper">

@@ -14,12 +14,6 @@ class ChannelServer extends React.Component {
       showChannelActions: false,
       hoverChannelId: -1,
     };
-
-    // this.CableApp = {};
-    // this.CableApp.cable = actionCable.createConsumer(
-    //   // "wss://strifeapp.herokuapp.com/cable"
-    //   "ws://localhost:3000/cable"
-    // );
   }
 
   componentDidMount() {
@@ -36,7 +30,6 @@ class ChannelServer extends React.Component {
     this.setState({ hoverChannelId: -1 });
     if (this.props.CableApp.messages) {
       console.log("UUNSUB");
-      // console.log(this.CableApp.messages);
       this.props.CableApp.messages.unsubscribe();
     }
     this.props.requestMessages(channel.id);
