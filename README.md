@@ -1,4 +1,4 @@
-<p align="center"><a href="#" target="_blank"><img src="https://strifeapp.herokuapp.com/strifeapp_thumbnail.png" width="400"></a></p>
+<p align="center"><a href="#" target="_blank"><img src="https://strifeapp.herokuapp.com/strifeapp_thumbnail.png" width="1000"></a></p>
 
 ## About Strife
 
